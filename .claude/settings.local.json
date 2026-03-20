@@ -41,7 +41,9 @@
       "Bash(powershell -Command \"Copy-Item ''C:\\\\Users\\\\rkhol\\\\Portfolio\\\\github.jpg'' ''C:\\\\Users\\\\rkhol\\\\Portfolio\\\\public\\\\profile-banner.jpg''\")",
       "Bash(powershell -Command \"Copy-Item ''C:\\\\Users\\\\rkhol\\\\Portfolio\\\\web-image.jpg'' ''C:\\\\Users\\\\rkhol\\\\Portfolio\\\\public\\\\profile.png''\")",
       "Bash(powershell -Command \"Start-Sleep -Seconds 3\")",
-      "Bash(npm ls:*)"
+      "Bash(npm ls:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx -p typescript tsc --noEmit)"
     ]
   }
 }
