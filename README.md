@@ -1,28 +1,39 @@
 ![Full-Stack Developer](/github.jpg)
 
-# *wussp I'm Kholofelo.*
+# *wussp, I'm Kholofelo*
 
-A hands-on **Freelance Full-Stack Developer** & **Tech Communicator**.  
-I build scalable ***backends***, smooth and eye‑catching ***UI's*** that showcase my skills and knowledge on ***MERN stack*** —
+### **Freelance Full-Stack MERN Developer** | **Tech Communicator** | **Computer Engineering Student**
 
----
-
-## *I build with:*
-
-⚡ TypeScript & JavaScript for confidence and clarity  
-⚛️ React + Vite for speed and modularity  
-🎨 TailwindCSS for responsive, beautiful design  
-🚀 GitHub Pages / Netlify for fast deployment  
-📱 PWA setup for app‑like performance  
+I build scalable ***backends*** and smooth, eye‑catching ***UI's*** that showcase my expertise in the ***MERN stack***. From high-performance computing to crafting platforms like the 5-a-side **5's Arena Eco-system*for Hellenic Football Club.*, I engineer solutions that are simple, impactful, and built to scale.
 
 ---
 
-💬 Want to collaborate or hire me?  
-Let’s connect:  
-- [GitHub](https://github.com/RobynAwesome)  
-- [LinkedIn](https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/)
+## 🚀 *The Arsenal*
+
+*I build with:*
+
+* **JavaScript & TypeScript** — *for confidence, clarity, and dynamic logic.*
+* **Node.js & MongoDB** — *for robust, high-performance backends.*
+* **React + Vite** — *for lightning-fast speed and modularity.*
+* **TailwindCSS & CSS** — *for responsive, beautiful design.*
+* **GitHub Pages / Netlify** — *for rapid, reliable deployment.*
+* **PWA Setup** — *for seamless, app‑like performance.*
 
 ---
 
-Curious about me❓  
-This repo is my portfolio source — built to be simple, impactful,
+## 💡 *Beyond the Code*
+
+* 🎓 **Pursuing:** BEng in Computer Engineering at CPUT.
+* 💻 **Building:** Custom freelance web solutions for paying clients.
+
+---
+
+## 💬 *Let's Build Something Great*
+
+## *_Curious about me❓_* 
+# ***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.*** 
+
+### **Want to collaborate or hire me? Let’s connect:**
+
+* [**GitHub**](https://github.com/RobynAwesome/)
+* [**LinkedIn**](https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b7)
