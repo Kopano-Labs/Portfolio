@@ -15,8 +15,6 @@
 + **GitHub Pages** — *for rapid, reliable deployment.*
  * **PWA Setup** — *for seamless, app‑like performance.*
 
----
-
 ## ⚛️ *Building dreams into reality* 
  _***This repo is my portfolio source built to be simple and an representation of my me.***_
 
