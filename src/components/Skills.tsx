@@ -7,7 +7,7 @@ const skills = [
   { title: "GitHub", desc: "Collaborative coding & open-source" },
 ];
 
-export const Skills = () => (
+const Skills = () => (
   <section className="px-6 py-16 text-white bg-gray-800">
     <h3 className="mb-8 text-3xl font-bold text-green-400">Skills</h3>
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -20,3 +20,5 @@ export const Skills = () => (
     </div>
   </section>
 );
+
+export default Skills;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Hero = () => (
+const Hero = () => (
   <section className="flex flex-col items-center justify-center py-20 text-center bg-gradient-to-b from-green-700 to-blue-800">
     <h2 className="mb-4 text-4xl font-bold">Hi, I’m Kholofelo</h2>
     <p className="max-w-xl text-lg">
@@ -12,3 +12,5 @@ export const Hero = () => (
     </button>
   </section>
 );
+
+export default Hero;
