@@ -1,24 +1,32 @@
-export default function Projects() {
+function Projects() {
   const projects = [
-    { name: "5s Arena Blog", tech: "React, Vite, AWS", link: "#" },
     {
-      name: "Financial Product Comparisons",
-      tech: "React, Tailwind",
+      title: "Portfolio Builder",
+      desc: "Recruiter-friendly showcase built with React + TailwindCSS",
+      link: "#",
+    },
+    {
+      title: "Open Source Contributions",
+      desc: "Collaborative coding projects on GitHub",
       link: "#",
     },
   ];
+
   return (
-    <section id="projects" className="py-20">
-      <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((p) => (
+    <section id="projects" className="py-20 text-center bg-primaryGreen">
+      <h3 className="mb-10 text-3xl font-bold text-white">Projects</h3>
+      <div className="grid max-w-5xl gap-8 mx-auto md:grid-cols-2">
+        {projects.map((proj) => (
           <div
-            key={p.name}
-            className="p-6 border rounded-lg shadow hover:shadow-lg transition"
+            key={proj.title}
+            className="p-6 text-white transition rounded-lg shadow bg-neutralGray hover:bg-primaryBlue"
           >
-            <h3 className="text-xl font-semibold">{p.name}</h3>
-            <p className="text-gray-600">{p.tech}</p>
-            <a href={p.link} className="text-indigo-600 mt-2 inline-block">
+            <h4 className="mb-2 text-xl font-semibold">{proj.title}</h4>
+            <p className="mb-4">{proj.desc}</p>
+            <a
+              href={proj.link}
+              className="text-primaryGreen hover:text-primaryBlue"
+            >
               View Project
             </a>
           </div>
@@ -27,3 +35,5 @@ export default function Projects() {
     </section>
   );
 }
+
+export default Projects;

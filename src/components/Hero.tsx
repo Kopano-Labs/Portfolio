@@ -1,14 +1,21 @@
-export default function Hero() {
+function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <h1 className="text-5xl font-bold mb-4">Hi, I’m Kholofelo</h1>
-      <p className="text-xl mb-6">Web Developer & Tech Communicator</p>
+    <section
+      id="hero"
+      className="flex flex-col items-center justify-center h-screen text-white bg-primaryBlue"
+    >
+      <h2 className="mb-4 text-4xl font-bold md:text-6xl">Hi, I'm Kholofelo</h2>
+      <p className="mb-6 text-lg md:text-2xl">
+        Web Developer & Tech Communicator
+      </p>
       <a
         href="#projects"
-        className="px-6 py-3 bg-white text-indigo-600 rounded-lg shadow-lg hover:scale-105 transition-transform"
+        className="px-6 py-3 transition rounded-lg shadow bg-primaryGreen hover:bg-neutralGray"
       >
         Explore My Work
       </a>
     </section>
   );
 }
+
+export default Hero;

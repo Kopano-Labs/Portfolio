@@ -1,20 +1,13 @@
-export default function Skills() {
-  const skills = [
-    "React",
-    "Vite",
-    "TypeScript",
-    "TailwindCSS",
-    "AWS",
-    "GitHub",
-  ];
+function Skills() {
+  const skills = ["React", "Vite", "TailwindCSS", "TypeScript", "GitHub"];
   return (
-    <section id="skills" className="py-20 bg-gray-100 text-center">
-      <h2 className="text-3xl font-bold mb-10">Skills</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <section id="skills" className="py-20 text-center bg-neutralGray">
+      <h3 className="mb-10 text-3xl font-bold text-primaryGreen">Skills</h3>
+      <div className="grid max-w-4xl grid-cols-2 gap-6 mx-auto md:grid-cols-5">
         {skills.map((skill) => (
           <div
             key={skill}
-            className="p-6 bg-white rounded-lg shadow hover:scale-105 transition-transform"
+            className="p-6 text-white transition rounded-lg shadow bg-primaryBlue hover:bg-primaryGreen"
           >
             {skill}
           </div>
@@ -23,3 +16,5 @@ export default function Skills() {
     </section>
   );
 }
+
+export default Skills;
