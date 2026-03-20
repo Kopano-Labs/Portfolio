@@ -18,6 +18,7 @@
 ---
 
 ## ⚛️ *Building dreams into reality* 
+ [_***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.***_]
 
 ---
 
@@ -25,4 +26,4 @@
 * [**GitHub**](https://github.com/RobynAwesome/)
 * [**LinkedIn**](https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b7)
 
-  _***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.***_
+ 
