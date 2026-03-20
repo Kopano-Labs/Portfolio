@@ -4,8 +4,9 @@
     {
       "name": "portfolio-dev",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["node_modules/vite/bin/vite.js", "--port", "5173"],
-      "port": 5173
+      "runtimeArgs": ["node_modules/vite/bin/vite.js"],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }
