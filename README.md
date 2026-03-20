@@ -2,7 +2,7 @@
 
 # *wussp, I'm Kholofelo*
 
-### **Freelance Full-Stack MERN Developer** | **Tech Communicator** | **Computer Engineering Student**
+## **Freelance Full-Stack MERN Developer** | **Tech Communicator** | **Computer Engineering Student**
 
 I build scalable ***backends*** and smooth, eye‑catching ***UI's*** that showcase my expertise in the ***MERN stack***. From high-performance computing to crafting platforms like the 5-a-side **5's Arena Eco-system*for Hellenic Football Club.*, I engineer solutions that are simple, impactful, and built to scale.
 
