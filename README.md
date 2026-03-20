@@ -18,7 +18,7 @@
 ---
 
 ## ⚛️ *Building dreams into reality* 
- [_***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.***_]
+ _**{ *This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.* }**_
 
 ---
 
