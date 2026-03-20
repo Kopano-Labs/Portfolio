@@ -3,10 +3,8 @@
 # *I'm Kholofelo*
 
 ⛑ A freelance Full-stack MERN Developer building scalable ***backends*** smooth, eye‑catching ***UI's*** 
-
-## 🚀 *The Arsenal*
-
-*I develop with:*
+---
+## 🚀 *I develop with:*
 
 + **JavaScript & TypeScript** — *for confidence, clarity, and dynamic logic.*
  * **Node.js & MongoDB** — *for robust, high-performance backends.*
