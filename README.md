@@ -17,14 +17,11 @@
 
 ---
 
-## 💬 *_Curious about me❓_*
-
-## *Let's Build Something Great*
+## ⚛️ *Building dreams into reality* 
 
 ---
-
-_***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.***_
 
 ### **Want to collaborate or hire me? Let’s connect:**
 * [**GitHub**](https://github.com/RobynAwesome/)
 * [**LinkedIn**](https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b7)
+  _***This repo is my portfolio source — built to be simple, impactful, and an authentic representation of my work.***_
