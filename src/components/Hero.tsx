@@ -1,120 +1,364 @@
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowDown, Copy, Check, ExternalLink, X } from "lucide-react";
+import { useState } from "react";
+import TransparentImage from "./TransparentImage";
+
+interface SkillBadge {
+  label: string;
+  sublabel: string;
+  description: string;
+  repoUrl: string;
+  repoName: string;
+  position: {
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+  };
+  delay: number;
+  color: string;
+}
+
+const skillBadges: SkillBadge[] = [
+  {
+    label: "React",
+    sublabel: "Frontend Framework",
+    description:
+      "Component-driven UIs with React 18+, hooks, state management, and Framer Motion animations. Used across all my projects.",
+    repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+    repoName: "Bookit-5s-Arena",
+    position: { top: "-5%", right: "-12%" },
+    delay: 0,
+    color: "#61dafb",
+  },
+  {
+    label: "Node.js",
+    sublabel: "Backend Runtime",
+    description:
+      "Server-side JavaScript with Express.js, building RESTful APIs, authentication systems, and real-time features.",
+    repoUrl: "https://github.com/RobynAwesome/5s-Arena-Blog",
+    repoName: "5s-Arena-Blog",
+    position: { top: "20%", left: "-18%" },
+    delay: 0.8,
+    color: "#68a063",
+  },
+  {
+    label: "MongoDB",
+    sublabel: "Database",
+    description:
+      "NoSQL database design, schema modeling with Mongoose, aggregation pipelines, and optimized queries for scalable apps.",
+    repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+    repoName: "Bookit-5s-Arena",
+    position: { bottom: "15%", left: "-15%" },
+    delay: 1.6,
+    color: "#4db33d",
+  },
+  {
+    label: "JavaScript",
+    sublabel: "Core Language",
+    description:
+      "Modern ES2024+, async/await patterns, clean architecture, DOM manipulation, and TypeScript for type safety.",
+    repoUrl: "https://github.com/RobynAwesome/Portfolio",
+    repoName: "Portfolio",
+    position: { bottom: "-5%", right: "-8%" },
+    delay: 2.4,
+    color: "#f7df1e",
+  },
+  {
+    label: "TailwindCSS",
+    sublabel: "UI Framework",
+    description:
+      "Utility-first CSS framework for rapid, responsive, and beautiful UI development with custom design systems.",
+    repoUrl: "https://github.com/RobynAwesome/5s-Arena-Blog",
+    repoName: "5s-Arena-Blog",
+    position: { top: "55%", right: "-16%" },
+    delay: 3.2,
+    color: "#38bdf8",
+  },
+  {
+    label: "Express.js",
+    sublabel: "API Framework",
+    description:
+      "Building robust REST APIs with middleware, route handling, authentication, RBAC, and image upload pipelines.",
+    repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+    repoName: "Bookit-5s-Arena",
+    position: { top: "-8%", left: "15%" },
+    delay: 4,
+    color: "#00e89d",
+  },
+];
+
+function SkillBadgeComponent({ badge }: { badge: SkillBadge }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <>
+      <motion.button
+        onClick={() => setExpanded(true)}
+        animate={{ y: [0, badge.delay % 2 === 0 ? -8 : 8, 0] }}
+        transition={{
+          duration: 4 + badge.delay * 0.3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: badge.delay * 0.2,
+        }}
+        className="absolute glass rounded-xl px-4 py-2.5 border border-[#1a2744] cursor-pointer hover:border-[#00e89d]/50 hover:scale-105 transition-all duration-300 z-10 group text-left"
+        style={badge.position}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <p
+          className="text-xs font-bold"
+          style={{ color: badge.color }}
+        >
+          {badge.label}
+        </p>
+        <p className="text-[10px] text-gray-400 group-hover:text-gray-300 transition-colors">
+          {badge.sublabel}
+        </p>
+        {/* Click hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.6, 0] }}
+          transition={{ duration: 3, repeat: Infinity, delay: badge.delay * 0.5 + 2 }}
+          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#00e89d]"
+        />
+      </motion.button>
+
+      {/* Expanded modal overlay */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={() => setExpanded(false)}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-[#060d18]/80 backdrop-blur-sm" />
+
+            {/* Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-sm rounded-2xl border border-[#1a2744] bg-[#0f1a30] p-6 shadow-2xl shadow-black/50"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setExpanded(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all"
+              >
+                <X size={16} />
+              </button>
+
+              {/* Gradient accent */}
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-sm font-bold"
+                style={{
+                  backgroundColor: `${badge.color}15`,
+                  color: badge.color,
+                  border: `1px solid ${badge.color}30`,
+                }}
+              >
+                {badge.label.charAt(0)}
+              </div>
+
+              <h3 className="text-lg font-bold text-white mb-1">{badge.label}</h3>
+              <p className="text-xs font-medium mb-3" style={{ color: badge.color }}>
+                {badge.sublabel}
+              </p>
+
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                {badge.description}
+              </p>
+
+              {/* Link to repo */}
+              <div className="rounded-xl border border-[#1a2744] bg-[#0b1426] p-4">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">
+                  See it in action
+                </p>
+                <a
+                  href={badge.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-[#00e89d] hover:text-[#34d399] transition-colors group/link"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  {badge.repoName}
+                  <ExternalLink
+                    size={12}
+                    className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                  />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
 
 export default function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("rkholofelo@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient orbs */}
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-20 blur-3xl animate-gradient"
-          style={{ background: "linear-gradient(135deg, #6366f1, #a855f7, #ec4899)" }}
+        <motion.div
+          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-15 blur-[100px]"
+          style={{ background: "radial-gradient(circle, #00e89d, transparent)" }}
         />
-        <div
-          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full opacity-15 blur-3xl animate-gradient"
-          style={{
-            background: "linear-gradient(135deg, #ec4899, #6366f1, #a855f7)",
-            animationDelay: "4s",
-          }}
+        <motion.div
+          animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full opacity-10 blur-[100px]"
+          style={{ background: "radial-gradient(circle, #0ea5e9, transparent)" }}
         />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10 blur-3xl animate-gradient"
-          style={{
-            background: "linear-gradient(135deg, #a855f7, #ec4899, #6366f1)",
-            animationDelay: "2s",
-          }}
+        <motion.div
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-5 blur-[120px]"
+          style={{ background: "radial-gradient(circle, #6366f1, transparent)" }}
         />
       </div>
 
-      {/* Grid pattern overlay */}
+      {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
+          backgroundImage: `linear-gradient(rgba(0,232,157,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,232,157,0.3) 1px, transparent 1px)`,
+          backgroundSize: "80px 80px",
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-sm font-medium tracking-widest uppercase opacity-50 mb-6">
-            Full-Stack Developer
-          </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side — Text content */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <p className="text-gray-400 text-sm mb-4">Hey,</p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-2">
+                I'm{" "}
+                <span className="gradient-text-green">Robyn.</span>
+              </h1>
+              <p className="text-gray-400 text-base sm:text-lg mb-1">
+                A Full-Stack
+              </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black gradient-text mb-2">
+                MERN Developer.
+              </h2>
+              <p className="text-gray-500 text-sm italic mb-8">
+                Augmented with AI.
+              </p>
+            </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-6">
-            <span className="gradient-text">Kholofelo</span>
-            <br />
-            <span className="gradient-text">Robyn</span>
-          </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-8">
+                I build{" "}
+                <span className="gradient-text">apps.</span>
+              </h3>
+            </motion.div>
 
-          <p className="text-lg sm:text-xl md:text-2xl font-light opacity-70 max-w-2xl mx-auto mb-4">
-            You dream it.{" "}
-            <span className="font-semibold opacity-100 gradient-text">I build it.</span>
-          </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-start gap-3"
+            >
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#00e89d] text-[#060d18] hover:bg-[#34d399] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#00e89d]/20"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                Hire Me
+              </a>
+              <button
+                onClick={copyEmail}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-[#1a2744] text-gray-300 hover:border-[#00e89d]/40 hover:text-white transition-all duration-300"
+              >
+                {copied ? <Check size={16} className="text-[#00e89d]" /> : <Copy size={16} />}
+                {copied ? "Copied!" : "Copy Email"}
+              </button>
+            </motion.div>
+          </div>
 
-          <p className="text-sm sm:text-base opacity-40 max-w-xl mx-auto mb-10">
-            Crafting beautiful, performant web experiences with React, TypeScript, Node.js & modern technologies.
-          </p>
-        </motion.div>
+          {/* Right side — Profile photo with floating clickable skill badges */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            className="relative hidden lg:flex justify-center items-center"
+          >
+            <div className="relative" style={{ width: "380px", height: "460px" }}>
+              {/* Glow ring behind photo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-gradient-to-br from-[#00e89d]/10 via-[#0ea5e9]/5 to-[#6366f1]/10 blur-2xl" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-        >
-          <a
-            href="#projects"
-            className="px-8 py-3 rounded-full font-semibold text-sm text-white transition-all duration-300 hover:scale-105 glow"
-            style={{ background: "linear-gradient(135deg, #6366f1, #a855f7)" }}
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-3 rounded-full font-semibold text-sm border border-current/20 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105"
-          >
-            Get In Touch
-          </a>
-        </motion.div>
+              {/* Profile image — moox.io style: no background, person pops out */}
+              <div className="relative z-[5] flex justify-center">
+                <TransparentImage
+                  src="/profile.png"
+                  alt="Kholofelo Robyn Rababalela"
+                  className="w-72 xl:w-80 object-contain drop-shadow-[0_0_40px_rgba(0,232,157,0.15)] hero-profile-img"
+                  threshold={190}
+                />
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center gap-6"
-        >
-          <a
-            href="https://github.com/RobynAwesome"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="opacity-40 hover:opacity-100 transition-opacity"
-            aria-label="GitHub"
+              {/* Clickable floating skill badges */}
+              {skillBadges.map((badge) => (
+                <SkillBadgeComponent key={badge.label} badge={badge} />
+              ))}
+
+              {/* Subtle hint text */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5 }}
+                className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-gray-600 whitespace-nowrap"
+              >
+                Click any badge to explore my skills
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* Mobile skill badges — horizontal scroll */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="lg:hidden flex flex-wrap gap-2 mt-4"
           >
-            <Github size={20} />
-          </a>
-          <a
-            href="https://linkedin.com/in/kholofelo-robyn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="opacity-40 hover:opacity-100 transition-opacity"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href="mailto:your@email.com"
-            className="opacity-40 hover:opacity-100 transition-opacity"
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
-        </motion.div>
+            {skillBadges.map((badge) => (
+              <MobileSkillBadge key={badge.label} badge={badge} />
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -123,8 +367,86 @@ export default function Hero() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <ArrowDown size={20} className="opacity-30" />
+        <ArrowDown size={20} className="text-[#00e89d] opacity-40" />
       </motion.div>
     </section>
+  );
+}
+
+/* Mobile version of skill badge */
+function MobileSkillBadge({ badge }: { badge: SkillBadge }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setExpanded(true)}
+        className="px-3 py-1.5 rounded-lg border border-[#1a2744] bg-[#0f1a30]/50 text-xs font-medium hover:border-[#00e89d]/40 transition-all"
+        style={{ color: badge.color }}
+      >
+        {badge.label}
+      </button>
+
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={() => setExpanded(false)}
+          >
+            <div className="absolute inset-0 bg-[#060d18]/80 backdrop-blur-sm" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-sm rounded-2xl border border-[#1a2744] bg-[#0f1a30] p-6 shadow-2xl"
+            >
+              <button
+                onClick={() => setExpanded(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all"
+              >
+                <X size={16} />
+              </button>
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-sm font-bold"
+                style={{
+                  backgroundColor: `${badge.color}15`,
+                  color: badge.color,
+                  border: `1px solid ${badge.color}30`,
+                }}
+              >
+                {badge.label.charAt(0)}
+              </div>
+              <h3 className="text-lg font-bold text-white mb-1">{badge.label}</h3>
+              <p className="text-xs font-medium mb-3" style={{ color: badge.color }}>
+                {badge.sublabel}
+              </p>
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">{badge.description}</p>
+              <div className="rounded-xl border border-[#1a2744] bg-[#0b1426] p-4">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">
+                  See it in action
+                </p>
+                <a
+                  href={badge.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-[#00e89d] hover:text-[#34d399] transition-colors"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  {badge.repoName}
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
