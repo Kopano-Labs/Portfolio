@@ -1,19 +1,12 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Navbar />
-      <main className="flex-1">
-        <Hero />
-        <Skills />
-        <Projects />
-      </main>
+      <Hero />
+      <Skills />
+
+      {/* Test Tailwind here */}
+      <div className="w-32 h-32 bg-red-500"></div>
     </div>
   );
 }
-
-export default App;
