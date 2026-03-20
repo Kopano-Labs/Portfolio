@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Footer = () => (
+const Footer = () => (
   <footer className="py-6 text-center text-white bg-green-700">
     <p>
       © {new Date().getFullYear()} Kholofelo.dev — Built with React &
@@ -19,3 +19,5 @@ export const Footer = () => (
     </div>
   </footer>
 );
+
+export default Footer;

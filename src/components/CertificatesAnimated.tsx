@@ -1,33 +1,18 @@
-import { motion } from "framer-motion";
+import React from "react";
 
-function CertificatesAnimated() {
-  const certificates = [
-    { name: "Frontend Development Certificate", year: "2024" },
-    { name: "React Advanced Workshop", year: "2025" },
-  ];
+const Certificates = () => (
+  <section className="px-6 py-16 text-white bg-gray-900">
+    <h3 className="mb-8 text-3xl font-bold text-green-400">Certificates</h3>
+    <ul className="space-y-4">
+      <li className="p-4 bg-gray-800 rounded-lg">
+        React Developer Certificate
+      </li>
+      <li className="p-4 bg-gray-800 rounded-lg">TypeScript Mastery Badge</li>
+      <li className="p-4 bg-gray-800 rounded-lg">
+        Frontend Engineering Diploma
+      </li>
+    </ul>
+  </section>
+);
 
-  return (
-    <section
-      id="certificates"
-      className="py-20 text-center text-white bg-primaryGreen"
-    >
-      <h3 className="mb-10 text-3xl font-bold">Certificates</h3>
-      <div className="max-w-3xl mx-auto space-y-6">
-        {certificates.map((cert, i) => (
-          <motion.div
-            key={cert.name}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.3 }}
-            className="p-6 rounded-lg shadow bg-neutralGray"
-          >
-            <h4 className="text-xl font-semibold">{cert.name}</h4>
-            <p>{cert.year}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export default CertificatesAnimated;
+export default Certificates;

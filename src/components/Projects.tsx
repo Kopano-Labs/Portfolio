@@ -6,7 +6,7 @@ const projects = [
   { name: "UI Toolkit", tech: "TypeScript + TailwindCSS" },
 ];
 
-export const Projects = () => (
+const Projects = () => (
   <section className="px-6 py-16 text-white bg-gray-900">
     <h3 className="mb-8 text-3xl font-bold text-green-400">Projects</h3>
     <ul className="space-y-6">
@@ -19,3 +19,5 @@ export const Projects = () => (
     </ul>
   </section>
 );
+
+export default Projects;

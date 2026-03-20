@@ -12,7 +12,6 @@ function App() {
     <div className="flex flex-col min-h-screen text-white bg-gray-900">
       <Navbar />
       <main className="flex-grow">
-        <div>HELLO WORLD</div>
         <Hero />
         <Skills />
         <Projects />
