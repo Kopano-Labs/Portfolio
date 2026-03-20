@@ -15,6 +15,9 @@ function Footer() {
         >
           LinkedIn
         </a>
+        <a href="#contact" className="hover:text-primaryBlue">
+          Contact
+        </a>
       </div>
     </footer>
   );

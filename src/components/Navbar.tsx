@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DarkModeToggle from "./DarkModeToggle";
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full text-white shadow-md bg-primaryGreen">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-primaryGreen shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="flex items-center justify-between max-w-6xl p-4 mx-auto">
-        {/* Logo / Branding */}
         <a href="#hero" className="flex items-center space-x-2">
           <span className="px-3 py-1 font-bold rounded-lg bg-primaryBlue">
             KH
@@ -14,15 +24,7 @@ function Navbar() {
           <span className="text-xl font-semibold tracking-wide">Kholofelo</span>
         </a>
 
-        {/* Hamburger Menu */}
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
-          ☰
-        </button>
-
-        {/* Navigation Links */}
-        <ul
-          className={`md:flex space-x-6 ${open ? "block" : "hidden"} md:block`}
-        >
+        <ul className="hidden space-x-6 md:flex">
           <li>
             <a href="#skills" className="hover:text-primaryBlue">
               Skills
@@ -44,6 +46,24 @@ function Navbar() {
             </a>
           </li>
         </ul>
+
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            className="hover:text-primaryBlue"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            className="hover:text-primaryBlue"
+          >
+            LinkedIn
+          </a>
+          <DarkModeToggle />
+        </div>
       </div>
     </nav>
   );

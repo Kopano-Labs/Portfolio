@@ -7,12 +7,12 @@ function Hero() {
       className="flex flex-col items-center justify-center h-screen px-4 text-center bg-primaryBlue"
     >
       <FadeIn>
-        <h2 className="mb-4 text-3xl font-bold md:text-6xl">
+        <h2 className="mb-4 text-4xl font-bold md:text-6xl">
           Hi, I'm Kholofelo
         </h2>
       </FadeIn>
       <FadeIn>
-        <p className="mb-6 text-md md:text-2xl">
+        <p className="mb-6 text-lg md:text-2xl">
           Web Developer & Tech Communicator
         </p>
       </FadeIn>
