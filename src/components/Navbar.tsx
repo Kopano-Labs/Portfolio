@@ -1,9 +1,28 @@
+import { useState } from "react";
+
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 z-50 w-full text-white shadow-md bg-primaryGreen">
       <div className="flex items-center justify-between max-w-6xl p-4 mx-auto">
-        <h1 className="text-xl font-bold">Kholofelo</h1>
-        <ul className="flex space-x-6">
+        {/* Logo / Branding */}
+        <a href="#hero" className="flex items-center space-x-2">
+          <span className="px-3 py-1 font-bold rounded-lg bg-primaryBlue">
+            KH
+          </span>
+          <span className="text-xl font-semibold tracking-wide">Kholofelo</span>
+        </a>
+
+        {/* Hamburger Menu */}
+        <button className="md:hidden" onClick={() => setOpen(!open)}>
+          ☰
+        </button>
+
+        {/* Navigation Links */}
+        <ul
+          className={`md:flex space-x-6 ${open ? "block" : "hidden"} md:block`}
+        >
           <li>
             <a href="#skills" className="hover:text-primaryBlue">
               Skills

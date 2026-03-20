@@ -19,7 +19,7 @@ function Projects() {
         {projects.map((proj) => (
           <div
             key={proj.title}
-            className="p-6 text-white transition rounded-lg shadow bg-neutralGray hover:bg-primaryBlue"
+            className="p-6 text-white transition duration-300 transform rounded-lg shadow bg-neutralGray hover:scale-105"
           >
             <h4 className="mb-2 text-xl font-semibold">{proj.title}</h4>
             <p className="mb-4">{proj.desc}</p>

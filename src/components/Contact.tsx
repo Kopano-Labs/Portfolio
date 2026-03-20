@@ -7,12 +7,28 @@ function Contact() {
       <p className="mb-6">
         I thrive on teamwork, open-source contributions, and shared learning.
       </p>
-      <a
-        href="mailto:kholofelo@example.com"
-        className="px-6 py-3 transition rounded-lg shadow bg-primaryGreen hover:bg-primaryBlue"
-      >
-        Get in Touch
-      </a>
+      <form className="max-w-md mx-auto space-y-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full p-3 border rounded focus:outline-primaryGreen"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="w-full p-3 border rounded focus:outline-primaryGreen"
+        />
+        <textarea
+          placeholder="Your Message"
+          className="w-full p-3 border rounded focus:outline-primaryGreen"
+        ></textarea>
+        <button
+          type="submit"
+          className="px-6 py-3 transition rounded-lg shadow bg-primaryGreen hover:bg-primaryBlue"
+        >
+          Send Message
+        </button>
+      </form>
     </section>
   );
 }
