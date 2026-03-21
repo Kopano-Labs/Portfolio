@@ -6,61 +6,87 @@ export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Scroll-based parallax for the image
+  // Heavy scroll-based parallax for the phone image
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [2500, -2500]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
     <section
       id="about"
-      className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-br from-[#00e89d]/30 via-[#0ea5e9]/35 to-[#00e89d]/25"
+      className="py-16 sm:py-20 relative overflow-hidden"
     >
+      {/* Background tilted 15deg to stand out */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-[#00e89d]/30 via-[#0ea5e9]/35 to-[#00e89d]/25"
+        style={{
+          transform: "skewY(-15deg)",
+          transformOrigin: "top left",
+          top: "-20%",
+          bottom: "-20%",
+        }}
+      />
+      {/* Forward shadow to pop off the page — x5 3D effect with colored shadows x2 intensity */}
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: "skewY(-15deg)",
+          transformOrigin: "top left",
+          top: "-20%",
+          bottom: "-20%",
+          boxShadow:
+            "0 200px 500px rgba(0,232,157,0.35), 0 -100px 300px rgba(14,165,233,0.3), 0 100px 250px rgba(0,0,0,0.7), 0 -50px 150px rgba(0,0,0,0.5), 0 300px 600px rgba(0,232,157,0.2), 0 -200px 400px rgba(14,165,233,0.15)",
+        }}
+      />
+
       {/* Decorative gradient blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#00e89d]/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0ea5e9]/20 rounded-full blur-3xl" />
 
-      <div className="max-w-5xl mx-auto px-12 sm:px-20 lg:px-36" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left -- Phone mockup / Image (like moox) — scroll parallax */}
+      <div className="max-w-5xl mx-auto px-12 sm:px-20 lg:px-36 relative z-10" ref={ref}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch overflow-hidden">
+          {/* Left -- Phone image with HEAVY parallax */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="flex justify-center"
+            className="relative self-stretch flex items-center perspective-[1200px] overflow-hidden"
           >
             <motion.div
-              className="relative"
+              className="relative w-full h-full"
               style={{ y: imageY, opacity: imageOpacity }}
             >
-              {/* Soft glow behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#00e89d]/25 to-[#0ea5e9]/25 rounded-3xl blur-2xl" />
               <img
                 src="/web-image-1.jpg"
                 alt="Web development project showcase"
-                className="relative w-full max-w-md rounded-2xl shadow-2xl shadow-black/30"
+                className="w-full h-full object-cover object-top rounded-3xl shadow-2xl shadow-black/40"
+                style={{
+                  maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                }}
               />
             </motion.div>
           </motion.div>
 
-          {/* Right -- Text content (like moox) */}
+          {/* Right -- Text content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="relative z-10"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-2 text-white">
               You dream it.
             </h2>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight gradient-text mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight gradient-text mb-6">
               I craft it.
             </h2>
 
-            <p className="text-white text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-white text-base sm:text-lg leading-relaxed mb-6">
               I am a Computer Engineering student at Cape Peninsula University of Technology
               and a Freelance Web Developer specializing in the MERN stack. Working primarily
               with Node.js, MongoDB, JavaScript, HTML, and CSS, my focus is on building scalable
