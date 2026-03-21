@@ -42,27 +42,18 @@ export default function Certificates() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="certificates" className="py-24 sm:py-32 relative">
-      <div className="max-w-5xl mx-auto px-12 sm:px-20 lg:px-36">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="text-sm font-medium tracking-widest uppercase text-[#00e89d] mb-4">
-            Credentials
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 leading-tight">
-            Certificates & <span className="gradient-text">Learning.</span>
+    <section id="certificates" className="relative">
+        <div ref={ref}>
+          <h2 className="text-2xl sm:text-3xl font-black text-white mb-10 flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#00e89d]/20 flex items-center justify-center">
+              <Award size={22} className="text-[#00e89d]" />
+            </div>
+            Certificates & Learning
           </h2>
-          <p className="text-gray-400 text-base max-w-xl mb-16">
-            Continuous learning is at the core of my practice. Here are verified credentials and education.
-          </p>
-        </motion.div>
+        </div>
 
         {/* Highlighted certificates */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {certificates
             .filter((c) => c.highlight)
             .map((cert, i) => (
@@ -109,7 +100,7 @@ export default function Certificates() {
         </div>
 
         {/* Other credentials */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {certificates
             .filter((c) => !c.highlight)
             .map((cert, i) => (
@@ -170,7 +161,6 @@ export default function Certificates() {
             loading="lazy"
           />
         </motion.div>
-      </div>
     </section>
   );
 }
