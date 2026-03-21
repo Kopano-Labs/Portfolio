@@ -516,7 +516,7 @@ export default function ResumePage() {
 
                 {/* Photo with hover grayscale toggle */}
                 <motion.img
-                  src="/profile.png"
+                  src="/profile-banner-2"
                   alt="Kholofelo"
                   className="relative z-10 h-64 w-64 rounded-full border-4 border-[#0ea5e9]/20 object-cover object-top grayscale transition-all duration-700 hover:grayscale-0"
                   whileHover={{ scale: 1.05 }}
