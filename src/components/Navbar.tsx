@@ -59,7 +59,7 @@ export default function Navbar() {
               WebkitBackdropFilter: "blur(24px) saturate(180%)",
             }}
           >
-            <div className="px-5 sm:px-7 h-18 flex items-center justify-between">
+            <div className="px-5 sm:px-7 h-18 flex items-center justify-between relative">
               {/* Logo + Name + Status */}
               <Link to="/" className="flex items-center gap-3 group">
                 <img
@@ -76,8 +76,25 @@ export default function Navbar() {
                 </span>
               </Link>
 
-              {/* Desktop right side — social links, theme toggle, CTA */}
-              <div className="hidden md:flex items-center gap-3">
+              {/* Center — Nav links */}
+              <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+                {[
+                  { to: "/", label: "Home" },
+                  { to: "/resume", label: "Resume" },
+                  { to: "/contact", label: "Contact" },
+                ].map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Right side — social, theme, CTA */}
+              <div className="hidden md:flex items-center gap-1">
                 <a
                   href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                   target="_blank"
@@ -136,8 +153,27 @@ export default function Navbar() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden border-t border-[#1a2744]"
                 >
-                  <div className="px-5 py-5 flex flex-col gap-2">
-                    <div className="flex items-center gap-3 px-3 pb-3 border-b border-[#1a2744] mb-2">
+                  <div className="px-5 py-5 flex flex-col gap-1">
+                    {/* Page navigation links */}
+                    {[
+                      { to: "/", label: "Home" },
+                      { to: "/resume", label: "Resume" },
+                      { to: "/projects", label: "Projects" },
+                      { to: "/open-source", label: "Open Source" },
+                      { to: "/contact", label: "Contact" },
+                    ].map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMenuOpen(false)}
+                        className="px-4 py-3 text-base font-semibold text-gray-300 hover:text-[#00e89d] hover:bg-white/5 rounded-xl transition-all duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+
+                    {/* Social links */}
+                    <div className="flex items-center gap-3 px-4 pt-3 mt-2 border-t border-[#1a2744]">
                       <a
                         href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                         target="_blank"
@@ -155,10 +191,11 @@ export default function Navbar() {
                         <Github size={18} />
                       </a>
                     </div>
+
                     <Link
                       to="/contact"
                       onClick={() => setMenuOpen(false)}
-                      className="mx-3 px-8 py-3 rounded-full text-lg font-bold bg-[#00e89d] text-[#060d18] text-center hover:bg-[#34ffb0] transition-all duration-300 shadow-lg shadow-[#00e89d]/40 hover:shadow-xl hover:shadow-[#00e89d]/50"
+                      className="mx-3 mt-3 px-8 py-3 rounded-full text-lg font-bold bg-[#00e89d] text-[#060d18] text-center hover:bg-[#34ffb0] transition-all duration-300 shadow-lg shadow-[#00e89d]/40 hover:shadow-xl hover:shadow-[#00e89d]/50"
                     >
                       Let's Talk
                     </Link>
