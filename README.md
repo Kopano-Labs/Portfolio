@@ -1,33 +1,93 @@
-![Full-Stack Developer](/github.jpg)
+# 🚀 Mashoto Bayne Rababalela — Portfolio
 
-# *I'm Kholofelo*
+![Banner](public/readme-banner.png)
 
-⛑ A freelance Full-stack MERN Developer building scalable ***backends*** smooth, eye‑catching ***UI's*** 
+## 🌐 Overview
 
----
-
-## 🚀 *I develop with:*
-
-+ **JavaScript & TypeScript** — *for confidence, clarity, and dynamic logic.*
- * **Node.js & MongoDB** — *for robust, high-performance backends.*
-+ **React + Vite** — *for lightning-fast speed and modularity.*
- * **TailwindCSS & CSS** — *for responsive, beautiful design.*
-+ **GitHub Pages** — *for rapid, reliable deployment.*
- * **PWA Setup** — *for seamless, app‑like performance.*
-
-## ⚛️ *Building dreams into reality* 
- _***This repo is my portfolio source built to be simple and an representation of my me.***_
+Mashoto Bayne Rababalela is a **Web & Mobile Full-Stack Developer**, **Growth Consultant**, and **Electrical Engineer** based in Cape Town, South Africa. His work bridges **technical engineering** and **strategic business growth**, empowering B2B entrepreneurs through scalable outbound teams while delivering robust software solutions.
 
 ---
 
-### **Want to collaborate or hire me?**
--- [**GitHub Profile**](https://github.com/RobynAwesome/) 
+## ⚡ Headline
 
--- [**LinkedIn Profile**](https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) 
+- 🚀 Growth Consultant @ Clickteams.io
+- ⚡ Electrical Engineering
+- 🧠 Problem Solving
+- 🌐 Web Developer
+- 💻 Software Developer
+- ⚙️ Front & Backend Developer
+- ⚽ Soccer Coach
+- 💼 Business Owner
 
--- [**HackerRank Portfolio**](https://www.hackerrank.com/profile/rkholofelo) 
+---
 
--- [**ko-fi donations**](https://ko-fi.com/robynawesome) 
+## 🧠 About
 
--- [**ORCID**](https://orcid.org/0009-0000-3995-6147)
- 
+Mashoto is a multifaceted professional who thrives at the intersection of **engineering, software development, and business strategy**.
+
+- **Growth Consultant**: Architecting commission-only remote outbound teams for B2B entrepreneurs.
+- **Developer**: Designing and deploying sophisticated front & backend solutions.
+- **Engineer**: Leveraging his Electrical & Electronics Engineering background from Northlink College.
+- **Coach**: Mentoring athletes with discipline and leadership on the soccer field.
+
+---
+
+## 🛠️ Skills
+
+- Frontend & Backend Development (React, TypeScript, Node.js)
+- Problem Solving & Systems Thinking
+- Business Growth & Sales Architecture
+- Electrical & Electronics Engineering
+- Leadership & Coaching
+
+---
+
+## 📂 Projects
+
+_(To be expanded with Mashoto’s featured work — placeholders for now)_
+
+1. **Growth Systems Platform** — Commission-only outbound team architecture.
+2. **Web & Mobile Apps** — Full-stack solutions for clients.
+3. **Engineering Tools** — Digital infrastructure projects.
+
+---
+
+## 📍 Location
+
+Cape Town, Western Cape, South Africa
+
+---
+
+## 📬 Contact
+
+- **Email**: _(to be added)_
+- **LinkedIn**: _(to be added)_
+- **GitHub**: [RobynAwesome/Portfolio-client-MBR](https://github.com/RobynAwesome/Portfolio-client-MBR)
+
+---
+
+## 🎨 Design System
+
+- **Theme Colors**: Purple, Dark Blue, Neon Glow accents (from Mashoto’s branding banner).
+- **Typography**: Bold, futuristic headings with gradient text.
+- **Layout**: 60% cloned from RobynAwesome’s portfolio, 40% custom futuristic design.
+
+---
+
+## 🚀 Deployment
+
+This portfolio is built with:
+
+- React + Vite + TypeScript
+- TailwindCSS v4
+- Framer Motion for animations
+- Vercel for deployment
+
+---
+
+### Next Steps
+
+1. Add Mashoto’s banner image (`banner.png`) to `/public`.
+2. Replace placeholder project entries with real client projects.
+3. Confirm contact details (email, LinkedIn, socials).
+4. Push repo to GitHub under `Portfolio-client-MBR`.
