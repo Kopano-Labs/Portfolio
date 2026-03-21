@@ -11,10 +11,10 @@ import {
   Users,
   Zap,
   Shield,
-  Sparkles,
   ArrowUpRight,
   Heart,
 } from "lucide-react";
+import Certificates from "../components/Certificates";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -341,6 +341,11 @@ export default function OpenSourcePage() {
               <ExternalLink size={16} />
             </motion.a>
           </motion.div>
+        </SectionBlock>
+
+        {/* Certificates */}
+        <SectionBlock delay={0.1}>
+          <Certificates />
         </SectionBlock>
 
         {/* GitHub CTA */}
