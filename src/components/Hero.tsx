@@ -28,7 +28,7 @@ const skillBadges: SkillBadge[] = [
       "Component-driven UIs with React 18+, hooks, state management, and Framer Motion animations. Used across all my projects.",
     repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
     repoName: "Bookit-5s-Arena",
-    position: { top: "22%", left: "-18%" },
+    position: { top: "42%", left: "-18%" },
     delay: 0,
     color: "#0ea5e9",
   },
@@ -39,7 +39,7 @@ const skillBadges: SkillBadge[] = [
       "Server-side JavaScript with Express.js, building RESTful APIs, authentication systems, and real-time features.",
     repoUrl: "https://github.com/RobynAwesome/5s-Arena-Blog",
     repoName: "5s-Arena-Blog",
-    position: { top: "8%", right: "-8%" },
+    position: { top: "22%", right: "-8%" },
     delay: 0.8,
     color: "#00e89d",
   },
@@ -343,7 +343,7 @@ export default function Hero() {
           >
             <div
               className="relative flex items-center justify-center"
-              style={{ width: "560px", height: "660px" }}
+              style={{ width: "700px", height: "820px" }}
             >
               {/* Concentric rounded circles behind the person (moox-style) */}
               <motion.div
@@ -351,7 +351,7 @@ export default function Hero() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ width: "520px", height: "520px" }}
+                style={{ width: "660px", height: "660px" }}
               >
                 {/* Outermost circle */}
                 <div
@@ -415,7 +415,7 @@ export default function Hero() {
                 <TransparentImage
                   src="/profile.png"
                   alt="Kholofelo Robyn Rababalela"
-                  className="w-[420px] xl:w-[480px] object-contain drop-shadow-[0_0_40px_rgba(0,232,157,0.15)] hero-profile-img"
+                  className="w-[580px] xl:w-[660px] object-contain drop-shadow-[0_0_40px_rgba(0,232,157,0.15)] hero-profile-img"
                   threshold={190}
                 />
               </div>
