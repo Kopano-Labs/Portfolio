@@ -32,7 +32,7 @@ const projects = [
       "This portfolio website — a modern, animated, multi-page React application showcasing skills, projects, and experience with smooth Framer Motion transitions.",
     techs: ["React", "TypeScript", "TailwindCSS", "Vite", "Framer Motion"],
     github: "https://github.com/RobynAwesome/Portfolio",
-    image: "/profile-banner.jpg",
+    image: "/profile-banner-1.jpg",
     accent: "#a855f7",
     accentAlt: "#c084fc",
   },
