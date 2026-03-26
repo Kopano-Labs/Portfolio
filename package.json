@@ -11,6 +11,7 @@
     "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./src/index.css --watch"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.577.0",
     "react": "^18.2.0",
