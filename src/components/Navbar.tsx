@@ -94,6 +94,7 @@ export default function Navbar() {
                 ].map((link) => (
                   <Link
                     key={link.to}
+                    onClick={() => window.scrollTo(0, 0)}
                     to={link.to}
                     className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors"
                   >
@@ -133,7 +134,10 @@ export default function Navbar() {
                 >
                   {themeIcon}
                 </motion.button>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Link
                     to="/contact"
                     className="ml-3 rounded-full bg-[#00e89d] px-8 py-3 text-lg font-bold text-[#060d18] shadow-lg shadow-[#00e89d]/40 transition-all duration-300 hover:bg-[#34ffb0] hover:shadow-xl hover:shadow-[#00e89d]/50"
@@ -183,6 +187,7 @@ export default function Navbar() {
                     ].map((link) => (
                       <Link
                         key={link.to}
+                        onClick={() => window.scrollTo(0, 0)}
                         to={link.to}
                         onClick={() => setMenuOpen(false)}
                         className="px-4 py-3 text-base font-semibold text-gray-300 hover:text-[#00e89d] hover:bg-white/5 rounded-xl transition-all duration-200"

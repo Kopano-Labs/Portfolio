@@ -58,6 +58,7 @@ export default function Footer() {
               <div className="flex flex-col gap-2">
                 {navLinks.map((l) => (
                   <Link
+                    onClick={() => window.scrollTo(0, 0)}
                     key={l.to}
                     to={l.to}
                     className="text-xs text-gray-500 transition-colors hover:text-[#00e89d]"

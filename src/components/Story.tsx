@@ -862,6 +862,7 @@ export default function Story() {
           </p>
 
           <Link
+           onClick={() => window.scrollTo(0, 0)}
             to="/resume"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-sm font-semibold text-white hover:bg-white/10 hover:border-[#00e89d]/40 transition-all duration-300"
           >
