@@ -65,7 +65,11 @@ const skills = [
     description:
       "I code in modern ES2024+ JavaScript across all environments. I now use TypeScript for type-safe, maintainable codebases — a requirement for production-grade applications.",
     techs: ["TypeScript", "Node.js", "HTML5", "CSS3"],
-    bg: "linear-gradient(135deg, #0c1a35 0%, #0f2240 50%, #0a1628 100%)",
+    bg: "linear-gradient(135deg, #0c1a35 0%, #0f2240 50%, #0a1628 100%)", // Dark blue gradient
+    accentColor: "#f7df1e", // JS/TS yellow
+    shadowColor1: "rgba(247, 223, 30, 0.20)",
+    shadowColor2: "rgba(14, 165, 233, 0.08)",
+    borderColor: "rgba(247, 223, 30, 0.45)",
   },
   {
     icon: <ReactIcon />,
@@ -74,7 +78,11 @@ const skills = [
     description:
       "Building component-driven UIs with React 18+, hooks, and the broader ecosystem. From SPAs to SSR with Next.js and Vite for blazing-fast development.",
     techs: ["React", "Next.js", "Vite", "Redux", "Framer Motion"],
-    bg: "linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0c1a35 100%)",
+    bg: "linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0c1a35 100%)", // Dark blue gradient
+    accentColor: "#61dafb", // React blue
+    shadowColor1: "rgba(97, 218, 251, 0.20)",
+    shadowColor2: "rgba(0, 232, 157, 0.08)",
+    borderColor: "rgba(97, 218, 251, 0.45)",
   },
   {
     icon: <ServerIcon />,
@@ -83,12 +91,12 @@ const skills = [
     description:
       "As a Full-Stack Developer, I build robust server-side architectures. From RESTful APIs to database design with MongoDB, I handle the complete backend pipeline.",
     techs: ["Node.js", "Express", "MongoDB", "REST APIs", "Firebase"],
-    bg: "linear-gradient(135deg, #0c1a35 0%, #0a1e30 50%, #0f2240 100%)",
+    bg: "linear-gradient(135deg, #0c1a35 0%, #0a1e30 50%, #0f2240 100%)", // Dark blue gradient
+    accentColor: "#00e89d", // Backend green
+    shadowColor1: "rgba(0, 232, 157, 0.20)",
+    shadowColor2: "rgba(14, 165, 233, 0.08)",
+    borderColor: "rgba(0, 232, 157, 0.45)",
   },
-];
-
-const additionalSkills = [
-  "TailwindCSS", "Git & GitHub", "Figma", "Docker", "Vercel", "Agile/Scrum",
 ];
 
 const githubRepos = [
@@ -181,18 +189,34 @@ export default function Skills() {
                   key={skill.category}
                   initial={{ opacity: 0, y: 40 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
-                  className="group relative rounded-2xl border border-[#1a2744] overflow-hidden card-hover"
+                  transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+                  className="group relative rounded-2xl border border-[#1a2744] overflow-hidden card-hover" // Added 'group' class
                   style={{ background: skill.bg }}
+                  whileHover={{
+                    y: -8,
+                    boxShadow: `0 0 40px ${skill.shadowColor1}, 0 0 80px ${skill.shadowColor2}`,
+                    borderColor: skill.borderColor,
+                  }}
                 >
                   {/* Watermark icon */}
                   <div className="absolute -bottom-4 -right-4 text-white pointer-events-none">
                     {skill.watermark}
                   </div>
 
-                  {/* Top accent line */}
-                  <div className="h-[2px] w-full bg-gradient-to-r from-[#0ea5e9] via-[#00e89d] to-[#0ea5e9]" />
+                  {/* Animated Top accent line */}
+                  <motion.div
+                    className="absolute top-0 left-0 right-0 h-[2px] origin-left"
+                    style={{ background: `linear-gradient(90deg, transparent, ${skill.accentColor}, transparent)` }}
+                    initial={{ scaleX: 0.3, opacity: 0.4 }}
+                    whileHover={{ scaleX: 1, opacity: 1 }}
+                    transition={{ duration: 0.4 }}
+                  />
 
+                  {/* Radial glow reveal on hover */}
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: `radial-gradient(circle at 50% 0%, ${skill.accentColor}10, transparent 70%)` }}
+                  />
                   <div className="relative p-6 sm:p-8 min-h-[320px] flex flex-col">
                     {/* Icon + Title */}
                     <div className="flex items-center gap-3 mb-5">
@@ -200,7 +224,16 @@ export default function Skills() {
                         {skill.icon}
                       </div>
                       <h3 className="text-lg font-bold text-white">{skill.category}</h3>
-                    </div>
+                    </motion.div>
+
+                    {/* Icon rotation on hover */}
+                    <motion.div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/5 border border-white/10"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {skill.icon}
+                    </motion.div>
 
                     {/* Description */}
                     <p className="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
@@ -222,28 +255,6 @@ export default function Skills() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Additional skills row */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3"
-            >
-              {additionalSkills.map((name, i) => (
-                <motion.div
-                  key={name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.3, delay: 0.6 + i * 0.05 }}
-                  className="px-4 py-3 rounded-xl border border-[#1a2744] bg-[#0c1a35] text-center hover:border-[#00e89d]/40 hover:bg-[#0f2240] transition-all duration-300"
-                >
-                  <span className="text-xs font-medium text-[#0ea5e9]">
-                    {name}
-                  </span>
-                </motion.div>
-              ))}
-            </motion.div>
           </>
         )}
 

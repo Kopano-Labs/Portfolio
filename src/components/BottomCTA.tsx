@@ -11,15 +11,27 @@ export default function BottomCTA() {
     <section
       className="relative py-24 sm:py-32 overflow-hidden"
       ref={ref}
-      style={{
-        backgroundImage: "url('/web-image-4.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      style={
+        {
+          // backgroundImage: "url('/web-image-4.png')", // Removed for dot-grid
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
+        }
+      }
     >
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#060d18] via-[#060d18]/70 to-[#060d18]" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#00e89d]/10 via-transparent to-[#0ea5e9]/10" />
+      {/* Dot-grid overlay */}
+      <div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage: "url('/dot-grid.png')",
+        }}
+      />
+
+      {/* LED border */}
+      <div className="absolute inset-0 p-[1px] led-border-outer rounded-[32px]" />
 
       <div className="relative max-w-4xl mx-auto px-12 sm:px-20 lg:px-36 flex flex-col items-center text-center">
         {/* Avatar */}
@@ -45,8 +57,7 @@ export default function BottomCTA() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4"
         >
-          Let's Build Something{" "}
-          <span className="gradient-text">Amazing</span>
+          Let's Build Something <span className="gradient-text">Amazing</span>
         </motion.h2>
 
         <motion.p
@@ -55,7 +66,8 @@ export default function BottomCTA() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-gray-400 text-sm sm:text-base max-w-md mb-10"
         >
-          Ready to bring your ideas to life? Let's collaborate and create something incredible together.
+          Ready to bring your ideas to life? Let's collaborate and create
+          something incredible together.
         </motion.p>
 
         {/* Buttons */}
@@ -70,7 +82,10 @@ export default function BottomCTA() {
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-white/20 text-white hover:border-white/40 hover:bg-white/5 backdrop-blur-sm transition-all duration-300"
           >
             More about me
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Link>
 
           <Link
@@ -78,7 +93,10 @@ export default function BottomCTA() {
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-[#00e89d] to-[#34d399] text-[#060d18] hover:shadow-lg hover:shadow-[#00e89d]/20 transition-all duration-300"
           >
             Hire me
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Link>
         </motion.div>
       </div>

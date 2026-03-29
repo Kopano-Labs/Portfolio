@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, Copy, Check, ExternalLink, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import TransparentImage from "./TransparentImage";
 
@@ -26,9 +27,9 @@ const skillBadges: SkillBadge[] = [
     sublabel: "Professional",
     description:
       "Component-driven UIs with React 18+, hooks, state management, and Framer Motion animations. Used across all my projects.",
-    repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+    repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena", // Example repo
     repoName: "Bookit-5s-Arena",
-    position: { top: "42%", left: "-18%" },
+    position: { top: "42%", right: "-18%" },
     delay: 0,
     color: "#0ea5e9",
   },
@@ -36,10 +37,10 @@ const skillBadges: SkillBadge[] = [
     label: "MERN Stack",
     sublabel: "Full-Stack",
     description:
-      "Server-side JavaScript with Express.js, building RESTful APIs, authentication systems, and real-time features.",
+      "Building full-stack applications with MongoDB, Express.js, React, and Node.js.",
     repoUrl: "https://github.com/RobynAwesome/5s-Arena-Blog",
     repoName: "5s-Arena-Blog",
-    position: { top: "22%", right: "-8%" },
+    position: { top: "22%", left: "-8%" },
     delay: 0.8,
     color: "#00e89d",
   },
@@ -47,7 +48,7 @@ const skillBadges: SkillBadge[] = [
     label: "React & Node.js",
     sublabel: "Core Stack",
     description:
-      "NoSQL database design, schema modeling with Mongoose, aggregation pipelines, and optimized queries for scalable apps.",
+      "Expert in React for dynamic UIs and Node.js for scalable backend services.",
     repoUrl: "https://github.com/RobynAwesome/Bookit-5s-Arena",
     repoName: "Bookit-5s-Arena",
     position: { top: "50%", right: "-14%" },
@@ -217,10 +218,11 @@ function SkillBadgeComponent({ badge }: { badge: SkillBadge }) {
 }
 
 export default function Hero() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("rkholofelo@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -258,14 +260,345 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-12 sm:px-20 lg:px-36 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side -- Text content */}
-          <div className="max-w-xl">
+      <div
+        ref={ref}
+        className="relative z-10 max-w-5xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24 2xl:px-32 w-full max-w-7xl"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 items-center">
+          {/* Right side -- Text content (now on the right) */}
+          <div className="max-w-xl order-2 lg:order-1">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            >
+              {" "}
+              <p className="text-gray-400 text-base mb-4">Hey,</p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black leading-[0.92] mb-3">
+                I'm{" "}
+                <span className="gradient-text-green">Kholofelo.</span>
+              </h1>
+              <p className="text-gray-400 text-lg sm:text-xl mb-1">
+                A Full-Stack
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black gradient-text mb-3">
+                MERN Developer.
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 30,
+                filter: "blur(8px)",
+              }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <h3 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-10">
+                I build{" "}
+                <span className="gradient-text">apps.</span>
+              </h3>
+            </motion.div>
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+                filter: "blur(8px)",
+              }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
+              className="flex flex-col sm:flex-row items-start gap-3"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#00e89d] text-[#060d18] hover:bg-[#34d399] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#00e89d]/20"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+                Hire Me
+              </Link>
+              <button
+                onClick={copyEmail}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-[#1a2744] text-gray-300 hover:border-[#00e89d]/40 hover:text-white transition-all duration-300"
+              >
+                {copied ? (
+                  <Check size={16} className="text-[#00e89d]" />
+                ) : (
+                  <Copy size={16} />
+                )}
+                {copied ? "Copied!" : "Copy Email"}
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Left side -- Profile photo with concentric circles and floating skill badges (now on the left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -60, filter: "blur(8px)" }}
+            animate={inView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
+            transition={{
+              duration: 1,
+              delay: 0.3,
+              ease: [0.23, 1, 0.32, 1],
+            }}
+            className="relative hidden lg:flex justify-center items-center order-1 lg:order-2"
+          >
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: "700px", height: "820px" }}
+            >
+              {/* Rotating conic-gradient ring */}
+              <motion.div
+                className="absolute inset-[-6px] rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                style={{
+                  background:
+                    "conic-gradient(#00e89d, #0ea5e9, #6366f1, #00e89d)",
+                }}
+              />
+
+              {/* Concentric rounded circles behind the person (moox-style) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 1.2, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" // Centered
+                // This div is for the concentric circles, not the image itself.
+                // The image is inside a separate div below.
+                // The size of this div should be relative to the image size,
+                // or fixed to create the desired concentric circle effect.
+                style={{ width: "660px", height: "660px" }}
+              >
+                {/* Outermost circle */}
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    border: "1.5px solid rgba(14, 165, 233, 0.15)",
+                  }}
+                />
+                {/* Second circle */}
+                <div
+                  className="absolute rounded-full"
+                  style={{
+                    inset: "50px",
+                    border: "1.5px solid rgba(14, 165, 233, 0.20)",
+                  }}
+                />
+                {/* Third circle */}
+                <div
+                  className="absolute rounded-full"
+                  style={{
+                    inset: "100px",
+                    border: "1.5px solid rgba(0, 232, 157, 0.18)",
+                  }}
+                />
+                {/* Innermost circle */}
+                <div
+                  className="absolute rounded-full"
+                  style={{
+                    inset: "150px",
+                    border: "1.5px solid rgba(0, 232, 157, 0.22)",
+                  }}
+                />
+              </motion.div>
+
+              {/* Subtle radial glow behind person */}
+              <div
+                className="absolute rounded-full blur-3xl"
+                style={{
+                  width: "300px",
+                  height: "300px",
+                  top: "20%",
+                  left: "15%",
+                  background:
+                    "radial-gradient(circle, rgba(0,232,157,0.18), rgba(0,232,157,0.03), transparent)",
+                }}
+              />
+              <div
+                className="absolute rounded-full blur-3xl"
+                style={{
+                  width: "250px",
+                  height: "250px",
+                  bottom: "12%",
+                  right: "10%",
+                  background:
+                    "radial-gradient(circle, rgba(14,165,233,0.14), rgba(14,165,233,0.03), transparent)",
+                }}
+              />
+
+              {/* Profile image */}
+              <div className="relative z-[5] flex justify-center items-center">
+                {/* Changed from TransparentImage to img and src to profile.jpg */}
+                <img
+                  src="/profile.jpg"
+                  alt="Kholofelo Robyn Rababalela"
+                  className="w-[420px] xl:w-[520px] 2xl:w-[600px] object-contain drop-shadow-[0_0_40px_rgba(0,232,157,0.15)]"
+                  style={{
+                    // Apply bottom mask
+                    maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                  }}
+                />
+              </div>
+
+              {/* Clickable floating skill badges */}
+              {skillBadges.map((badge) => (
+                <SkillBadgeComponent key={badge.label} badge={badge} />
+              ))}
+
+              {/* Subtle hint text */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={
+                  inView
+                    ? { opacity: 1 }
+                    : {}
+                }
+                transition={{ delay: 2.5 }}
+                className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-gray-600 whitespace-nowrap"
+              >
+                Click any badge to explore my skills
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* Mobile skill badges -- horizontal scroll */}
+          <motion.div
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={
+              inView
+                ? { opacity: 1, y: 0, filter: "blur(0px)" }
+                : {}
+            }
+            transition={{ delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="lg:hidden flex flex-wrap gap-2 mt-4"
+          >
+            {skillBadges.map((badge) => (
+              <MobileSkillBadge key={badge.label} badge={badge} />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ArrowDown size={20} className="text-[#00e89d] opacity-40" />
+      </motion.div>
+    </section>
+  );
+}
+
+/* Mobile version of skill badge */
+function MobileSkillBadge({ badge }: { badge: SkillBadge }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setExpanded(true)}
+        className="px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition-all duration-300"
+        style={{
+          color: badge.color,
+          background: "rgba(15, 26, 48, 0.6)",
+          border: `2px solid ${badge.color}40`,
+          boxShadow: `0 0 12px ${badge.color}10`,
+        }}
+      >
+        {badge.label}
+      </button>
+
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={() => setExpanded(false)}
+          >
+            <div className="absolute inset-0 bg-[#060d18]/80 backdrop-blur-sm" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-sm rounded-2xl border border-[#1a2744] bg-[#0f1a30] p-6 shadow-2xl"
+            >
+              <button
+                onClick={() => setExpanded(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all"
+              >
+                <X size={16} />
+              </button>
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-sm font-bold"
+                style={{
+                  backgroundColor: `${badge.color}15`,
+                  color: badge.color,
+                  border: `1px solid ${badge.color}30`,
+                }}
+              >
+                {badge.label.charAt(0)}
+              </div>
+              <h3 className="text-lg font-bold text-white mb-1">
+                {badge.label}
+              </h3>
+              <p
+                className="text-xs font-medium mb-3"
+                style={{ color: badge.color }}
+              >
+                {badge.sublabel}
+              </p>
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                {badge.description}
+              </p>
+              <div className="rounded-xl border border-[#1a2744] bg-[#0b1426] p-4">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">
+                  See it in action
+                </p>
+                <a
+                  href={badge.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-[#00e89d] hover:text-[#34d399] transition-colors"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  {badge.repoName}
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }} // Added filter blur for consistency
             >
               <p className="text-gray-400 text-base mb-4">Hey,</p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.02] mb-3">
