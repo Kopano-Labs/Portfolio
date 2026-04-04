@@ -6,18 +6,20 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          // React core — changes rarely, long-lived cache
-          "vendor-react": ["react", "react-dom"],
-
-          // Router — separate from react core
-          "vendor-router": ["react-router-dom"],
-
-          // Framer Motion — largest dep, isolate so it caches independently
-          "vendor-motion": ["framer-motion"],
-
-          // Icons — lucide ships individual files, still worth isolating
-          "vendor-icons": ["lucide-react"],
+        // Vite 8 uses Rolldown which requires manualChunks as a function, not an object
+        manualChunks(id) {
+          if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/")) {
+            return "vendor-react";
+          }
+          if (id.includes("node_modules/react-router-dom") || id.includes("node_modules/react-router/")) {
+            return "vendor-router";
+          }
+          if (id.includes("node_modules/framer-motion")) {
+            return "vendor-motion";
+          }
+          if (id.includes("node_modules/lucide-react")) {
+            return "vendor-icons";
+          }
         },
       },
     },

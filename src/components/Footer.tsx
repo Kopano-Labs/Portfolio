@@ -70,7 +70,7 @@ export default function Footer() {
               </h4>
               <div className="flex flex-col gap-2">
                 {profileLinks.map((link) => (
-                  
+                  <a
                     key={link.label}
                     href={link.href}
                     target="_blank"

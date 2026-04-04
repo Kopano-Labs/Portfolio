@@ -191,7 +191,7 @@ export default function Navbar() {
 
               {/* Right controls */}
               <div className="hidden md:flex items-center gap-1 flex-shrink-0">
-                
+                <a
                   href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -200,7 +200,7 @@ export default function Navbar() {
                 >
                   <LinkedInIcon size={16} />
                 </a>
-                
+                <a
                   href="https://github.com/RobynAwesome"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -281,12 +281,20 @@ export default function Navbar() {
                     })}
 
                     <div className="flex items-center gap-2 px-4 pt-3 mt-1 border-t border-white/5">
-                      <a href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/" target="_blank" rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-white transition-colors">
+                      <a
+                        href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 text-gray-400 hover:text-white transition-colors"
+                      >
                         <LinkedInIcon size={16} />
                       </a>
-                      <a href="https://github.com/RobynAwesome" target="_blank" rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-white transition-colors">
+                      <a
+                        href="https://github.com/RobynAwesome"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 text-gray-400 hover:text-white transition-colors"
+                      >
                         <GitHubIcon size={16} />
                       </a>
                     </div>
