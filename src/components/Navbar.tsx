@@ -66,6 +66,12 @@ function NavIcon({
   );
 }
 
+function getThemeIcon(theme: Theme) {
+  if (theme === "dark") return <Moon size={16} />;
+  if (theme === "light") return <Sun size={16} />;
+  return <Monitor size={16} />;
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -109,14 +115,7 @@ export default function Navbar() {
   const cycleTheme = () =>
     setTheme((t) => (t === "dark" ? "light" : t === "light" ? "system" : "dark"));
 
- const themeIcon =
-    theme === "dark" ? (
-      <Moon size={16} />
-    ) : theme === "light" ? (
-      <Sun size={16} />
-    ) : (
-      <Monitor size={16} />
-  );
+  const themeIcon = getThemeIcon(theme);
 
   return (
     <motion.nav
@@ -149,6 +148,7 @@ export default function Navbar() {
             }}
           >
             <div className="px-5 xl:px-8 h-[60px] xl:h-[66px] flex items-center justify-between gap-4">
+
               {/* Logo */}
               <Link to="/" className="flex items-center gap-3 flex-shrink-0 group">
                 <div className="relative">
