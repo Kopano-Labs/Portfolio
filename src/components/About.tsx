@@ -15,7 +15,7 @@ export default function About() {
   const imageOpacity = useTransform(
     scrollYProgress,
     [0, 0.15, 0.85, 1],
-    [0, 1, 1, 0],
+    [0, 1, 1, 0]
   );
 
   return (
@@ -54,7 +54,8 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="relative self-stretch flex items-center perspective-[1200px] overflow-hidden"
+            className="relative self-stretch flex items-center overflow-hidden"
+            style={{ perspective: 1200 }}
           >
             <motion.div
               className="relative h-full w-full"
@@ -89,13 +90,14 @@ export default function About() {
             <p className="text-white text-base sm:text-lg leading-relaxed mb-6">
               I am a Bachelor of Eng Tech in Computer Engineering (Student) at
               Cape Peninsula University of Technology and a Freelance Web
-              Developer specializing in the MERN stack. Working primarily with Node.js, MongoDB, JavaScript,
-              HTML, and CSS, my focus is on building scalable backend
-              architectures, gorgeous frontends and intuitive, user-centered
-              designs. Since January 2026, I have been building a comprehensive
-              digital platform for 5's Arena associated with Hellenic Football
-              club, developing a custom full-stack solution that features a
-              community blog and an integrated booking system.
+              Developer specializing in the MERN stack. Working primarily with
+              Node.js, MongoDB, JavaScript, HTML, and CSS, my focus is on
+              building scalable backend architectures, gorgeous frontends and
+              intuitive, user-centered designs. Since January 2026, I have been
+              building a comprehensive digital platform for 5's Arena associated
+              with Hellenic Football club, developing a custom full-stack
+              solution that features a community blog and an integrated booking
+              system.
             </p>
 
             <Link

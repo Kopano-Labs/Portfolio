@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home, FileText, FolderOpen, Globe, Mail,
-  Sun, Moon, Monitor, Menu, X
+  Sun, Moon, Monitor, Menu, X,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -32,7 +32,11 @@ function LinkedInIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-function NavIcon({ icon: Icon, active, onClick }: {
+function NavIcon({
+  icon: Icon,
+  active,
+  onClick,
+}: {
   icon: typeof Home;
   active: boolean;
   onClick?: () => void;
@@ -94,7 +98,9 @@ export default function Navbar() {
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "system") {
-      root.className = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.className = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
     } else {
       root.className = theme;
     }
@@ -132,12 +138,13 @@ export default function Navbar() {
                 ? "rgba(11, 20, 38, 0.92)"
                 : "rgba(11, 20, 38, 0.25)",
               backdropFilter: scrolled ? "blur(28px) saturate(200%)" : "blur(8px)",
-              WebkitBackdropFilter: scrolled ? "blur(28px) saturate(200%)" : "blur(8px)",
+              WebkitBackdropFilter: scrolled
+                ? "blur(28px) saturate(200%)"
+                : "blur(8px)",
               boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.4)" : "none",
             }}
           >
             <div className="px-5 xl:px-8 h-[60px] xl:h-[66px] flex items-center justify-between gap-4">
-
               {/* Logo */}
               <Link to="/" className="flex items-center gap-3 flex-shrink-0 group">
                 <div className="relative">
@@ -172,16 +179,25 @@ export default function Navbar() {
                         <motion.div
                           layoutId="nav-active-pill"
                           className="absolute inset-0 rounded-xl"
-                          style={{ background: "rgba(0,232,157,0.1)", border: "1px solid rgba(0,232,157,0.2)" }}
+                          style={{
+                            background: "rgba(0,232,157,0.1)",
+                            border: "1px solid rgba(0,232,157,0.2)",
+                          }}
                           transition={{ type: "spring", stiffness: 400, damping: 30 }}
                         />
                       )}
-                      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        style={{ background: "rgba(255,255,255,0.04)" }} />
+                      <div
+                        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        style={{ background: "rgba(255,255,255,0.04)" }}
+                      />
                       <NavIcon icon={Icon} active={active} />
-                      <span className={`relative text-xs xl:text-sm font-semibold transition-colors duration-200 ${
-                        active ? "text-[#00e89d]" : "text-gray-400 group-hover:text-white"
-                      }`}>
+                      <span
+                        className={`relative text-xs xl:text-sm font-semibold transition-colors duration-200 ${
+                          active
+                            ? "text-[#00e89d]"
+                            : "text-gray-400 group-hover:text-white"
+                        }`}
+                      >
                         {link.label}
                       </span>
                     </Link>
@@ -191,7 +207,7 @@ export default function Navbar() {
 
               {/* Right controls */}
               <div className="hidden md:flex items-center gap-1 flex-shrink-0">
-                <a
+                
                   href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -200,7 +216,7 @@ export default function Navbar() {
                 >
                   <LinkedInIcon size={16} />
                 </a>
-                <a
+                
                   href="https://github.com/RobynAwesome"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -226,7 +242,11 @@ export default function Navbar() {
 
               {/* Mobile controls */}
               <div className="md:hidden flex items-center gap-1">
-                <button onClick={cycleTheme} className="p-2 text-gray-400 hover:text-white" aria-label="Toggle theme">
+                <button
+                  onClick={cycleTheme}
+                  className="p-2 text-gray-400 hover:text-white"
+                  aria-label="Toggle theme"
+                >
                   {themeIcon}
                 </button>
                 <button
@@ -236,11 +256,23 @@ export default function Navbar() {
                 >
                   <AnimatePresence mode="wait">
                     {menuOpen ? (
-                      <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                      <motion.div
+                        key="x"
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <X size={20} />
                       </motion.div>
                     ) : (
-                      <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                      <motion.div
+                        key="menu"
+                        initial={{ rotate: 90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: -90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <Menu size={20} />
                       </motion.div>
                     )}
@@ -281,7 +313,7 @@ export default function Navbar() {
                     })}
 
                     <div className="flex items-center gap-2 px-4 pt-3 mt-1 border-t border-white/5">
-                      <a
+                      
                         href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -289,7 +321,7 @@ export default function Navbar() {
                       >
                         <LinkedInIcon size={16} />
                       </a>
-                      <a
+                      
                         href="https://github.com/RobynAwesome"
                         target="_blank"
                         rel="noopener noreferrer"
