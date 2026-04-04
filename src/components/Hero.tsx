@@ -69,7 +69,7 @@ export default function Hero() {
           <motion.h1
             {...fadeUp}
             transition={{ duration: 0.85, delay: 0.12, ease: [0.23, 1, 0.32, 1] }}
-            className="font-black leading-[0.88] tracking-tight mb-1"
+            className="font-black leading-[0.88] tracking-tight pb-1 mb-1"
             style={{
               fontSize: "clamp(2.8rem, 6vw, 6.5rem)",
               background: "linear-gradient(135deg, #00e89d 0%, #0ea5e9 60%)",

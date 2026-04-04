@@ -266,96 +266,69 @@ function TechTicker() {
   );
 }
 
-// ─── GRAVATAR PHONE CARD ──────────────────────────────────────────────────────
-// Miniature Gravatar hovercard rendered inside the phone screen.
-// Profile: gravatar.com/jovialf0e68b2209 | Color: #ffae00
+// ─── PORTFOLIO PHONE PREVIEW ─────────────────────────────────────────────────
+// Miniature portfolio website rendered inside the phone screen.
 
-function GravatarPhoneCard() {
+function PortfolioPhoneScreen() {
   return (
-    <div style={{ background: "#0f172a", minHeight: "100%" }}>
+    <div style={{ background: "#060d18", minHeight: "100%", fontFamily: "system-ui, sans-serif" }}>
       {/* URL bar */}
-      <div className="px-2 pt-2">
-        <div className="flex items-center gap-1 px-2 py-1.5 rounded mb-2" style={{ background: "#1e293b" }}>
-          <div className="w-3 h-3 rounded-full" style={{ background: "#334155" }} />
-          <span className="text-[8px] truncate" style={{ color: "#64748b" }}>gravatar.com/jovialf0e68b2209</span>
-          <span className="ml-auto text-[9px]" style={{ color: "#475569" }}>↻</span>
+      <div className="px-2.5 pt-2.5 pb-1.5">
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#00e89d" }} />
+          <span className="text-[7px] tracking-wide flex-1 truncate" style={{ color: "#64748b" }}>kholofelorababalela.vercel.app</span>
+          <span className="text-[8px]" style={{ color: "#475569" }}>↻</span>
         </div>
       </div>
 
-      {/* Card body */}
-      <div className="mx-2 mb-3 rounded-xl overflow-hidden" style={{ background: "#1e293b", border: "1px solid #334155" }}>
-        {/* Header banner — Gravatar profile color #ffae00 */}
-        <div className="h-9" style={{ background: "url('https://2.gravatar.com/userimage/279223010/3f8d9b744e8c3665d2995235a902b24e?size=1024') 100% 50% / 29% repeat, linear-gradient(135deg, #92400e, #ffae00)" }} />
-
-        {/* Profile */}
-        <div className="px-2.5 pb-2.5">
-          <div className="flex items-end gap-2 -mt-4 mb-2">
-            {/* Avatar */}
-            <div className="w-9 h-9 rounded-full border-2 flex-shrink-0 overflow-hidden" style={{ borderColor: "#1e293b" }}>
-              <img
-                src="https://2.gravatar.com/avatar/08107e03e012b36b988b84c76fb68380d861a935857d017b9690890ec61f5296?s=72&d=initials"
-                alt="Kholofelo"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex-1 min-w-0 mb-0.5">
-              <p className="text-[8.5px] font-bold leading-tight truncate" style={{ color: "#f1f5f9" }}>
-                Kholofelo Robyn Rababalela
-              </p>
-              <p className="text-[7px] leading-tight" style={{ color: "#94a3b8" }}>
-                Freelance Full-stack Developer
-              </p>
-            </div>
+      {/* Mini hero */}
+      <div className="px-3 pt-1 pb-3">
+        {/* Nav stub */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="w-5 h-5 rounded-full overflow-hidden border" style={{ borderColor: "rgba(0,232,157,0.5)" }}>
+            <img src="/web-image-2.JPG" alt="K" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
           </div>
-
-          {/* Job + location */}
-          <p className="text-[6.5px] mb-1.5" style={{ color: "#64748b" }}>
-            Ama_Phu Ent. · 🇿🇦 South Africa
-          </p>
-
-          {/* Bio */}
-          <p className="text-[6.5px] leading-[1.45] mb-2" style={{ color: "#94a3b8" }}>
-            Computer Engineering @ CPUT. Building MERN stack apps for 5's Arena &amp; Hellenic FC. Into cybersecurity &amp; high-performance computing.
-          </p>
-
-          {/* Social icons */}
-          <div className="flex items-center gap-1.5 mb-2">
-            {/* Gravatar */}
-            <div className="w-[18px] h-[18px] rounded-full flex items-center justify-center" style={{ background: "#1d4ed8" }}>
-              <span style={{ color: "white", fontSize: "7px", fontWeight: 700, lineHeight: 1 }}>G</span>
-            </div>
-            {/* LinkedIn */}
-            <div className="w-[18px] h-[18px] rounded flex items-center justify-center" style={{ background: "#0a66c2" }}>
-              <span style={{ color: "white", fontSize: "6px", fontWeight: 700, lineHeight: 1 }}>in</span>
-            </div>
-            {/* GitHub */}
-            <div className="w-[18px] h-[18px] rounded-full flex items-center justify-center" style={{ background: "#24292e" }}>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" /></svg>
-            </div>
-            {/* Stack Overflow */}
-            <div className="w-[18px] h-[18px] rounded flex items-center justify-center" style={{ background: "#f48024" }}>
-              <span style={{ color: "white", fontSize: "6px", fontWeight: 700, lineHeight: 1 }}>so</span>
-            </div>
+          <div className="flex gap-1.5">
+            {["Home","About","Projects"].map((n) => (
+              <span key={n} className="text-[5.5px] font-semibold" style={{ color: "rgba(255,255,255,0.3)" }}>{n}</span>
+            ))}
           </div>
-
-          {/* View profile button */}
-          <a
-            href="https://gravatar.com/jovialf0e68b2209"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-lg py-1 text-center"
-            style={{ background: "rgba(255,174,0,0.12)", border: "1px solid rgba(255,174,0,0.35)" }}
-          >
-            <span className="text-[7px] font-semibold" style={{ color: "#ffae00" }}>
-              View profile →
-            </span>
-          </a>
         </div>
-      </div>
 
-      {/* Gravatar footer link */}
-      <div className="text-center pb-2">
-        <span className="text-[6px]" style={{ color: "#1e293b" }}>gravatar.com</span>
+        {/* Name block */}
+        <p className="text-[6px] font-mono tracking-[0.2em] uppercase mb-1.5" style={{ color: "#00e89d" }}>Full-Stack MERN Developer</p>
+        <p className="text-[12px] font-black leading-none text-white">Kholofelo</p>
+        <p className="text-[12px] font-black leading-none pb-0.5" style={{
+          background: "linear-gradient(135deg, #00e89d, #0ea5e9)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}>Robyn</p>
+        <p className="text-[12px] font-black leading-none text-white mb-2">Rababalela<span style={{ color: "#00e89d" }}>.</span></p>
+
+        {/* Divider */}
+        <div className="h-[1px] w-8 mb-2.5" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
+
+        {/* Skill pills */}
+        <div className="flex flex-wrap gap-1 mb-3">
+          {["React","Node.js","MongoDB","TypeScript"].map((s) => (
+            <span key={s} className="px-1.5 py-0.5 rounded text-[5.5px] font-semibold" style={{ background: "rgba(0,232,157,0.1)", border: "1px solid rgba(0,232,157,0.2)", color: "#00e89d" }}>{s}</span>
+          ))}
+        </div>
+
+        {/* Mini project card */}
+        <div className="rounded-xl overflow-hidden" style={{ background: "rgba(15,23,42,0.7)", border: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="h-[1px] w-full" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
+          <div className="px-2 py-2">
+            <p className="text-[5px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "#00e89d" }}>Featured Project</p>
+            <p className="text-[7.5px] font-black text-white leading-tight">Bookit — 5's Arena</p>
+            <p className="text-[5.5px] mt-0.5 leading-relaxed" style={{ color: "#64748b" }}>Full-stack MERN booking platform for Hellenic FC</p>
+            <div className="flex gap-1 mt-1.5">
+              <span className="text-[4.5px] px-1.5 py-0.5 rounded-full font-bold" style={{ background: "rgba(0,232,157,0.15)", color: "#00e89d" }}>View Code</span>
+              <span className="text-[4.5px] px-1.5 py-0.5 rounded-full font-bold" style={{ background: "transparent", border: "1px solid rgba(0,232,157,0.3)", color: "#00e89d" }}>Live Demo</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -368,7 +341,7 @@ function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const rawPhoneY = useTransform(scrollYProgress, [0, 1], [80, -120]);
+  const rawPhoneY = useTransform(scrollYProgress, [0, 1], [150, -250]);
   const phoneY = useSpring(rawPhoneY, { stiffness: 70, damping: 18 });
   const phoneOpacity = useTransform(scrollYProgress, [0, 0.12, 0.72, 1], [0, 1, 1, 0]);
   const phoneScale = useTransform(scrollYProgress, [0, 0.12, 0.8, 1], [0.88, 1, 1, 0.9]);
@@ -437,19 +410,22 @@ function AboutSection() {
 
           {/* Right: Phone with Gravatar card */}
           <div className="flex items-center justify-center lg:justify-end">
-            <motion.div style={{ y: phoneY, opacity: phoneOpacity, scale: phoneScale }} className="relative w-[280px] sm:w-[300px]">
+            <motion.div
+              style={{ y: phoneY, opacity: phoneOpacity, scale: phoneScale, rotateY: "5deg", perspective: "1200px" }}
+              className="relative w-[340px] sm:w-[380px] lg:w-[420px]"
+            >
               {/* Glow halo */}
-              <div className="absolute inset-0 rounded-[42px] pointer-events-none" style={{ boxShadow: "0 0 80px rgba(0,232,157,0.28), 0 0 160px rgba(14,165,233,0.14)", filter: "blur(3px)" }} />
+              <div className="absolute inset-0 rounded-[42px] pointer-events-none" style={{ boxShadow: "0 0 100px rgba(0,232,157,0.35), 0 0 200px rgba(14,165,233,0.18)", filter: "blur(4px)" }} />
 
               {/* Phone shell */}
-              <div className="relative rounded-[42px] border overflow-hidden" style={{ borderColor: "rgba(0,232,157,0.4)", background: "#0f172a", boxShadow: "inset 0 0 20px rgba(0,0,0,0.6), 0 32px 80px rgba(0,0,0,0.7)" }}>
+              <div className="relative rounded-[42px] border overflow-hidden" style={{ borderColor: "rgba(0,232,157,0.45)", background: "#060d18", boxShadow: "inset 0 0 24px rgba(0,0,0,0.7), 0 40px 100px rgba(0,0,0,0.8)" }}>
                 {/* Dynamic Island */}
                 <div className="relative pt-3 flex justify-center">
                   <div className="w-28 h-7 bg-black rounded-full" />
                 </div>
 
-                {/* Gravatar card as screen content */}
-                <GravatarPhoneCard />
+                {/* Portfolio preview as screen content */}
+                <PortfolioPhoneScreen />
               </div>
             </motion.div>
           </div>

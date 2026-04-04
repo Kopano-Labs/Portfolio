@@ -177,7 +177,7 @@ export default function Navbar() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className="group relative flex items-center gap-2 px-3 xl:px-4 py-2 rounded-xl transition-all duration-200"
+                      className="group relative flex items-center gap-2 px-3 xl:px-4 py-2 rounded-xl transition-all duration-200 hover:bg-white/[0.04]"
                     >
                       {active && (
                         <motion.div
@@ -190,10 +190,6 @@ export default function Navbar() {
                           transition={{ type: "spring", stiffness: 400, damping: 30 }}
                         />
                       )}
-                      <div
-                        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        style={{ background: "rgba(255,255,255,0.04)" }}
-                      />
                       <NavIcon icon={Icon} active={active} />
                       <span
                         className={`relative text-xs xl:text-sm font-semibold transition-colors duration-200 ${
@@ -211,7 +207,7 @@ export default function Navbar() {
 
               {/* Right controls */}
               <div className="hidden md:flex items-center gap-1 flex-shrink-0">
-                
+                <a
                   href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -220,7 +216,7 @@ export default function Navbar() {
                 >
                   <LinkedInIcon size={16} />
                 </a>
-                
+                <a
                   href="https://github.com/RobynAwesome"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -317,7 +313,7 @@ export default function Navbar() {
                     })}
 
                     <div className="flex items-center gap-2 px-4 pt-3 mt-1 border-t border-white/5">
-                      
+                      <a
                         href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -325,7 +321,7 @@ export default function Navbar() {
                       >
                         <LinkedInIcon size={16} />
                       </a>
-                      
+                      <a
                         href="https://github.com/RobynAwesome"
                         target="_blank"
                         rel="noopener noreferrer"

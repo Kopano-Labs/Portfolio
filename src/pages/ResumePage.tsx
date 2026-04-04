@@ -347,7 +347,7 @@ export default function ResumePage() {
               initial={{ opacity: 0, y: 24 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.13 }}
-              className="font-black leading-[0.9] tracking-tight mb-1"
+              className="font-black leading-[0.9] tracking-tight pb-1 mb-1"
               style={{
                 fontSize: "clamp(2.2rem, 5vw, 5.5rem)",
                 background: "linear-gradient(135deg, #00e89d 0%, #0ea5e9 60%)",
