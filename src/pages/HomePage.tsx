@@ -69,39 +69,6 @@ function HeroSection() {
           transition={{ duration: 1.3, ease: "easeInOut", delay: 0.6 }}
         />
 
-        {/* Corner accent lines that pop in */}
-        {[
-          "top-4 left-4 border-t-2 border-l-2",
-          "top-4 right-4 border-t-2 border-r-2",
-          "bottom-4 left-4 border-b-2 border-l-2",
-          "bottom-4 right-4 border-b-2 border-r-2",
-        ].map((cls, i) => (
-          <motion.span
-            key={i}
-            className={`absolute w-8 h-8 border-[#00e89d] ${cls} z-10`}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              delay: 0.9 + i * 0.08,
-              type: "spring",
-              stiffness: 300,
-              damping: 18,
-            }}
-          />
-        ))}
-
-        {/* Breathing glow overlay */}
-        <motion.div
-          className="absolute inset-0 z-10 pointer-events-none"
-          animate={{
-            background: [
-              "radial-gradient(ellipse at 30% 70%, rgba(0,232,157,0.06) 0%, transparent 60%)",
-              "radial-gradient(ellipse at 30% 70%, rgba(0,232,157,0.12) 0%, transparent 60%)",
-              "radial-gradient(ellipse at 30% 70%, rgba(0,232,157,0.06) 0%, transparent 60%)",
-            ],
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
 
         <img
           src="/profile.jpg"
@@ -189,7 +156,7 @@ function HeroSection() {
             </motion.h1>
           </div>
 
-          <div className="overflow-hidden mb-1">
+          <div className="overflow-visible pb-1 mb-1">
             <motion.h1
               className="font-black leading-[0.88] tracking-tight"
               style={{
@@ -204,7 +171,6 @@ function HeroSection() {
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 0.85, delay: 0.13, ease: [0.23, 1, 0.32, 1] }}
               whileHover={{
-                /* crossover: slide right, come back, slide left, come back */
                 x: [0, 10, -6, 4, 0],
                 filter: [
                   "brightness(1)",
