@@ -109,10 +109,14 @@ export default function Navbar() {
   const cycleTheme = () =>
     setTheme((t) => (t === "dark" ? "light" : t === "light" ? "system" : "dark"));
 
-  const themeIcon =
-    theme === "dark" ? <Moon size={16} /> :
-    theme === "light" ? <Sun size={16} /> :
-    <Monitor size={16} />;
+ const themeIcon =
+    theme === "dark" ? (
+      <Moon size={16} />
+    ) : theme === "light" ? (
+      <Sun size={16} />
+    ) : (
+      <Monitor size={16} />
+  );
 
   return (
     <motion.nav
