@@ -623,7 +623,7 @@ function SkillsSection() {
         )}
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.7 }} className="mt-14 flex justify-center">
-          <motion.a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-[#00e89d]/40 px-8 py-4 text-base font-bold text-[#00e89d] transition-all duration-300 hover:border-[#00e89d]/60 hover:bg-[#00e89d]/10" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.a href="/resume" className="inline-flex items-center gap-2 rounded-full border-2 border-[#00e89d]/40 px-8 py-4 text-base font-bold text-[#00e89d] transition-all duration-300 hover:border-[#00e89d]/60 hover:bg-[#00e89d]/10" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             Check my resume <ArrowRight size={20} />
           </motion.a>
         </motion.div>
