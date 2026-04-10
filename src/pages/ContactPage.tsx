@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   Mail,
@@ -12,19 +12,18 @@ import {
   CheckCircle,
   DollarSign,
   Coffee,
-  ArrowRight,
   Sparkles,
-  Phone,
   Clock,
   Zap,
+  Loader2,
 } from "lucide-react";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] },
+    transition: { duration: 0.7, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] as [number, number, number, number] },
   }),
 };
 
@@ -145,16 +144,33 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
+    website: "", // honeypot — hidden from humans
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:rkholofelo@gmail.com?subject=${encodeURIComponent(
-      formData.subject || `Message from ${formData.name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "", website: "" });
+      } else {
+        setStatus("error");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMsg("Network error. Please try again.");
+    }
   };
 
   return (
@@ -164,7 +180,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#00e89d]/15 via-[#0ea5e9]/10 to-[#a855f7]/15" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#0ea5e9]/5 blur-3xl" />
 
-        <div className="relative max-w-5xl mx-auto px-12 sm:px-20 lg:px-36 py-20 sm:py-28">
+        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-20 sm:py-28">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -232,7 +248,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-12 sm:px-20 lg:px-36 space-y-24">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 space-y-24">
         {/* Contact Bento Grid — bright colored blocks */}
         <SectionBlock>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-10 flex items-center gap-3">
@@ -288,10 +304,13 @@ export default function ContactPage() {
                   </p>
                 </div>
                 {block.href !== "#" && (
-                  <ArrowRight
-                    size={18}
+                  <svg
+                    width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                     className="absolute top-7 right-7 text-gray-600 group-hover:text-[#00e89d] group-hover:translate-x-1 transition-all"
-                  />
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 )}
               </motion.a>
             ))}
@@ -369,75 +388,82 @@ export default function ContactPage() {
               </p>
 
               <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
+                {/* Honeypot — hidden from humans, bots fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-bold text-gray-300 mb-2">
-                      Name
-                    </label>
+                    <label className="block text-sm font-bold text-gray-300 mb-2">Name</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 focus:shadow-lg focus:shadow-[#00e89d]/10 transition-all"
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 transition-all"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-300 mb-2">
-                      Email
-                    </label>
+                    <label className="block text-sm font-bold text-gray-300 mb-2">Email</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 focus:shadow-lg focus:shadow-[#00e89d]/10 transition-all"
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Subject
-                  </label>
+                  <label className="block text-sm font-bold text-gray-300 mb-2">Subject</label>
                   <input
                     type="text"
                     value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 focus:shadow-lg focus:shadow-[#00e89d]/10 transition-all"
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 transition-all"
                     placeholder="What's this about?"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Message
-                  </label>
+                  <label className="block text-sm font-bold text-gray-300 mb-2">Message</label>
                   <textarea
                     required
                     rows={6}
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 focus:shadow-lg focus:shadow-[#00e89d]/10 transition-all resize-none"
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-5 py-4 rounded-2xl border-2 border-[#1a2744] bg-[#0b1426]/80 text-white placeholder-gray-600 focus:outline-none focus:border-[#00e89d]/50 transition-all resize-none"
                     placeholder="Tell me about your project or opportunity..."
                   />
                 </div>
+                {status === "error" && (
+                  <p className="text-red-400 text-sm">{errorMsg}</p>
+                )}
+                {status === "success" && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-[#00e89d] text-sm font-semibold flex items-center gap-2"
+                  >
+                    <CheckCircle size={16} /> Message sent! I'll get back to you within 24 hours.
+                  </motion.p>
+                )}
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-base font-bold bg-gradient-to-r from-[#00e89d] to-[#34d399] text-[#060d18] shadow-xl shadow-[#00e89d]/30 hover:shadow-2xl hover:shadow-[#00e89d]/40 transition-all duration-300"
+                  disabled={status === "loading" || status === "success"}
+                  whileHover={status === "idle" ? { scale: 1.05 } : {}}
+                  whileTap={status === "idle" ? { scale: 0.95 } : {}}
+                  className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-base font-bold bg-gradient-to-r from-[#00e89d] to-[#34d399] text-[#060d18] shadow-xl shadow-[#00e89d]/30 transition-all duration-200 disabled:opacity-60"
                 >
-                  <Send size={18} />
-                  Send Message
+                  {status === "loading" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+                  {status === "loading" ? "Sending..." : status === "success" ? "Sent!" : "Send Message"}
                 </motion.button>
               </form>
             </div>

@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify static assets exist
+        run: |
+          files=(
+            "dist/index.html"
+            "public/cv/computer-eng-student.pdf"
+            "public/cv/fullstack-developer.pdf"
+            "public/cv/web-developer.pdf"
+            "public/cv/software-developer.pdf"
+            "public/cv/frontend-backend-developer.pdf"
+            "public/og-image.jpg"
+            "public/favicon.ico"
+          )
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"
+              exit 1
+            else
+              echo "OK: $f"
+            fi
+          done

@@ -151,7 +151,7 @@ export default function Projects() {
                         <p>{project.impact}</p>
                       </>
                     )}
-                  </p>
+                  </div>
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techs.map((tech) => (

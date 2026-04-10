@@ -1,4 +1,4 @@
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   Github,
@@ -23,12 +23,13 @@ import Certificates from "../components/Certificates";
 
 type ViewMode = "normal" | "crazy" | "redMono";
 
-const fadeUp = {
+const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: [0.23, 1, 0.32, 1] },
+    transition: { duration: 0.7, delay: i * 0.12, ease: EASE },
   }),
 };
 

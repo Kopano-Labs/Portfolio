@@ -345,7 +345,7 @@ export default function ProjectsPage() {
           <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#a855f7]/5 blur-[120px]" />
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-8 sm:px-16 lg:px-24 py-20 sm:py-28">
+        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-20 sm:py-28">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -398,7 +398,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="max-w-6xl mx-auto px-8 sm:px-16 lg:px-24">
+      <section className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
@@ -407,7 +407,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* GitHub CTA */}
-      <section className="max-w-6xl mx-auto px-8 sm:px-16 lg:px-24 mt-20">
+      <section className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-16 mt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

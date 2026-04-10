@@ -1,9 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import {
-  Download, MapPin, Github, Linkedin, Mail, ExternalLink,
+  MapPin, Github, Linkedin, Mail, ExternalLink,
   Briefcase, GraduationCap, Code2, Award, ChevronRight,
 } from "lucide-react";
+import CVDownloadButton from "../components/cv-download/CVDownloadButton";
+import CVPickerModal from "../components/cv-download/CVPickerModal";
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
@@ -62,7 +64,7 @@ const projects = [
 
 /* ─── Sub-components ────────────────────────────────────────────── */
 
-function SectionTitle({ icon: Icon, label }: { icon: React.FC<{ size?: number; className?: string }>; label: string }) {
+function SectionTitle({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
   return (
     <div className="flex items-center gap-3 mb-6">
       <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,232,157,0.12)", border: "1px solid rgba(0,232,157,0.2)" }}>
@@ -104,7 +106,7 @@ function SkillBar({ label, pct, delay }: { label: string; pct: number; delay: nu
 /* ─── Page ──────────────────────────────────────────────────────── */
 
 export default function ResumePage() {
-  const [downloadHovered, setDownloadHovered] = useState(false);
+  const [cvModalOpen, setCvModalOpen] = useState(false);
   const panelRef = useRef(null);
   const panelInView = useInView(panelRef, { once: true });
 
@@ -256,27 +258,7 @@ export default function ResumePage() {
                 </div>
 
                 {/* Download button under photo */}
-                <motion.a
-                  href="/Kholofelo_Robyn_CV.pdf"
-                  download
-                  className="mt-3 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 w-full justify-center"
-                  style={{
-                    background: downloadHovered ? "linear-gradient(135deg, #00e89d, #34d399)" : "rgba(0,232,157,0.1)",
-                    border: "1px solid rgba(0,232,157,0.3)",
-                    color: downloadHovered ? "#060d18" : "#00e89d",
-                  }}
-                  onMouseEnter={() => setDownloadHovered(true)}
-                  onMouseLeave={() => setDownloadHovered(false)}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  animate={{
-                    boxShadow: ["0 0 0px #00e89d00", "0 0 14px #00e89d44", "0 0 0px #00e89d00"],
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Download size={13} />
-                  Download CV
-                </motion.a>
+                <CVDownloadButton variant="inline" onClick={() => setCvModalOpen(true)} />
               </motion.div>
             </div>
 
@@ -432,24 +414,10 @@ export default function ResumePage() {
       </motion.div>
 
       {/* Floating download button (bottom-right) */}
-      <motion.a
-        href="/Kholofelo_Robyn_CV.pdf"
-        download
-        className="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-bold shadow-2xl"
-        style={{
-          background: "linear-gradient(135deg, #00e89d, #34d399)",
-          color: "#060d18",
-          boxShadow: "0 8px 32px rgba(0,232,157,0.35)",
-        }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        whileHover={{ scale: 1.07, boxShadow: "0 12px 48px rgba(0,232,157,0.5)" }}
-        whileTap={{ scale: 0.96 }}
-      >
-        <Download size={16} />
-        Download CV
-      </motion.a>
+      <CVDownloadButton variant="floating" onClick={() => setCvModalOpen(true)} />
+
+      {/* CV Picker Modal */}
+      <CVPickerModal isOpen={cvModalOpen} onClose={() => setCvModalOpen(false)} />
     </main>
   );
 }

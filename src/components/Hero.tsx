@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Copy, Check, ArrowRight } from "lucide-react";
+import { Copy, Check, ArrowRight, Eye, Download } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 32, filter: "blur(8px)" },
@@ -110,29 +110,37 @@ export default function Hero() {
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.8, delay: 0.36, ease: [0.23, 1, 0.32, 1] }}
-            className="flex flex-col sm:flex-row items-start gap-4 mb-14"
+            className="flex flex-wrap items-start gap-3 mb-14"
           >
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00e89d]/25"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-[#00e89d]/25"
               style={{ background: "linear-gradient(135deg, #00e89d, #34d399)" }}
             >
               Hire Me
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm border border-white/10 text-gray-300 hover:border-[#0ea5e9]/40 hover:text-white transition-all duration-200"
+            >
+              <Eye size={16} />
+              View Work
+            </Link>
+            <Link
+              to="/resume"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm border border-white/10 text-gray-300 hover:border-[#00e89d]/40 hover:text-white transition-all duration-200"
+            >
+              <Download size={16} />
+              Download CV
+            </Link>
             <button
               onClick={copyEmail}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm border border-white/10 text-gray-300 hover:border-[#00e89d]/40 hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm border border-white/10 text-gray-300 hover:border-[#00e89d]/40 hover:text-white transition-all duration-200"
             >
               <AnimatePresence mode="wait">
                 {copied ? (
-                  <motion.span
-                    key="check"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    className="text-[#00e89d]"
-                  >
+                  <motion.span key="check" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="text-[#00e89d]">
                     <Check size={16} />
                   </motion.span>
                 ) : (

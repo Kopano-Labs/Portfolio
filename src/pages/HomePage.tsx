@@ -7,6 +7,7 @@ import {
   useTransform,
   useSpring,
   useInView,
+  type Variants,
 } from "framer-motion";
 import {
   ArrowRight,
@@ -33,13 +34,14 @@ function HeroSection() {
     show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
   };
 
-  const slideUp = {
+  const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
+  const slideUp: Variants = {
     hidden: { opacity: 0, y: 60, filter: "blur(8px)" },
     show: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.85, ease: [0.23, 1, 0.32, 1] },
+      transition: { duration: 0.85, ease: EASE },
     },
   };
 

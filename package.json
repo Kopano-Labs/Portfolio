@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:server": "cd server && node --watch server.js",
     "build": "vite build",
     "preview": "vite preview",
-    "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./src/index.css --watch"
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run build"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
@@ -19,10 +19,13 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
     "vite": "^8.0.1"
   },
   "description": "Full-Stack Developer",
