@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Copy, Check, ArrowRight, Eye, Download } from "lucide-react";
 
@@ -11,6 +11,9 @@ const fadeUp = {
 export default function Hero() {
   const [copied, setCopied] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("rkholofelo@gmail.com");
@@ -21,24 +24,53 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      ref={heroRef}
       className="relative min-h-screen overflow-hidden flex flex-col lg:flex-row"
     >
       {/* ── PHOTO — Full-bleed left panel ── */}
       <div className="relative w-full h-[60vh] lg:h-auto lg:w-[48%] xl:w-[46%] 2xl:w-[44%] flex-shrink-0 overflow-hidden">
-        {!imgError ? (
-          <img
-            src="/profile.jpg"
-            alt="Kholofelo Robyn Rababalela"
-            onError={() => setImgError(true)}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 15%" }}
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0b1a36] to-[#060d18]" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#060d18]" />
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-transparent via-transparent to-[#060d18]" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#060d18]/60 to-transparent" />
+        {/* Parallax image wrapper */}
+        <motion.div
+          className="absolute inset-0 w-full"
+          style={{ y: photoY, height: "120%", top: "-10%" }}
+        >
+          {!imgError ? (
+            <img
+              src="/profile.jpg"
+              alt="Kholofelo Robyn Rababalela"
+              onError={() => setImgError(true)}
+              className="w-full h-full object-cover hero-profile-img"
+              style={{ objectPosition: "center 15%" }}
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-[#0b1a36] to-[#060d18]" />
+          )}
+        </motion.div>
+
+        {/* Film grain overlay — editorial quality */}
+        <div
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")`,
+            opacity: 0.35,
+            mixBlendMode: "overlay",
+          }}
+        />
+
+        {/* Multi-stop right fade — blends into dark panel */}
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, transparent 30%, rgba(6,13,24,0.3) 55%, rgba(6,13,24,0.75) 72%, #060d18 92%)" }} />
+
+        {/* Mobile bottom fade */}
+        <div className="absolute inset-0 lg:hidden z-10" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(6,13,24,0.6) 70%, #060d18 95%)" }} />
+
+        {/* Top vignette */}
+        <div className="absolute top-0 left-0 right-0 h-40 z-10" style={{ background: "linear-gradient(to bottom, rgba(6,13,24,0.55), transparent)" }} />
+
+        {/* Green light leak — where photo meets text panel */}
+        <div className="absolute top-0 right-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, transparent, rgba(0,232,157,0.04) 60%, transparent)" }} />
+
+        {/* Bottom soft arc (subtle) */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 z-10 lg:hidden" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(6,13,24,0.9) 0%, transparent 70%)" }} />
       </div>
 
       {/* ── TEXT — Right panel ── */}
