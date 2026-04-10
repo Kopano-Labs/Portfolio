@@ -177,7 +177,7 @@ function HeroSection() {
               whileHover={{ scale: 1.07, boxShadow: "0 0 36px rgba(0,232,157,0.45), 0 0 12px rgba(0,232,157,0.3)" }}
               whileTap={{ scale: 0.94 }}
             >
-              <Link to="/contact" className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-300" style={{ background: "linear-gradient(135deg, #00e89d, #34d399)" }}>
+              <Link to="/contact" className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-300 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00e89d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d18]" style={{ background: "linear-gradient(135deg, #00e89d, #34d399)" }}>
                 Hire Me
                 <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}><ArrowRight size={16} /></motion.span>
               </Link>
@@ -284,78 +284,121 @@ function TechTicker() {
 // ─── PORTFOLIO PHONE PREVIEW ─────────────────────────────────────────────────
 // Miniature portfolio website rendered inside the phone screen.
 
-function PortfolioPhoneScreen() {
+// LinkedIn mobile profile mockup — pixel-accurate to the real app
+function LinkedInPhoneScreen() {
   return (
-    <div className="relative w-full h-full overflow-hidden" style={{ background: "#000", borderRadius: "inherit" }}>
-      {/* Screen content */}
-      <div style={{ background: "#060d18", height: "100%", fontFamily: "system-ui, sans-serif", padding: "0" }}>
-        {/* Status bar */}
-        <div className="flex items-center justify-between px-5 pt-2 pb-1">
-          <span className="text-[9px] font-semibold text-white/80">9:41</span>
-          <div className="flex items-center gap-1">
-            <svg width="12" height="9" viewBox="0 0 16 12" fill="white" opacity="0.7"><path d="M1 7h2v4H1zM5 5h2v6H5zM9 3h2v8H9zM13 0h2v11h-2z"/></svg>
-            <svg width="12" height="9" viewBox="0 0 16 12" fill="white" opacity="0.7"><path d="M0 4.5C2.6 1.5 6 0 8 0s5.4 1.5 8 4.5l-1.3 1.3C12.4 3.3 10 2 8 2S3.6 3.3 1.3 5.8z"/><path d="M3 7.5C4.5 5.8 6.2 5 8 5s3.5.8 5 2.5l-1.2 1.3C10.6 7.3 9.3 7 8 7s-2.6.3-3.8 1.8z"/><circle cx="8" cy="10.5" r="1.5"/></svg>
-            <svg width="18" height="9" viewBox="0 0 25 12" fill="none" stroke="white" opacity="0.7" strokeWidth="1"><rect x="0.5" y="1" width="20" height="10" rx="2"/><rect x="2" y="3" width="14" height="6" rx="1" fill="#00e89d"/><rect x="21.5" y="4" width="2" height="4" rx="0.5" fill="white" opacity="0.4"/></svg>
-          </div>
+    <div className="w-full h-full overflow-hidden" style={{ background: "#f3f2ef", fontFamily: "-apple-system, 'Helvetica Neue', sans-serif" }}>
+
+      {/* ── Status bar (white on LinkedIn blue) */}
+      <div className="flex items-center justify-between px-4 pt-2 pb-1" style={{ background: "#0A66C2" }}>
+        <span className="text-[9px] font-semibold text-white">9:41</span>
+        <div className="flex items-center gap-1">
+          {/* Signal */}
+          <svg width="11" height="8" viewBox="0 0 16 12" fill="white"><path d="M1 7h2v4H1zM5 5h2v6H5zM9 3h2v8H9zM13 0h2v11h-2z"/></svg>
+          {/* WiFi */}
+          <svg width="11" height="8" viewBox="0 0 16 12" fill="white"><path d="M0 4C2.5 1.5 6 0 8 0s5.5 1.5 8 4l-1.5 1.5C12.2 3.2 10 2 8 2S3.8 3.2 1.5 5.5z"/><path d="M3 7C4.5 5.5 6.2 5 8 5s3.5.5 5 2l-1.3 1.3C10.5 7.1 9.3 7 8 7s-2.5.1-3.7 1.3z"/><circle cx="8" cy="10.5" r="1.5"/></svg>
+          {/* Battery */}
+          <svg width="17" height="8" viewBox="0 0 25 12" fill="none" stroke="white" strokeWidth="1"><rect x="0.5" y="1" width="20" height="10" rx="2"/><rect x="2" y="3" width="14" height="6" rx="1" fill="white"/><rect x="21.5" y="4" width="2" height="4" rx="0.5" fill="white" opacity="0.5"/></svg>
         </div>
+      </div>
 
-        {/* URL bar */}
-        <div className="px-3 pb-2">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.08)" }}>
-            <svg width="8" height="8" viewBox="0 0 16 16" fill="#00e89d"><path d="M8 0L6 2H2v4L0 8l2 2v4h4l2 2 2-2h4v-4l2-2-2-2V2h-4L8 0zm0 5a3 3 0 110 6 3 3 0 010-6z"/></svg>
-            <span className="text-[8px] tracking-wide flex-1 truncate" style={{ color: "#94a3b8" }}>kholofelorababalela.vercel.app</span>
-          </div>
-        </div>
+      {/* ── LinkedIn top nav bar */}
+      <div className="flex items-center justify-between px-3 py-2" style={{ background: "#0A66C2" }}>
+        {/* LinkedIn wordmark */}
+        <svg width="70" height="18" viewBox="0 0 90 22" fill="white">
+          <rect x="0" y="0" width="20" height="20" rx="3" fill="white"/>
+          <text x="3" y="15" fontSize="14" fontWeight="900" fill="#0A66C2">in</text>
+          <text x="25" y="15" fontSize="13" fontWeight="700" fill="white">LinkedIn</text>
+        </svg>
+        {/* Search icon */}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
 
-        {/* Mini hero content */}
-        <div className="px-4 pt-1 pb-4">
-          {/* Nav */}
-          <div className="flex items-center justify-between mb-5">
-            <div className="w-6 h-6 rounded-full overflow-hidden ring-1 ring-[#00e89d]/50">
-              <img src="/web-image-2.JPG" alt="" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
+      {/* ── Scrollable profile content */}
+      <div className="overflow-hidden" style={{ height: "calc(100% - 62px)" }}>
+
+        {/* Profile card */}
+        <div style={{ background: "white", marginBottom: 8 }}>
+
+          {/* Banner */}
+          <div style={{ height: 52, background: "linear-gradient(135deg, #0d2137 0%, #0A66C2 50%, #00e89d 100%)", position: "relative" }}>
+            {/* Profile photo — overlaps banner */}
+            <div style={{ position: "absolute", bottom: -22, left: 12, width: 44, height: 44, borderRadius: "50%", border: "2.5px solid white", overflow: "hidden", background: "#e5e7eb" }}>
+              <img src="/web-image-2.JPG" alt="Kholofelo" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
             </div>
-            <div className="flex gap-2">
-              {["Home","About","Work"].map((n) => (
-                <span key={n} className="text-[6px] font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>{n}</span>
-              ))}
+            {/* Open to work ring */}
+            <div style={{ position: "absolute", bottom: -24, left: 10, width: 48, height: 48, borderRadius: "50%", border: "2px solid #00e89d", opacity: 0.7 }} />
+          </div>
+
+          {/* Profile info */}
+          <div style={{ paddingTop: 28, paddingLeft: 12, paddingRight: 12, paddingBottom: 10 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#000", lineHeight: 1.2 }}>Kholofelo Robyn Rababalela</div>
+            <div style={{ fontSize: 9, color: "#444", marginTop: 2, lineHeight: 1.4 }}>BEng Tech Computer Engineering Student · Full-Stack MERN Developer</div>
+            <div style={{ fontSize: 8, color: "#0A66C2", marginTop: 3 }}>Cape Town, Western Cape · <span style={{ color: "#666" }}>500+ connections</span></div>
+
+            {/* Open to work badge */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 3, marginTop: 5, padding: "2px 6px", borderRadius: 10, border: "1px solid #00e89d", background: "rgba(0,232,157,0.06)" }}>
+              <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#00e89d" }} />
+              <span style={{ fontSize: 7, fontWeight: 600, color: "#057642" }}>Open to Work</span>
             </div>
-          </div>
 
-          {/* Title */}
-          <p className="text-[7px] font-mono tracking-[0.25em] uppercase mb-2" style={{ color: "#00e89d" }}>Full-Stack Developer</p>
-          <p className="text-[14px] font-black leading-[1.1] text-white">Kholofelo</p>
-          <p className="text-[14px] font-black leading-[1.1]" style={{ background: "linear-gradient(135deg, #00e89d, #0ea5e9)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Robyn</p>
-          <p className="text-[14px] font-black leading-[1.1] text-white mb-3">Rababalela<span style={{ color: "#00e89d" }}>.</span></p>
-
-          {/* Divider */}
-          <div className="h-px w-10 mb-3" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9, transparent)" }} />
-
-          {/* Pills */}
-          <div className="flex flex-wrap gap-1 mb-4">
-            {["React","Node.js","MongoDB","TS"].map((s) => (
-              <span key={s} className="px-1.5 py-0.5 rounded-md text-[6px] font-semibold" style={{ background: "rgba(0,232,157,0.1)", border: "1px solid rgba(0,232,157,0.25)", color: "#00e89d" }}>{s}</span>
-            ))}
-          </div>
-
-          {/* Project card */}
-          <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <div className="h-px w-full" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
-            <div className="p-2.5">
-              <p className="text-[5.5px] font-bold tracking-[0.15em] uppercase mb-0.5" style={{ color: "#00e89d" }}>Featured</p>
-              <p className="text-[9px] font-black text-white leading-tight">Bookit — 5's Arena</p>
-              <p className="text-[6.5px] mt-0.5 leading-relaxed" style={{ color: "#64748b" }}>MERN booking platform for Hellenic FC</p>
-              <div className="flex gap-1.5 mt-2">
-                <span className="text-[5px] px-2 py-0.5 rounded-full font-bold" style={{ background: "#00e89d", color: "#060d18" }}>View Code</span>
-                <span className="text-[5px] px-2 py-0.5 rounded-full font-bold" style={{ border: "1px solid rgba(0,232,157,0.4)", color: "#00e89d" }}>Live Demo</span>
+            {/* Action buttons */}
+            <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
+              <div style={{ flex: 1, padding: "5px 0", borderRadius: 14, background: "#0A66C2", textAlign: "center" }}>
+                <span style={{ fontSize: 9, fontWeight: 700, color: "white" }}>Message</span>
+              </div>
+              <div style={{ flex: 1, padding: "5px 0", borderRadius: 14, border: "1.5px solid #0A66C2", textAlign: "center" }}>
+                <span style={{ fontSize: 9, fontWeight: 700, color: "#0A66C2" }}>Connect</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom home indicator */}
-        <div className="flex justify-center pb-2 pt-1">
-          <div className="w-24 h-1 rounded-full bg-white/20" />
+        {/* About card */}
+        <div style={{ background: "white", marginBottom: 8, padding: "10px 12px" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#000", marginBottom: 4 }}>About</div>
+          <div style={{ fontSize: 8, color: "#444", lineHeight: 1.5 }}>
+            MERN stack developer & BEng Tech student at CPUT. Building scalable full-stack solutions — currently developing 5's Arena, a booking & blog platform for Hellenic FC since Jan 2026.
+          </div>
         </div>
+
+        {/* Experience card */}
+        <div style={{ background: "white", marginBottom: 8, padding: "10px 12px" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#000", marginBottom: 8 }}>Experience</div>
+
+          <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+            <div style={{ width: 26, height: 26, borderRadius: 4, background: "#0d2137", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ fontSize: 9, fontWeight: 900, color: "#00e89d" }}>5A</span>
+            </div>
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: "#000", lineHeight: 1.2 }}>Full-Stack Developer</div>
+              <div style={{ fontSize: 8, color: "#444" }}>5's Arena · Freelance</div>
+              <div style={{ fontSize: 7, color: "#666" }}>Jan 2026 – Present · Cape Town</div>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", gap: 8 }}>
+            <div style={{ width: 26, height: 26, borderRadius: 4, background: "#1e293b", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: "#000", lineHeight: 1.2 }}>Web Developer</div>
+              <div style={{ fontSize: 8, color: "#444" }}>Freelance · Self-employed</div>
+              <div style={{ fontSize: 7, color: "#666" }}>2024 – Present · Remote</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills card */}
+        <div style={{ background: "white", padding: "10px 12px" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#000", marginBottom: 6 }}>Top Skills</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+            {["React", "Node.js", "MongoDB", "TypeScript", "Express"].map(s => (
+              <span key={s} style={{ padding: "2px 7px", borderRadius: 10, background: "#e8f0fe", fontSize: 7, fontWeight: 600, color: "#0A66C2" }}>{s}</span>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
@@ -476,9 +519,9 @@ function AboutSection() {
                     </div>
                   </div>
 
-                  {/* Screen content */}
+                  {/* LinkedIn mobile profile */}
                   <div className="absolute inset-0">
-                    <PortfolioPhoneScreen />
+                    <LinkedInPhoneScreen />
                   </div>
 
                   {/* Screen glare/reflection overlay */}

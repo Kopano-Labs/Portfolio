@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0805"/>
+      <stop offset="50%" stop-color="#1a0e05"/>
+      <stop offset="100%" stop-color="#0d0a05"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#f7df1e"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Ambient -->
+  <ellipse cx="300" cy="180" rx="400" ry="300" fill="#f97316" opacity="0.1" filter="url(#blur1)"/>
+  <ellipse cx="1000" cy="500" rx="300" ry="250" fill="#f7df1e" opacity="0.07" filter="url(#blur1)"/>
+
+  <!-- Grid -->
+  <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f97316" stroke-width="0.3" opacity="0.15"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+
+  <!-- Connection nodes (MCP concept) -->
+  <g opacity="0.2" stroke="#f97316" stroke-width="1.5" fill="none">
+    <circle cx="820" cy="180" r="8" fill="#f97316"/>
+    <circle cx="920" cy="280" r="6" fill="#f7df1e"/>
+    <circle cx="1020" cy="180" r="10" fill="#f97316"/>
+    <circle cx="870" cy="380" r="7" fill="#f7df1e"/>
+    <circle cx="1080" cy="350" r="5" fill="#f97316"/>
+    <line x1="820" y1="180" x2="920" y2="280"/>
+    <line x1="920" y1="280" x2="1020" y2="180"/>
+    <line x1="920" y1="280" x2="870" y2="380"/>
+    <line x1="1020" y1="180" x2="1080" y2="350"/>
+    <line x1="870" y1="380" x2="1080" y2="350"/>
+    <line x1="820" y1="180" x2="1020" y2="180"/>
+  </g>
+
+  <!-- Text -->
+  <text x="80" y="220" font-family="'Courier New', monospace" font-size="13" font-weight="600" letter-spacing="4" fill="#f97316" opacity="0.9">AI TOOL INTEGRATION · PYTHON · ANTHROPIC</text>
+  <text x="80" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="white" letter-spacing="-2">Introduction</text>
+  <text x="80" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" letter-spacing="-2">
+    <tspan>to </tspan><tspan fill="url(#accent)">MCP</tspan><tspan fill="white">.</tspan>
+  </text>
+
+  <rect x="80" y="415" width="60" height="3" rx="2" fill="url(#accent)"/>
+
+  <text x="80" y="462" font-family="'Courier New', monospace" font-size="17" fill="#a16207">Model Context Protocol · Claude AI · File Systems · APIs</text>
+
+  <g>
+    <rect x="80" y="498" width="80" height="28" rx="14" fill="#f9731620" stroke="#f9731640" stroke-width="1"/>
+    <text x="120" y="517" font-family="monospace" font-size="12" font-weight="600" fill="#f97316" text-anchor="middle">Python</text>
+
+    <rect x="170" y="498" width="86" height="28" rx="14" fill="#f7df1e20" stroke="#f7df1e40" stroke-width="1"/>
+    <text x="213" y="517" font-family="monospace" font-size="12" font-weight="600" fill="#f7df1e" text-anchor="middle">MCP SDK</text>
+
+    <rect x="266" y="498" width="88" height="28" rx="14" fill="#f9731620" stroke="#f9731640" stroke-width="1"/>
+    <text x="310" y="517" font-family="monospace" font-size="12" font-weight="600" fill="#f97316" text-anchor="middle">REST API</text>
+
+    <rect x="364" y="498" width="76" height="28" rx="14" fill="#f7df1e20" stroke="#f7df1e40" stroke-width="1"/>
+    <text x="402" y="517" font-family="monospace" font-size="12" font-weight="600" fill="#f7df1e" text-anchor="middle">Claude</text>
+  </g>
+</svg>

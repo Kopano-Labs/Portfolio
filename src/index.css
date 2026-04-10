@@ -150,6 +150,16 @@ html.light body {
   -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
 
+/* Remove default browser focus outline from all buttons/links — we supply our own */
+a, button {
+  outline: none;
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid rgba(0, 232, 157, 0.6);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

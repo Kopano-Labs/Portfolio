@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060d18"/>
+      <stop offset="50%" stop-color="#0d1a3a"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Ambient glows -->
+  <ellipse cx="200" cy="200" rx="350" ry="280" fill="url(#glow1)" filter="url(#blur1)"/>
+  <ellipse cx="1050" cy="430" rx="300" ry="250" fill="url(#glow2)" filter="url(#blur1)"/>
+
+  <!-- Dot grid -->
+  <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="#0ea5e9" opacity="0.12"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+
+  <!-- Card mockup lines (blog posts) -->
+  <g opacity="0.12">
+    <rect x="680" y="120" width="400" height="80" rx="8" fill="#0ea5e9"/>
+    <rect x="680" y="220" width="400" height="80" rx="8" fill="#a855f7"/>
+    <rect x="680" y="320" width="400" height="80" rx="8" fill="#0ea5e9"/>
+    <rect x="680" y="420" width="260" height="80" rx="8" fill="#a855f7"/>
+  </g>
+
+  <!-- Main text block -->
+  <text x="80" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="4" fill="#0ea5e9" opacity="0.9">COMMUNITY PLATFORM · MERN STACK</text>
+  <text x="80" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="-2">5's Arena</text>
+  <text x="80" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="900" letter-spacing="-2">
+    <tspan fill="url(#accent)">Blog</tspan>
+    <tspan fill="white">.</tspan>
+  </text>
+
+  <!-- Divider -->
+  <rect x="80" y="420" width="60" height="3" rx="2" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="80" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#94a3b8">Auth · RBAC · Rich Text · Image Uploads · Infinite Scroll</text>
+
+  <!-- Tech pills -->
+  <g>
+    <rect x="80" y="510" width="82" height="30" rx="15" fill="#0ea5e920" stroke="#0ea5e940" stroke-width="1"/>
+    <text x="121" y="530" font-family="system-ui" font-size="12" font-weight="600" fill="#0ea5e9" text-anchor="middle">React</text>
+
+    <rect x="172" y="510" width="82" height="30" rx="15" fill="#00e89d20" stroke="#00e89d40" stroke-width="1"/>
+    <text x="213" y="530" font-family="system-ui" font-size="12" font-weight="600" fill="#00e89d" text-anchor="middle">Node.js</text>
+
+    <rect x="264" y="510" width="96" height="30" rx="15" fill="#00e89d20" stroke="#00e89d40" stroke-width="1"/>
+    <text x="312" y="530" font-family="system-ui" font-size="12" font-weight="600" fill="#00e89d" text-anchor="middle">MongoDB</text>
+
+    <rect x="370" y="510" width="110" height="30" rx="15" fill="#0ea5e920" stroke="#0ea5e940" stroke-width="1"/>
+    <text x="425" y="530" font-family="system-ui" font-size="12" font-weight="600" fill="#0ea5e9" text-anchor="middle">TailwindCSS</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12020a"/>
+      <stop offset="50%" stop-color="#1e0514"/>
+      <stop offset="100%" stop-color="#12020a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="70"/></filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="250" cy="200" rx="380" ry="300" fill="#ec4899" opacity="0.1" filter="url(#blur1)"/>
+  <ellipse cx="1000" cy="450" rx="280" ry="220" fill="#f97316" opacity="0.08" filter="url(#blur1)"/>
+
+  <!-- Hex grid -->
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="#ec4899" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+
+  <!-- Map pin shapes -->
+  <g opacity="0.15" fill="#ec4899">
+    <ellipse cx="820" cy="220" rx="20" ry="24"/>
+    <ellipse cx="820" cy="220" rx="8" ry="8" fill="#12020a"/>
+    <ellipse cx="820" cy="244" rx="4" ry="2"/>
+
+    <ellipse cx="950" cy="160" rx="16" ry="20"/>
+    <ellipse cx="950" cy="160" rx="6" ry="6" fill="#12020a"/>
+    <ellipse cx="950" cy="180" rx="3" ry="1.5"/>
+
+    <ellipse cx="1050" cy="310" rx="18" ry="22"/>
+    <ellipse cx="1050" cy="310" rx="7" ry="7" fill="#12020a"/>
+    <ellipse cx="1050" cy="332" rx="3.5" ry="2"/>
+  </g>
+  <!-- Connection lines between pins -->
+  <line x1="820" y1="244" x2="950" y2="180" stroke="#ec4899" stroke-width="1" opacity="0.12" stroke-dasharray="6,4"/>
+  <line x1="950" y1="180" x2="1050" y2="332" stroke="#ec4899" stroke-width="1" opacity="0.12" stroke-dasharray="6,4"/>
+
+  <text x="80" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="4" fill="#ec4899" opacity="0.9">TOWNSHIP BUSINESS DIRECTORY · SOUTH AFRICA</text>
+  <text x="80" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" fill="white" letter-spacing="-2">Kasi</text>
+  <text x="80" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" letter-spacing="-2">
+    <tspan fill="url(#accent)">Link</tspan><tspan fill="white">.</tspan>
+  </text>
+
+  <rect x="80" y="428" width="60" height="3" rx="2" fill="url(#accent)"/>
+  <text x="80" y="472" font-family="system-ui" font-size="18" fill="#9d5380">Connecting informal economy businesses with their communities</text>
+
+  <g>
+    <rect x="80" y="506" width="72" height="28" rx="14" fill="#ec489920" stroke="#ec489940" stroke-width="1"/>
+    <text x="116" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#ec4899" text-anchor="middle">HTML</text>
+    <rect x="162" y="506" width="66" height="28" rx="14" fill="#f9731620" stroke="#f9731640" stroke-width="1"/>
+    <text x="195" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#f97316" text-anchor="middle">CSS</text>
+    <rect x="238" y="506" width="104" height="28" rx="14" fill="#ec489920" stroke="#ec489940" stroke-width="1"/>
+    <text x="290" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#ec4899" text-anchor="middle">JavaScript</text>
+  </g>
+</svg>

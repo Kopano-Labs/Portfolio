@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020f0d"/>
+      <stop offset="50%" stop-color="#041a16"/>
+      <stop offset="100%" stop-color="#020f0d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="70"/></filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="280" cy="200" rx="380" ry="300" fill="#14b8a6" opacity="0.1" filter="url(#blur1)"/>
+  <ellipse cx="1050" cy="450" rx="280" ry="220" fill="#0ea5e9" opacity="0.08" filter="url(#blur1)"/>
+
+  <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="#14b8a6" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+
+  <!-- Compass rose -->
+  <g transform="translate(960,310)" opacity="0.18" fill="#14b8a6">
+    <!-- N -->
+    <polygon points="0,-90 -12,-40 12,-40" fill="#14b8a6"/>
+    <!-- S -->
+    <polygon points="0,90 -12,40 12,40" fill="#0ea5e9" opacity="0.6"/>
+    <!-- E -->
+    <polygon points="90,0 40,-12 40,12" fill="#14b8a6" opacity="0.7"/>
+    <!-- W -->
+    <polygon points="-90,0 -40,-12 -40,12" fill="#0ea5e9" opacity="0.5"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#14b8a6" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="#14b8a6"/>
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#14b8a6" stroke-width="1" stroke-dasharray="4,8"/>
+  </g>
+
+  <!-- N label -->
+  <text x="957" y="200" font-family="system-ui" font-size="14" font-weight="700" fill="#14b8a6" opacity="0.25" text-anchor="middle">N</text>
+
+  <text x="80" y="220" font-family="system-ui" font-size="13" font-weight="600" letter-spacing="4" fill="#14b8a6" opacity="0.9">CAMPUS NAVIGATION · CPUT STUDENTS</text>
+  <text x="80" y="315" font-family="system-ui" font-size="76" font-weight="900" fill="white" letter-spacing="-2">Cape</text>
+  <text x="80" y="400" font-family="system-ui" font-size="76" font-weight="900" letter-spacing="-2">
+    <tspan fill="url(#accent)">Campass</tspan><tspan fill="white">.</tspan>
+  </text>
+
+  <rect x="80" y="428" width="60" height="3" rx="2" fill="url(#accent)"/>
+  <text x="80" y="472" font-family="system-ui" font-size="18" fill="#0f766e">Navigate campus life at Cape Peninsula University of Technology</text>
+
+  <g>
+    <rect x="80" y="506" width="72" height="28" rx="14" fill="#14b8a620" stroke="#14b8a640" stroke-width="1"/>
+    <text x="116" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#14b8a6" text-anchor="middle">HTML</text>
+    <rect x="162" y="506" width="66" height="28" rx="14" fill="#0ea5e920" stroke="#0ea5e940" stroke-width="1"/>
+    <text x="195" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#0ea5e9" text-anchor="middle">CSS</text>
+    <rect x="238" y="506" width="104" height="28" rx="14" fill="#14b8a620" stroke="#14b8a640" stroke-width="1"/>
+    <text x="290" y="525" font-family="system-ui" font-size="12" font-weight="600" fill="#14b8a6" text-anchor="middle">JavaScript</text>
+  </g>
+</svg>

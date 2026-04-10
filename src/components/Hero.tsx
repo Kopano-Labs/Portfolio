@@ -146,7 +146,7 @@ export default function Hero() {
           >
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-[#00e89d]/25"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-sm text-[#060d18] transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-[#00e89d]/25 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00e89d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d18]"
               style={{ background: "linear-gradient(135deg, #00e89d, #34d399)" }}
             >
               Hire Me
