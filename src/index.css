@@ -306,8 +306,7 @@ html.light ::-webkit-scrollbar-thumb {
 }
 
 /* ──────────────────────────────────────────────────────────
-   LIGHT MODE — Text visibility fix
-   Appended to existing index.css
+   LIGHT MODE — Comprehensive visibility overhaul
 ────────────────────────────────────────────────────────── */
 
 /* CSS variables that flip based on theme */
@@ -315,54 +314,78 @@ html.dark {
   --heading-color: #ffffff;
   --body-color: rgb(156 163 175);
   --subtext-color: rgb(107 114 128);
+  --surface-bg: rgba(11, 20, 38, 0.6);
+  --card-bg: rgba(15, 26, 48, 0.8);
+  --card-border: rgba(26, 39, 68, 0.8);
+  --input-bg: rgba(11, 20, 38, 0.8);
 }
 
 html.light {
   --heading-color: #0f172a;
   --body-color: #334155;
   --subtext-color: #475569;
+  --surface-bg: rgba(255, 255, 255, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: #e2e8f0;
+  --input-bg: rgba(241, 245, 249, 0.9);
 }
 
-/* Light mode body background — already set in existing CSS, supplement: */
+/* Body */
 html.light body {
   color: #0f172a;
   background-color: #f0fdf4;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
-/* Ensure gradient-text stays readable in light mode */
-html.light .gradient-text {
-  /* gradient with transparent fill still works, no override needed */
+/* Dot grid */
+html.light .dot-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
 }
 
-/* Nav links that used white/opacity — force visible in light mode */
-html.light nav .text-gray-400,
-html.light nav .text-gray-500 {
-  color: #475569 !important;
+/* ALL dark background surfaces */
+html.light .bg-\[\#060d18\],
+html.light [style*="background: #060d18"],
+html.light [style*="background-color: #060d18"] {
+  background-color: #f8fafc !important;
 }
 
-html.light nav .text-white {
-  color: #0f172a !important;
-}
-
-/* Footer text */
-html.light footer p,
-html.light footer span,
-html.light footer a {
-  color: #64748b;
-}
-
-/* Cards in light mode */
-html.light .border-\[\#1a2744\] {
-  border-color: #e2e8f0 !important;
-}
-
+html.light .bg-\[\#0b1426\],
 html.light .bg-\[\#0b1426\]\/60,
 html.light .bg-\[\#0b1426\]\/80 {
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
-html.light .text-gray-400 {
+html.light .bg-\[\#0f1a30\] {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* All borders using dark-theme colors */
+html.light .border-\[\#1a2744\],
+html.light .border-\[\#1e2d4a\] {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* ALL gray text classes — ensure readable on light bg */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-gray-200 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-300 {
   color: #475569 !important;
+}
+
+html.light .text-gray-400 {
+  color: #64748b !important;
 }
 
 html.light .text-gray-500 {
@@ -373,14 +396,108 @@ html.light .text-gray-600 {
   color: #94a3b8 !important;
 }
 
-/* Hero section bg in light mode */
-html.light .bg-\[\#060d18\] {
-  background-color: #f8fafc !important;
+/* Navbar */
+html.light .navbar-pill {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Ticker border */
-html.light .border-\[\#1a2744\] {
+html.light nav .text-white {
+  color: #0f172a !important;
+}
+
+/* Glass surfaces */
+html.light .glass {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Card hover effect */
+html.light .card-hover:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1), 0 0 24px rgba(0, 232, 157, 0.08) !important;
+}
+
+/* Footer */
+html.light footer,
+html.light footer p,
+html.light footer span,
+html.light footer a {
+  color: #64748b;
+}
+
+/* Infinite scroll bar (tech ticker) */
+html.light .border-y.border-\[\#1a2744\] {
   border-color: #e2e8f0 !important;
 }
 
-/* About section text — uses CSS vars so already handled above */
+/* Ticker fade edges — swap to light gradient */
+html.light .bg-gradient-to-r.from-\[\#060d18\] {
+  background: linear-gradient(to right, #f0fdf4, transparent) !important;
+}
+
+html.light .bg-gradient-to-l.from-\[\#060d18\] {
+  background: linear-gradient(to left, #f0fdf4, transparent) !important;
+}
+
+/* Inline styles with rgba(255,255,255,...) — needs more contrast in light */
+html.light [style*="rgba(255,255,255,0.06)"],
+html.light [style*="rgba(255,255,255,0.07)"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Resume page panel */
+html.light [style*="rgba(8,14,28"] {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Input fields in light mode */
+html.light input,
+html.light textarea {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Scrollbar */
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #00c882;
+}
+
+/* Gradient text — slightly deeper for light backgrounds */
+html.light .gradient-text {
+  background: linear-gradient(135deg, #00c882, #0284c7, #4f46e5) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Selection in light mode */
+html.light ::selection {
+  background: #00c882;
+  color: #ffffff;
+}
+
+/* Focus ring in light mode */
+html.light *:focus-visible {
+  outline-color: #00c882;
+}
+
+/* LED border animations — tone down for light mode */
+html.light .led-border-outer,
+html.light .led-border-inner {
+  animation: none !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Glow effects — soften for light mode */
+html.light .glow {
+  box-shadow: 0 4px 20px rgba(0, 232, 157, 0.1), 0 0 40px rgba(0, 232, 157, 0.04) !important;
+}

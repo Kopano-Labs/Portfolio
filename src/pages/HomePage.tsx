@@ -286,63 +286,75 @@ function TechTicker() {
 
 function PortfolioPhoneScreen() {
   return (
-    <div style={{ background: "#060d18", minHeight: "100%", fontFamily: "system-ui, sans-serif" }}>
-      {/* URL bar */}
-      <div className="px-2.5 pt-2.5 pb-1.5">
-        <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
-          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#00e89d" }} />
-          <span className="text-[7px] tracking-wide flex-1 truncate" style={{ color: "#64748b" }}>kholofelorababalela.vercel.app</span>
-          <span className="text-[8px]" style={{ color: "#475569" }}>↻</span>
-        </div>
-      </div>
-
-      {/* Mini hero */}
-      <div className="px-3 pt-1 pb-3">
-        {/* Nav stub */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="w-5 h-5 rounded-full overflow-hidden border" style={{ borderColor: "rgba(0,232,157,0.5)" }}>
-            <img src="/web-image-2.JPG" alt="K" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-          </div>
-          <div className="flex gap-1.5">
-            {["Home","About","Projects"].map((n) => (
-              <span key={n} className="text-[5.5px] font-semibold" style={{ color: "rgba(255,255,255,0.3)" }}>{n}</span>
-            ))}
+    <div className="relative w-full h-full overflow-hidden" style={{ background: "#000", borderRadius: "inherit" }}>
+      {/* Screen content */}
+      <div style={{ background: "#060d18", height: "100%", fontFamily: "system-ui, sans-serif", padding: "0" }}>
+        {/* Status bar */}
+        <div className="flex items-center justify-between px-5 pt-2 pb-1">
+          <span className="text-[9px] font-semibold text-white/80">9:41</span>
+          <div className="flex items-center gap-1">
+            <svg width="12" height="9" viewBox="0 0 16 12" fill="white" opacity="0.7"><path d="M1 7h2v4H1zM5 5h2v6H5zM9 3h2v8H9zM13 0h2v11h-2z"/></svg>
+            <svg width="12" height="9" viewBox="0 0 16 12" fill="white" opacity="0.7"><path d="M0 4.5C2.6 1.5 6 0 8 0s5.4 1.5 8 4.5l-1.3 1.3C12.4 3.3 10 2 8 2S3.6 3.3 1.3 5.8z"/><path d="M3 7.5C4.5 5.8 6.2 5 8 5s3.5.8 5 2.5l-1.2 1.3C10.6 7.3 9.3 7 8 7s-2.6.3-3.8 1.8z"/><circle cx="8" cy="10.5" r="1.5"/></svg>
+            <svg width="18" height="9" viewBox="0 0 25 12" fill="none" stroke="white" opacity="0.7" strokeWidth="1"><rect x="0.5" y="1" width="20" height="10" rx="2"/><rect x="2" y="3" width="14" height="6" rx="1" fill="#00e89d"/><rect x="21.5" y="4" width="2" height="4" rx="0.5" fill="white" opacity="0.4"/></svg>
           </div>
         </div>
 
-        {/* Name block */}
-        <p className="text-[6px] font-mono tracking-[0.2em] uppercase mb-1.5" style={{ color: "#00e89d" }}>Full-Stack MERN Developer</p>
-        <p className="text-[12px] font-black leading-none text-white">Kholofelo</p>
-        <p className="text-[12px] font-black leading-none pb-0.5" style={{
-          background: "linear-gradient(135deg, #00e89d, #0ea5e9)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}>Robyn</p>
-        <p className="text-[12px] font-black leading-none text-white mb-2">Rababalela<span style={{ color: "#00e89d" }}>.</span></p>
-
-        {/* Divider */}
-        <div className="h-[1px] w-8 mb-2.5" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
-
-        {/* Skill pills */}
-        <div className="flex flex-wrap gap-1 mb-3">
-          {["React","Node.js","MongoDB","TypeScript"].map((s) => (
-            <span key={s} className="px-1.5 py-0.5 rounded text-[5.5px] font-semibold" style={{ background: "rgba(0,232,157,0.1)", border: "1px solid rgba(0,232,157,0.2)", color: "#00e89d" }}>{s}</span>
-          ))}
+        {/* URL bar */}
+        <div className="px-3 pb-2">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.08)" }}>
+            <svg width="8" height="8" viewBox="0 0 16 16" fill="#00e89d"><path d="M8 0L6 2H2v4L0 8l2 2v4h4l2 2 2-2h4v-4l2-2-2-2V2h-4L8 0zm0 5a3 3 0 110 6 3 3 0 010-6z"/></svg>
+            <span className="text-[8px] tracking-wide flex-1 truncate" style={{ color: "#94a3b8" }}>kholofelorababalela.vercel.app</span>
+          </div>
         </div>
 
-        {/* Mini project card */}
-        <div className="rounded-xl overflow-hidden" style={{ background: "rgba(15,23,42,0.7)", border: "1px solid rgba(255,255,255,0.06)" }}>
-          <div className="h-[1px] w-full" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
-          <div className="px-2 py-2">
-            <p className="text-[5px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "#00e89d" }}>Featured Project</p>
-            <p className="text-[7.5px] font-black text-white leading-tight">Bookit — 5's Arena</p>
-            <p className="text-[5.5px] mt-0.5 leading-relaxed" style={{ color: "#64748b" }}>Full-stack MERN booking platform for Hellenic FC</p>
-            <div className="flex gap-1 mt-1.5">
-              <span className="text-[4.5px] px-1.5 py-0.5 rounded-full font-bold" style={{ background: "rgba(0,232,157,0.15)", color: "#00e89d" }}>View Code</span>
-              <span className="text-[4.5px] px-1.5 py-0.5 rounded-full font-bold" style={{ background: "transparent", border: "1px solid rgba(0,232,157,0.3)", color: "#00e89d" }}>Live Demo</span>
+        {/* Mini hero content */}
+        <div className="px-4 pt-1 pb-4">
+          {/* Nav */}
+          <div className="flex items-center justify-between mb-5">
+            <div className="w-6 h-6 rounded-full overflow-hidden ring-1 ring-[#00e89d]/50">
+              <img src="/web-image-2.JPG" alt="" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
+            </div>
+            <div className="flex gap-2">
+              {["Home","About","Work"].map((n) => (
+                <span key={n} className="text-[6px] font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>{n}</span>
+              ))}
             </div>
           </div>
+
+          {/* Title */}
+          <p className="text-[7px] font-mono tracking-[0.25em] uppercase mb-2" style={{ color: "#00e89d" }}>Full-Stack Developer</p>
+          <p className="text-[14px] font-black leading-[1.1] text-white">Kholofelo</p>
+          <p className="text-[14px] font-black leading-[1.1]" style={{ background: "linear-gradient(135deg, #00e89d, #0ea5e9)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Robyn</p>
+          <p className="text-[14px] font-black leading-[1.1] text-white mb-3">Rababalela<span style={{ color: "#00e89d" }}>.</span></p>
+
+          {/* Divider */}
+          <div className="h-px w-10 mb-3" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9, transparent)" }} />
+
+          {/* Pills */}
+          <div className="flex flex-wrap gap-1 mb-4">
+            {["React","Node.js","MongoDB","TS"].map((s) => (
+              <span key={s} className="px-1.5 py-0.5 rounded-md text-[6px] font-semibold" style={{ background: "rgba(0,232,157,0.1)", border: "1px solid rgba(0,232,157,0.25)", color: "#00e89d" }}>{s}</span>
+            ))}
+          </div>
+
+          {/* Project card */}
+          <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="h-px w-full" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9)" }} />
+            <div className="p-2.5">
+              <p className="text-[5.5px] font-bold tracking-[0.15em] uppercase mb-0.5" style={{ color: "#00e89d" }}>Featured</p>
+              <p className="text-[9px] font-black text-white leading-tight">Bookit — 5's Arena</p>
+              <p className="text-[6.5px] mt-0.5 leading-relaxed" style={{ color: "#64748b" }}>MERN booking platform for Hellenic FC</p>
+              <div className="flex gap-1.5 mt-2">
+                <span className="text-[5px] px-2 py-0.5 rounded-full font-bold" style={{ background: "#00e89d", color: "#060d18" }}>View Code</span>
+                <span className="text-[5px] px-2 py-0.5 rounded-full font-bold" style={{ border: "1px solid rgba(0,232,157,0.4)", color: "#00e89d" }}>Live Demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom home indicator */}
+        <div className="flex justify-center pb-2 pt-1">
+          <div className="w-24 h-1 rounded-full bg-white/20" />
         </div>
       </div>
     </div>
@@ -393,8 +405,8 @@ function AboutSection() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#00e89d]/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0ea5e9]/20 rounded-full blur-3xl" />
 
-      <div className="max-w-5xl mx-auto px-12 sm:px-20 lg:px-36 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-16 items-center">
 
           {/* Left: Text */}
           <motion.div
@@ -404,11 +416,20 @@ function AboutSection() {
             style={{ y: textY, opacity: textOpacity }}
             className="relative z-10"
           >
-            <h2 className="mb-2 text-3xl leading-tight font-black sm:text-4xl md:text-5xl" style={{ color: "var(--heading-color, white)" }}>You dream it.</h2>
-            <h2 className="gradient-text mb-6 text-3xl leading-tight font-black sm:text-4xl md:text-5xl">I craft it.</h2>
-            <p className="text-base sm:text-lg leading-relaxed mb-6" style={{ color: "var(--body-color, rgb(156 163 175))" }}>
-              I am a Bachelor of Eng Tech in Computer Engineering (Student) at Cape Peninsula University of Technology and a Freelance Web Developer specializing in the MERN stack. Working primarily with Node.js, MongoDB, JavaScript, HTML, and CSS, my focus is on building scalable backend architectures, gorgeous frontends and intuitive, user-centered designs. Since January 2026, I have been building a comprehensive digital platform for 5's Arena associated with Hellenic Football club, developing a custom full-stack solution that features a community blog and an integrated booking system.
+            <h2 className="mb-2 text-3xl leading-tight tracking-tight font-black sm:text-4xl md:text-5xl lg:text-[3.4rem]" style={{ color: "var(--heading-color, white)", letterSpacing: "-0.02em", lineHeight: 1.1 }}>You dream it.</h2>
+            <h2 className="gradient-text mb-8 text-3xl leading-tight tracking-tight font-black sm:text-4xl md:text-5xl lg:text-[3.4rem]" style={{ letterSpacing: "-0.02em", lineHeight: 1.1 }}>I craft it.</h2>
+
+            <p className="text-base sm:text-lg leading-relaxed mb-4" style={{ color: "var(--body-color, rgb(156 163 175))" }}>
+              I'm a BEng Tech Computer Engineering student at Cape Peninsula University of Technology and a Freelance Web Developer specializing in the MERN stack.
             </p>
+            <p className="text-base sm:text-lg leading-relaxed mb-4" style={{ color: "var(--body-color, rgb(156 163 175))" }}>
+              My focus is on building scalable backend architectures, gorgeous frontends, and intuitive user-centered designs using Node.js, MongoDB, React, and TypeScript.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: "var(--body-color, rgb(156 163 175))" }}>
+              Since January 2026, I've been building a comprehensive digital platform for 5's Arena &amp; Hellenic FC — a full-stack solution featuring a community blog and integrated booking system.
+            </p>
+
+            <div className="h-px w-16 mb-8" style={{ background: "linear-gradient(90deg, #00e89d, #0ea5e9, transparent)" }} />
 
             <motion.div className="flex flex-wrap gap-2 mb-8" initial="hidden" animate={inView ? "show" : "hidden"} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}>
               {["Clean Architecture", "Smooth Animations", "Full-Stack", "API Design", "Mobile-First"].map((tag) => (
@@ -418,29 +439,51 @@ function AboutSection() {
               ))}
             </motion.div>
 
-            <Link to="/resume" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold bg-[#060d18]/60 border-2 border-white/20 text-white hover:border-[#00e89d]/60 hover:bg-[#060d18]/80 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+            <Link to="/resume" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold bg-[#060d18]/60 border-2 border-white/20 text-white hover:border-[#00e89d]/60 hover:bg-[#060d18]/80 backdrop-blur-sm transition-all duration-200 hover:scale-105">
               More about me
             </Link>
           </motion.div>
 
-          {/* Right: Phone with Gravatar card */}
-          <div className="flex items-center justify-center lg:justify-end">
+          {/* Right: iPhone 15 Pro mockup */}
+          <div className="flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
             <motion.div
-              style={{ y: phoneY, opacity: phoneOpacity, scale: phoneScale, rotateY: "5deg", perspective: "1200px" }}
-              className="relative w-[340px] sm:w-[380px] lg:w-[420px]"
+              style={{ y: phoneY, opacity: phoneOpacity, scale: phoneScale }}
+              whileHover={{ rotateY: 0, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              className="relative w-[220px] sm:w-[260px] lg:w-[290px]"
             >
-              {/* Glow halo */}
-              <div className="absolute inset-0 rounded-[42px] pointer-events-none" style={{ boxShadow: "0 0 100px rgba(0,232,157,0.35), 0 0 200px rgba(14,165,233,0.18)", filter: "blur(4px)" }} />
+              {/* Ambient glow from screen */}
+              <div className="absolute -inset-8 rounded-[60px] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, rgba(0,232,157,0.15) 0%, rgba(14,165,233,0.08) 40%, transparent 70%)", filter: "blur(20px)" }} />
 
-              {/* Phone shell */}
-              <div className="relative rounded-[42px] border overflow-hidden" style={{ borderColor: "rgba(0,232,157,0.45)", background: "#060d18", boxShadow: "inset 0 0 24px rgba(0,0,0,0.7), 0 40px 100px rgba(0,0,0,0.8)" }}>
-                {/* Dynamic Island */}
-                <div className="relative pt-3 flex justify-center">
-                  <div className="w-28 h-7 bg-black rounded-full" />
+              {/* iPhone outer frame — titanium style */}
+              <div className="relative rounded-[44px] p-[3px]" style={{ background: "linear-gradient(145deg, #4a4a4a 0%, #2a2a2a 30%, #1a1a1a 60%, #3a3a3a 100%)", boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1)" }}>
+
+                {/* Side buttons — left */}
+                <div className="absolute -left-[2px] top-[72px] w-[3px] h-6 rounded-l-sm" style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)" }} />
+                <div className="absolute -left-[2px] top-[108px] w-[3px] h-10 rounded-l-sm" style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)" }} />
+                <div className="absolute -left-[2px] top-[156px] w-[3px] h-10 rounded-l-sm" style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)" }} />
+                {/* Side button — right (power) */}
+                <div className="absolute -right-[2px] top-[120px] w-[3px] h-14 rounded-r-sm" style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)" }} />
+
+                {/* Inner bezel */}
+                <div className="relative rounded-[41px] overflow-hidden" style={{ background: "#000", aspectRatio: "393/852" }}>
+
+                  {/* Dynamic Island */}
+                  <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+                    <div className="w-[90px] h-[25px] sm:w-[100px] sm:h-[28px] rounded-full bg-black flex items-center justify-center" style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.05)" }}>
+                      {/* Camera lens */}
+                      <div className="w-[8px] h-[8px] rounded-full ml-auto mr-3" style={{ background: "radial-gradient(circle at 35% 35%, #1a2744 0%, #0a0a0a 50%)", boxShadow: "0 0 2px rgba(0,232,157,0.3), inset 0 0 1px rgba(255,255,255,0.1)" }} />
+                    </div>
+                  </div>
+
+                  {/* Screen content */}
+                  <div className="absolute inset-0">
+                    <PortfolioPhoneScreen />
+                  </div>
+
+                  {/* Screen glare/reflection overlay */}
+                  <div className="absolute inset-0 pointer-events-none z-10" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.02) 100%)" }} />
                 </div>
-
-                {/* Portfolio preview as screen content */}
-                <PortfolioPhoneScreen />
               </div>
             </motion.div>
           </div>
