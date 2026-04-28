@@ -1,4 +1,4 @@
-modified
+modifed
 
 The homepage now follows the image structure directly: hero with portrait-left / copy-right, the metric strip under it, the about split, the featured-projects row, and the studio panel before the footer. I also removed the context-bleed Open Source experiment page and restored Projects to a richer original structure instead of the flattened three-card studio grid.
 
@@ -23,3 +23,6 @@ Notes:
 Open Source was intentionally rewritten away from the multi-mode visual experiment into a cleaner corporate layout.
 Projects now uses the older detailed information structure again, but inside the new dark copper/charcoal system.
 Unrelated untracked files mobile-4s.png and mobile-now.png were left untouched.
+
+Co-Authored-By: Claude <claude@users.noreply.github.com>
+Co-Authored-By: Codex <267193182+codex@users.noreply.github.com>
