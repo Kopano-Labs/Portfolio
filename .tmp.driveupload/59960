@@ -1,0 +1,25 @@
+modified
+
+The homepage now follows the image structure directly: hero with portrait-left / copy-right, the metric strip under it, the about split, the featured-projects row, and the studio panel before the footer. I also removed the context-bleed Open Source experiment page and restored Projects to a richer original structure instead of the flattened three-card studio grid.
+
+Updated files:
+
+src/pages/HomePage.tsx
+src/pages/ProjectsPage.tsx
+src/pages/OpenSourcePage.tsx
+src/pages/KopanoLabsPage.tsx
+src/components/Navbar.tsx
+src/components/Footer.tsx
+src/components/FooterNav.tsx
+src/components/StudioProjectCard.tsx
+src/data/siteContent.ts
+src/index.css
+Verification:
+
+npm run build passes.
+Local preview is running again on http://127.0.0.1:4173.
+Notes:
+
+Open Source was intentionally rewritten away from the multi-mode visual experiment into a cleaner corporate layout.
+Projects now uses the older detailed information structure again, but inside the new dark copper/charcoal system.
+Unrelated untracked files mobile-4s.png and mobile-now.png were left untouched.
