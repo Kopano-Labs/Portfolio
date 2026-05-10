@@ -321,7 +321,7 @@ export const featuredCaseStudy: CaseStudy = {
   ],
   links: [
     { label: "Live system", href: "https://fivesarena.com" },
-    { label: "Public repository", href: "https://github.com/RobynAwesome/Bookit-5s-Arena" },
+    { label: "Public repository", href: "https://github.com/Kopano-Labs/Bookit-5s-Arena" },
     { label: "Venue blog companion", href: "https://blog.fivesarena.com" },
   ],
 };
@@ -482,7 +482,7 @@ export const supportingProjects: ProjectItem[] = [
       "Referenced in KC README as part of the ecosystem direction.",
     ],
     links: [
-      { label: "Repository", href: "https://github.com/RobynAwesome/KasiLink" },
+      { label: "Repository", href: "https://github.com/Kopano-Labs/KasiLink" },
       { label: "KC repository", href: "https://github.com/RobynAwesome/Introduction-to-MCP" },
     ],
   },

@@ -95,7 +95,7 @@ const githubRepos = [
     description: "Full-stack booking system for 5's Arena football facility",
     lang: "JavaScript",
     langColor: "#f7df1e",
-    url: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+    url: "https://github.com/Kopano-Labs/Bookit-5s-Arena",
   },
   {
     name: "5s-Arena-Blog",

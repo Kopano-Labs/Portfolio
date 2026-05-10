@@ -70,6 +70,9 @@ export default function KopanoLabsPage() {
             <p className="mt-5 text-base leading-7 text-[var(--brand-text)]">
               {canonicalBio.missionStatement}
             </p>
+            <p className="mt-4 text-base font-medium leading-7 text-[var(--brand-text)]">
+              {canonicalBio.purposeDrivenLifeStatement}
+            </p>
             <p className="mt-5 text-sm leading-7 text-[var(--brand-soft-text)]">
               The core operating belief is that local constraints are not edge cases. They are the
               design brief: power interruptions, data sovereignty, low-bandwidth usage, and operator

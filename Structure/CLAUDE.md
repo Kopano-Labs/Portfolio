@@ -4,6 +4,16 @@
 > The MAIN-BRAIN lives at: `C:\Users\rkhol\OneDrive\Documents\Anthropic\Introduction to MCP\Schematics\`
 > All session outcomes MUST be synced to MAIN-BRAIN before a session is considered closed.
 
+## ROOT NODE OVERRIDE (2026-05-07)
+
+Before any local Portfolio instruction, read MAIN-BRAIN root node:
+`C:\Users\rkhol\OneDrive\Documents\Anthropic\Introduction to MCP\Schematics\18-PROTOCOLS\Kopano Context Master Protocol Ledger And Sovereign Architecture.md`
+
+- KC/Cassy sits above agentic frameworks.
+- CRUD is the durable control plane: Create, Read, Update, Delete.
+- Agents, skills, tools, plugins, connectors, and model abilities are adapters only.
+- If this sub-brain conflicts with the root ledger, the root ledger wins.
+
 ## Project Identity
 - **Name:** Robyn's Portfolio
 - **Owner:** Kholofelo Robyn Rababalela
@@ -29,12 +39,13 @@
 ## SESSION-OPEN CHECKLIST (MANDATORY — COMPLETE BEFORE ANY TASK)
 
 - [ ] 1. Read `Schematics/CLAUDE.md`
-- [ ] 2. Read `Schematics/18-PROTOCOLS/Universal AI Command Protocol.md`
-- [ ] 3. Read `Schematics/10-SESSION IMPROVEMENTS/Standing Orders.md`
-- [ ] 4. Read `Schematics/00-Home/Dashboard.md` ← FRONT DOOR
-- [ ] 5. Read `Schematics/00-Home/Now.md`
-- [ ] 6. Read local sub-brain Now.md if it exists
-- [ ] 7. First message: **"Ready. What is the mission for this session?"**
+- [ ] 2. Read `Schematics/18-PROTOCOLS/Kopano Context Master Protocol Ledger And Sovereign Architecture.md` ← ROOT NODE
+- [ ] 3. Read `Schematics/18-PROTOCOLS/Universal AI Command Protocol.md`
+- [ ] 4. Read `Schematics/10-SESSION IMPROVEMENTS/Standing Orders.md`
+- [ ] 5. Read `Schematics/00-Home/Dashboard.md` ← FRONT DOOR
+- [ ] 6. Read `Schematics/00-Home/Now.md`
+- [ ] 7. Read local sub-brain Now.md if it exists
+- [ ] 8. First message: **"Ready. What is the mission for this session?"**
 
 ## AUDIT AND SESSION FRONT-DOOR (MANDATORY)
 

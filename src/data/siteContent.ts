@@ -36,6 +36,9 @@ export const canonicalBio = {
   recognition: "Finalist, SA Startup Week 2026",
   beliefStatement:
     '"Kopano Labs is built on the belief that Jesus Christ is God."',
+  /** Jesus Protocol — public mission line (portfolio / studio surfaces). */
+  purposeDrivenLifeStatement:
+    "Kopano Labs is driven by a rigorous, purpose-driven life. Jesus is King.",
   stack: [
     "Next.js 15",
     "Turborepo",
@@ -100,7 +103,7 @@ export const studioProjects: StudioProject[] = [
       label: "Visit live platform",
     },
     secondaryLink: {
-      href: "https://github.com/RobynAwesome/Bookit-5s-Arena",
+      href: "https://github.com/Kopano-Labs/Bookit-5s-Arena",
       label: "View GitHub",
     },
   },
@@ -117,7 +120,11 @@ export const studioProjects: StudioProject[] = [
     image: "/project-banners/kasilink-banner.svg",
     imageAlt: "KasiLink project banner",
     primaryLink: {
-      href: "https://github.com/RobynAwesome/KasiLink",
+      href: "https://kasilink.com",
+      label: "Visit live platform",
+    },
+    secondaryLink: {
+      href: "https://github.com/Kopano-Labs/KasiLink",
       label: "View GitHub",
     },
   },

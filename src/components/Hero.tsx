@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { profile } from "../data/portfolioContent";
+import { canonicalBio } from "../data/siteContent";
 
 const easeCurve = [0.22, 1, 0.36, 1] as const;
 
@@ -134,6 +135,13 @@ export default function Hero() {
           >
             {profile.name} is a freelance web developer and AI infrastructure builder creating booking flows,
             product systems, and multi-agent tooling with visible quality habits.
+          </motion.p>
+
+          <motion.p
+            variants={itemVariants}
+            className="mt-5 max-w-2xl text-sm font-semibold leading-7 text-white sm:text-base"
+          >
+            {canonicalBio.purposeDrivenLifeStatement}
           </motion.p>
 
           <motion.div
