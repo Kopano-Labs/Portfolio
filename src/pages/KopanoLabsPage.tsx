@@ -25,11 +25,11 @@ export default function KopanoLabsPage() {
           >
             <p className="brand-kicker">Studio</p>
             <h1 className="mt-4 text-[3rem] font-semibold leading-[0.94] tracking-[-0.05em] text-[var(--brand-text)] sm:text-[4.6rem]">
-              Kopano Labs builds systems that respect where they will actually be used.
+              Kopano Labs builds edge-aware systems with formal software and hardware boundaries.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--brand-soft-text)] sm:text-lg">
-              This page is the portfolio-side summary: mission, live work, stack choices, and the
-              studio posture behind the public brand.
+              This page is the portfolio-side architecture brief: mission, active systems, stack
+              choices, and the validation posture behind the public brand.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -74,9 +74,9 @@ export default function KopanoLabsPage() {
               {canonicalBio.purposeDrivenLifeStatement}
             </p>
             <p className="mt-5 text-sm leading-7 text-[var(--brand-soft-text)]">
-              The core operating belief is that local constraints are not edge cases. They are the
-              design brief: power interruptions, data sovereignty, low-bandwidth usage, and operator
-              clarity come before ornament.
+              The core operating belief is that local constraints are system inputs. Power
+              interruptions, data sovereignty, low-bandwidth usage, telemetry, and operator clarity
+              come before ornamental interface work.
             </p>
           </motion.div>
 
@@ -108,7 +108,7 @@ export default function KopanoLabsPage() {
             <div>
               <p className="brand-kicker">Active Projects</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
-                The work currently carrying the studio thesis.
+                The systems currently carrying the studio thesis.
               </h2>
             </div>
             <a
@@ -169,11 +169,11 @@ export default function KopanoLabsPage() {
                 Contact
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-text)] sm:text-4xl">
-                Need the studio summary, the live work, or the public company surface?
+                Need the studio architecture brief, live work, or public company surface?
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--brand-soft-text)]">
-                This page stays as the short portfolio-side overview. For the outward-facing company
-                site and the latest public positioning, continue to kopanolabs.com.
+                This page stays as the short portfolio-side technical overview. For the outward-facing
+                company site and the latest public positioning, continue to kopanolabs.com.
               </p>
             </div>
 

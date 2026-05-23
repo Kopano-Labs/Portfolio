@@ -11,6 +11,7 @@ const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
 const OpenSourcePage = lazy(() => import("./pages/OpenSourcePage"));
 const RoadmapPage = lazy(() => import("./pages/RoadmapPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const KopanoLabsPage = lazy(() => import("./pages/KopanoLabsPage"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/resume" element={<ResumePage />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/kopano-labs" element={<KopanoLabsPage />} />
               <Route path="/open-source" element={<OpenSourcePage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />
               <Route path="/contact" element={<ContactPage />} />

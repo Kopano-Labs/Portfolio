@@ -78,6 +78,21 @@ export interface AiProduct {
   links: ExternalLink[];
 }
 
+export interface ArchitectureSpec {
+  schema: string;
+  title: string;
+  version: string;
+  compilerTarget: string;
+  systemState: string;
+  invariants: Metric[];
+  layers: {
+    title: string;
+    parameter: string;
+    boundary: string;
+    validation: string;
+  }[];
+}
+
 export interface QualitySignal {
   title: string;
   summary: string;
@@ -99,13 +114,13 @@ export interface RoadmapTrack {
 export const profile = {
   name: "Kholofelo Robyn Rababalela",
   title:
-    "Freelance web developer and AI infrastructure builder creating product systems, community platforms, and auditable multi-agent tooling.",
+    "Computer engineering student and systems builder working on edge-aware product infrastructure, auditable multi-agent runtimes, and cyber-physical validation paths.",
   location: "Cape Town, South Africa",
   email: "rkholofelo@gmail.com",
   headline:
-    "Freelance Web Developer and AI Infrastructure Builder | Creator of Kopano Context | CPUT Computer Engineering Student | KasiLink + Kopano Labs",
+    "Computer Engineering Student | Creator of Kopano Context | Edge Systems, Mechatronics, and Multi-Agent Infrastructure | KasiLink + Kopano Labs",
   summary:
-    "I build things that have to work beyond the mockup: booking flows, community products, and AI systems with visible reasoning, logs, and trust checks. My public work spans Bookit for 5's Arena, Kopano Context's multi-agent runtime, and a documentation-heavy product workflow shaped by real South African constraints.",
+    "I build software as infrastructure rather than presentation: booking operations, local economic systems, and multi-agent runtimes with explicit state, logs, failure modes, and test gates. The current portfolio is framed around deep-tech IP, edge execution, and cyber-physical constraints instead of general web delivery language.",
 };
 
 export const publicLinks = {
@@ -328,25 +343,26 @@ export const featuredCaseStudy: CaseStudy = {
 
 export const aiProduct: AiProduct = {
   title: "Kopano Context (KC)",
-  strapline: "Multi-agent orchestration system with safety checks, audit logs, and a real product surface",
+  strapline: "Protocol-first multi-agent orchestration with state verification, audit logs, and edge deployment constraints",
   problem:
-    "Most AI demos stop at one model and one prompt. Kopano Context is my attempt to build a system that coordinates multiple models, tools, and product surfaces while keeping a usable audit trail and a visible trust layer.",
+    "Most AI demos collapse intelligence into one prompt and one remote model. Kopano Context treats model calls as one component inside a bounded runtime: agent routing, replayable telemetry, audit storage, trust gates, and product surfaces are modeled as explicit system layers.",
   architecture: [
     "Python orchestration core with CLI entrypoints and FastAPI runtime surfaces.",
     "LiteLLM-based multi-provider routing for Anthropic, Google, xAI, OpenAI, and other providers.",
     "SQLite data lake for discussion logs, replay history, and auditability.",
     "Next.js / React studio surface for real-time visibility into orchestration activity.",
-    "KasiLink bridge and Labs surfaces that connect orchestration work to South African product ideas instead of isolated prompts.",
+    "KasiLink bridge and Labs surfaces that connect orchestration work to offline-first local economic workflows instead of isolated prompt demos.",
   ],
   promptAndTooling: [
-    "A moderator layer decides how multi-agent conversations are coordinated rather than letting every agent run unbounded.",
+    "A moderator layer coordinates agent execution and blocks unbounded agent chatter from becoming the control plane.",
     "Tool use spans git, web, database, spreadsheet, visualization, social monitoring, and simulation-style workflows based on the local test surface.",
-    "Prompting is treated as one layer of the system, not the entire product. Logging, memory, routing, and safe execution all sit around it.",
+    "Prompting is treated as a replaceable interface layer. Logging, memory, routing, policy, and safe execution remain outside the prompt text.",
   ],
   evalApproach: [
     "Repo-level tests cover orchestration, CLI runtime, data lake behavior, demo assets, labs API, security tools, and external-tool integrations.",
     "Demo-day smoke and go/no-go scripts are kept in the repo as operational checks instead of relying on memory.",
     "SafeSkill verification is used as a trust gate for security-sensitive execution paths.",
+    "Architecture is being driven toward telemetry-first validation: sigma_t = f(S_telemetry, delta_I_intent), where runtime state is derived from observed system telemetry and requested intent deltas.",
   ],
   failureCases: [
     "Prompt-injection and unsafe-code risks are treated as first-class concerns through the SafeSkill trust layer and security tooling.",
@@ -383,6 +399,71 @@ export const aiProduct: AiProduct = {
     { label: "KC repository", href: "https://github.com/RobynAwesome/Introduction-to-MCP" },
     { label: "KC README", href: "https://github.com/RobynAwesome/Introduction-to-MCP#readme" },
     { label: "KC studio domain", href: "https://www.context.kopanolabs.com" },
+  ],
+};
+
+export const architectureSpec: ArchitectureSpec = {
+  schema: "https://json-schema.org/draft/2020-12/schema",
+  title: "Sovereign_Ecosystem_Architecture_Specification",
+  version: "3.0.0-swiss-rebase",
+  compilerTarget: "ETH_ZURICH_EPFL_CORE_VALIDATION",
+  systemState: "DETERMINISTIC_REALISM_ACTIVE",
+  invariants: [
+    {
+      label: "State Equation",
+      value: "sigma_t = f(S_telemetry, delta_I_intent)",
+      evidence: "pending",
+      note: "Design invariant for turning observed telemetry and intent deltas into a bounded runtime state.",
+    },
+    {
+      label: "Verification Constant",
+      value: "boolean_latch = 1",
+      evidence: "pending",
+      note: "Every claimed control path should resolve to pass/fail evidence before it is presented as production proof.",
+    },
+    {
+      label: "Substrate",
+      value: "offline-first edge nodes",
+      evidence: "pending",
+      note: "Target architecture for local state management under degraded connectivity and power instability.",
+    },
+  ],
+  layers: [
+    {
+      title: "Formal Isolation System",
+      parameter: "High-performance local state management on decentralized edge nodes.",
+      boundary:
+        "Data residency, agent memory, and execution logs remain addressable as local system resources before any remote model or cloud path is invoked.",
+      validation:
+        "Replay logs, deterministic state transitions, and explicit pass/fail gates replace soft narrative claims.",
+    },
+    {
+      title: "Multi-Agent Orchestration",
+      parameter:
+        "Dynamic model routing, agent role rotation, and runtime state verification through telemetry inputs.",
+      boundary:
+        "Agents do not own the control plane; a moderator and policy layer constrain execution, tool access, and persistence.",
+      validation:
+        "CLI tests, orchestration tests, SafeSkill checks, and replayable SQLite audit records.",
+    },
+    {
+      title: "Cyber-Physical Mechatronics Path",
+      parameter:
+        "Hardware-in-the-loop sensor arrays for power availability, perimeter state, rover mobility, and camera feeds.",
+      boundary:
+        "Physical sensor inputs are modeled as binary or bounded numeric state variables before being exposed to higher-level agents.",
+      validation:
+        "Planned rover and sensor work is labeled as research until HIL logs, control traces, and competition evidence exist.",
+    },
+    {
+      title: "Localized Valuation Engine",
+      parameter:
+        "Micro-transaction and booking workflows mapped to local operational constraints.",
+      boundary:
+        "Economic actions are represented through auditable bookings, payment states, and operator-visible transitions.",
+      validation:
+        "Bookit provides the current production evidence; broader valuation automation remains a research track.",
+    },
   ],
 };
 

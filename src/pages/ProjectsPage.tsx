@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, ArrowRight, ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  Binary,
+  Cpu,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import {
   aiProduct,
+  architectureSpec,
   featuredCaseStudy,
   supportingProjects,
   upcomingProject,
@@ -84,11 +92,11 @@ export default function ProjectsPage() {
           >
             <p className="brand-kicker">Projects</p>
             <h1 className="mt-4 text-[3rem] font-semibold leading-[0.94] tracking-[-0.05em] text-[var(--brand-text)] sm:text-[4.6rem]">
-              Delivery first, systems depth second, experiments clearly labeled.
+              Deep-tech systems work with shipped proof and bounded research tracks.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--brand-soft-text)] sm:text-lg">
-              This page returns to the original structure: flagship delivery, AI systems proof,
-              clearly separated upcoming work, and supporting builds underneath.
+              This portfolio is organized as an engineering evidence surface: production software,
+              multi-agent orchestration, edge-node architecture, and cyber-physical validation paths.
             </p>
           </motion.div>
         </div>
@@ -255,6 +263,89 @@ export default function ProjectsPage() {
               <ProjectLink key={link.href} label={link.label} href={link.href} />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[rgba(208,133,77,0.12)] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <SectionHeading
+            eyebrow="Swiss Technical Spec"
+            title={architectureSpec.title}
+            body="A compact architecture specification for evaluating the Kopano ecosystem as a cyber-physical, edge-aware infrastructure program rather than a set of disconnected web projects."
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55 }}
+            className="mt-10 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]"
+          >
+            <div className="brand-panel rounded-[24px] p-6">
+              <div className="flex items-center gap-3 text-[var(--brand-accent-soft)]">
+                <Binary size={18} />
+                <p className="brand-kicker">Compiler Target</p>
+              </div>
+
+              <div className="mt-5 space-y-4 font-mono text-xs leading-6 text-[var(--brand-soft-text)]">
+                <p>{`$schema: ${architectureSpec.schema}`}</p>
+                <p>{`version: ${architectureSpec.version}`}</p>
+                <p>{`target: ${architectureSpec.compilerTarget}`}</p>
+                <p>{`state: ${architectureSpec.systemState}`}</p>
+              </div>
+
+              <div className="mt-6 grid gap-3">
+                {architectureSpec.invariants.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-[16px] border border-[rgba(234,223,207,0.08)] bg-[rgba(255,255,255,0.03)] px-4 py-4"
+                  >
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--brand-muted)]">
+                      {metric.label}
+                    </p>
+                    <p className="mt-2 break-words font-mono text-sm text-[var(--brand-text)]">
+                      {metric.value}
+                    </p>
+                    {metric.note ? (
+                      <p className="mt-2 text-xs leading-6 text-[var(--brand-muted)]">
+                        {metric.note}
+                      </p>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {architectureSpec.layers.map((layer, index) => (
+                <motion.article
+                  key={layer.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.4, delay: index * 0.04 }}
+                  className="brand-panel rounded-[22px] p-6"
+                >
+                  <div className="flex items-center gap-3 text-[var(--brand-olive)]">
+                    <Cpu size={17} />
+                    <p className="brand-kicker">Layer {index + 1}</p>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--brand-text)]">
+                    {layer.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[var(--brand-soft-text)]">
+                    {layer.parameter}
+                  </p>
+                  <p className="mt-4 text-sm leading-7 text-[var(--brand-muted)]">
+                    Boundary: {layer.boundary}
+                  </p>
+                  <p className="mt-4 text-sm leading-7 text-[var(--brand-accent-soft)]">
+                    Validation: {layer.validation}
+                  </p>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

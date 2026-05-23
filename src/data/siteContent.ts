@@ -32,7 +32,7 @@ export const canonicalBio = {
     "CPUT (Cape Peninsula University of Technology), 2nd-year IT/Engineering",
   location: "Cape Town, South Africa (V&A Waterfront / CPUT)",
   missionStatement:
-    '"Unity through Technology — building digital infrastructure that respects African realities (load-shedding, data residency, POPIA)."',
+    '"Unity through Technology — building edge-aware digital infrastructure that treats load-shedding, data residency, and local operator control as system constraints."',
   recognition: "Finalist, SA Startup Week 2026",
   beliefStatement:
     '"Kopano Labs is built on the belief that Jesus Christ is God."',
@@ -44,10 +44,13 @@ export const canonicalBio = {
     "Turborepo",
     "React 19",
     "TypeScript",
+    "Python orchestration",
+    "FastAPI",
+    "SQLite audit logs",
     "NextAuth",
-    "Tailwind CSS",
-    "MongoDB Atlas (SA region)",
+    "Postgres / MongoDB",
     "MCP",
+    "HIL roadmap",
   ],
 };
 
@@ -72,12 +75,12 @@ export const homeMetrics = [
 ];
 
 export const homeHighlights = [
-  "I lead Kopano Labs in building sovereign digital infrastructure and products that reflect African realities, secure by design and built to last.",
-  "From strategy to system design, from code to cloud, the work stays close to operators, communities, and public trust.",
+  "I lead Kopano Labs as a systems studio for edge-aware infrastructure, auditable agent runtimes, and products grounded in South African operating constraints.",
+  "The work connects software, local telemetry, and operator workflows instead of stopping at aesthetic interfaces or prompt-only demonstrations.",
 ];
 
 export const homeQuote =
-  "Technology is not neutral. It must heal, uplift and unite. That is our mandate.";
+  "Technology becomes credible when its claims can be tested against state, telemetry, and physical constraints.";
 
 export const studioNotes = [
   "Sovereign by design",
@@ -149,15 +152,15 @@ export const studioProjects: StudioProject[] = [
 
 export const studioPrinciples = [
   {
-    title: "African Realities",
-    body: "Design for load-shedding, uneven connectivity, and local compliance from the first decision.",
+    title: "Physical Constraints",
+    body: "Design for load-shedding, uneven connectivity, local hosting, and sensor-visible operating conditions from the first decision.",
   },
   {
-    title: "Context Matters",
-    body: "Treat memory, workflow, and operator control as product primitives rather than optional extras.",
+    title: "Formal Boundaries",
+    body: "Treat memory, workflow, data residency, tool access, and operator control as explicit system boundaries rather than prompt text.",
   },
   {
-    title: "Sovereign Delivery",
-    body: "Ship infrastructure that can be hosted, reasoned about, and trusted close to home.",
+    title: "Verification First",
+    body: "Separate shipped proof from research tracks and require tests, logs, or hardware traces before escalating claims.",
   },
 ];
