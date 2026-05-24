@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { type: "route", to: "/", label: "Home" },
   { type: "route", to: "/projects", label: "Projects" },
   { type: "route", to: "/kopano-labs", label: "Studio" },
+  { type: "route", to: "/ama-phu-entertainment", label: "Music" },
   { type: "anchor", href: "/#about", label: "About" },
   { type: "route", to: "/roadmap", label: "Roadmap" },
   { type: "route", to: "/contact", label: "Contact", highlight: true },

@@ -236,6 +236,55 @@ export const digitalProfileGroups: LinkGroup[] = [
   },
 ];
 
+export interface AdmissionsJourneyBeat {
+  period: string;
+  title: string;
+  summary: string;
+  proof?: JourneyLink[];
+}
+
+/** Admissions-facing arc on the Music page: creative lane + engineering proof. */
+export const amaPhuAdmissionsJourney: AdmissionsJourneyBeat[] = [
+  {
+    period: "Origins",
+    title: "Design curiosity became systems responsibility",
+    summary:
+      "I did not enter technology to sound like an infrastructure person. I came in through visuals, interaction, and music — then kept following the question underneath: what has to exist for this to work when the grid drops, when bandwidth is thin, and when people depend on you showing up?",
+  },
+  {
+    period: "2023–2024",
+    title: "CPUT and the first real delivery loops",
+    summary:
+      "Computer Engineering at CPUT pulled me from screens into state, APIs, and failure modes. Freelance work under Ama_Phu Enterprises turned into shipped products: booking flows, content tooling, and venue operations — not slide decks.",
+    proof: [
+      { label: "Bookit live", href: "https://fivesarena.com/" },
+      { label: "Bookit repository", href: "https://github.com/RobynAwesome/Bookit-5s-Arena" },
+    ],
+  },
+  {
+    period: "2025–2026",
+    title: "Two lanes, one builder: Kopano Labs + Ama-Phu",
+    summary:
+      "Kopano Labs carries deep-tech IP — multi-agent orchestration, proof gates, edge runtimes. Ama-Phu carries label discovery, creator identity, and the public music graph. Same operator discipline: evidence first, no invented scale.",
+    proof: [
+      { label: "Apple Music — Ama_Phu", href: "https://music.apple.com/us/artist/ama-phu/1656490480" },
+      { label: "Ama-Phu link hub", href: "https://linktr.ee/amaphu.ent" },
+    ],
+  },
+  {
+    period: "Now",
+    title: "Why I am pursuing MSc Artificial Intelligence (RKC)",
+    summary:
+      "I am applying to Robert Kennedy College because the next layer of my work is not prettier interfaces — it is honest systems that survive African infrastructure friction. I already build on local metal with auditable agents and cyber-physical student pipelines. Formal graduate training is how I tighten the mathematics, evaluation discipline, and research posture behind that work — without losing the creative lane that keeps me human on the pavement.",
+    proof: [
+      {
+        label: "MSc AI programme (RKC)",
+        href: "https://www.robertkennedycollege.com/programmes/master-of-science-artificial-intelligence/",
+      },
+    ],
+  },
+];
+
 export const amaPhuSignals: AmaPhuSignal[] = [
   {
     title: "Public label hub",

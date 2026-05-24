@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Disc3, Link2, Music4, RadioTower, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { amaPhuSignals } from "../data/journeyContent";
+import { amaPhuAdmissionsJourney, amaPhuSignals } from "../data/journeyContent";
 
 const curatedLinks = [
   {
@@ -119,6 +119,87 @@ export default function AmaPhuEntertainmentPage() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      <section className="border-b border-[rgba(208,133,77,0.12)] py-16 sm:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12"
+        >
+          <div className="mb-10 max-w-3xl">
+            <p className="brand-kicker">My journey</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
+              The path that connects music, venues, and systems engineering.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-[var(--brand-soft-text)]">
+              Admissions panels do not need another generic “AI enthusiast” story. They need a
+              builder who can show live artifacts, explain tradeoffs, and keep growing without
+              abandoning the communities that shaped the work. This is that arc — in plain
+              language, with links you can verify.
+            </p>
+          </div>
+
+          <div className="relative space-y-0">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="absolute left-[1.15rem] top-3 bottom-3 w-px bg-[rgba(208,133,77,0.22)] sm:left-6"
+            />
+            {amaPhuAdmissionsJourney.map((beat, index) => (
+              <motion.article
+                key={beat.period}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+                className="relative grid gap-4 pb-10 pl-12 sm:grid-cols-[9rem_1fr] sm:gap-8 sm:pl-16 sm:pb-12"
+              >
+                <div className="absolute left-3 top-1.5 h-3 w-3 rounded-full border border-[rgba(208,133,77,0.55)] bg-[var(--brand-bg)] sm:left-[1.35rem]" />
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--brand-accent-soft)]">
+                  {beat.period}
+                </p>
+                <div className="brand-panel rounded-[22px] p-6 sm:p-7">
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--brand-text)]">
+                    {beat.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--brand-soft-text)] sm:text-base">
+                    {beat.summary}
+                  </p>
+                  {beat.proof && beat.proof.length > 0 && (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {beat.proof.map((link) => {
+                        const chipClass =
+                          "inline-flex items-center gap-1.5 rounded-full border border-[rgba(208,133,77,0.22)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--brand-olive)] transition-colors hover:text-[var(--brand-text)]";
+                        return link.href.startsWith("/") ? (
+                          <Link key={link.href} to={link.href} className={chipClass}>
+                            {link.label}
+                            <ArrowUpRight size={12} />
+                          </Link>
+                        ) : (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={chipClass}
+                          >
+                            {link.label}
+                            <ArrowUpRight size={12} />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <section
