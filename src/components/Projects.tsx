@@ -27,7 +27,7 @@ const projects = [
     impact:
       "Streamlined operations, reduced manual workload by 70%, and significantly improved player engagement through automated notifications and league tracking.",
     techs: ["React", "Node.js", "Express", "MongoDB", "CSS", "JavaScript"],
-    github: "https://github.com/Kopano-Labs/Bookit-5s-Arena",
+    github: "https://github.com/RobynAwesome/Bookit-5s-Arena",
     live: null,
     stars: 4,
     featured: true,

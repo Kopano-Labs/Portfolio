@@ -755,3 +755,308 @@ html.redMono .blink-green-dot {
   border-color: rgba(122, 152, 102, 0.52);
   color: #e6ecde;
 }
+
+:root,
+html.dark {
+  --brand-bg: #070909;
+  --brand-surface: rgba(12, 15, 15, 0.92);
+  --brand-surface-soft: rgba(255, 255, 255, 0.03);
+  --brand-line: rgba(208, 133, 77, 0.16);
+  --brand-text: #eadfcf;
+  --brand-soft-text: #d5c4af;
+  --brand-muted: #9d8e7b;
+  --brand-accent: #b96f43;
+  --brand-accent-soft: #d08958;
+  --brand-olive: #7a9866;
+  --brand-page-bg:
+    radial-gradient(circle at top left, rgba(208, 133, 77, 0.08), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(122, 152, 102, 0.08), transparent 24%),
+    linear-gradient(180deg, #060808 0%, #080b0c 55%, #070909 100%);
+  --brand-panel-bg: linear-gradient(180deg, rgba(16, 20, 20, 0.94), rgba(10, 13, 13, 0.94));
+  --brand-panel-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  --brand-button-copper-bg: linear-gradient(135deg, rgba(208, 133, 77, 0.92), rgba(170, 94, 51, 0.98));
+  --brand-button-copper-text: #f7efe6;
+  --brand-button-olive-bg: rgba(122, 152, 102, 0.08);
+  --brand-button-olive-text: #c6d2b8;
+  --mode-switcher-bg: rgba(255, 255, 255, 0.03);
+  --mode-switcher-active-bg: rgba(208, 133, 77, 0.14);
+  --mode-switcher-active-text: #eadfcf;
+}
+
+html.light {
+  --brand-bg: #f7f3ea;
+  --brand-surface: rgba(255, 255, 255, 0.92);
+  --brand-surface-soft: rgba(15, 23, 42, 0.03);
+  --brand-line: rgba(176, 114, 71, 0.18);
+  --brand-text: #1b1612;
+  --brand-soft-text: #4e3f34;
+  --brand-muted: #766457;
+  --brand-accent: #b86f42;
+  --brand-accent-soft: #8d5129;
+  --brand-olive: #58724b;
+  --brand-page-bg:
+    radial-gradient(circle at top left, rgba(208, 133, 77, 0.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(122, 152, 102, 0.08), transparent 26%),
+    linear-gradient(180deg, #f8f5ef 0%, #f5efe4 55%, #f7f3ea 100%);
+  --brand-panel-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 246, 240, 0.94));
+  --brand-panel-shadow: 0 18px 42px rgba(94, 71, 49, 0.08);
+  --brand-button-copper-bg: linear-gradient(135deg, rgba(191, 121, 73, 0.94), rgba(156, 88, 48, 0.98));
+  --brand-button-copper-text: #fffaf4;
+  --brand-button-olive-bg: rgba(88, 114, 75, 0.08);
+  --brand-button-olive-text: #43583a;
+  --mode-switcher-bg: rgba(15, 23, 42, 0.03);
+  --mode-switcher-active-bg: rgba(176, 114, 71, 0.14);
+  --mode-switcher-active-text: #1b1612;
+}
+
+html.crazy {
+  --brand-bg: #050312;
+  --brand-surface: rgba(7, 7, 31, 0.9);
+  --brand-surface-soft: rgba(255, 255, 255, 0.03);
+  --brand-line: rgba(118, 245, 255, 0.26);
+  --brand-text: #f6f4ff;
+  --brand-soft-text: #c7c1ff;
+  --brand-muted: #86d7ef;
+  --brand-accent: #00f5ff;
+  --brand-accent-soft: #ff77e8;
+  --brand-olive: #9dff8b;
+  --brand-page-bg:
+    radial-gradient(circle at 18% 18%, rgba(255, 119, 232, 0.18), transparent 22%),
+    radial-gradient(circle at 82% 22%, rgba(0, 245, 255, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(157, 255, 139, 0.12), transparent 28%),
+    linear-gradient(180deg, #040211 0%, #0a0422 52%, #050312 100%);
+  --brand-panel-bg: linear-gradient(180deg, rgba(16, 8, 40, 0.95), rgba(6, 12, 40, 0.95));
+  --brand-panel-shadow: 0 24px 70px rgba(0, 245, 255, 0.14);
+  --brand-button-copper-bg: linear-gradient(135deg, rgba(0, 245, 255, 0.92), rgba(168, 85, 247, 0.92), rgba(255, 119, 232, 0.92));
+  --brand-button-copper-text: #050312;
+  --brand-button-olive-bg: rgba(157, 255, 139, 0.12);
+  --brand-button-olive-text: #d8ffd0;
+  --mode-switcher-bg: rgba(255, 255, 255, 0.04);
+  --mode-switcher-active-bg: linear-gradient(135deg, rgba(0, 245, 255, 0.9), rgba(255, 119, 232, 0.8));
+  --mode-switcher-active-text: #050312;
+}
+
+html.read {
+  --brand-bg: #f4ecda;
+  --brand-surface: rgba(252, 247, 237, 0.96);
+  --brand-surface-soft: rgba(82, 62, 45, 0.04);
+  --brand-line: rgba(111, 86, 63, 0.2);
+  --brand-text: #2f261c;
+  --brand-soft-text: #4d4032;
+  --brand-muted: #746452;
+  --brand-accent: #6a4c37;
+  --brand-accent-soft: #8d674a;
+  --brand-olive: #5a6248;
+  --brand-page-bg: linear-gradient(180deg, #f6efdf 0%, #f2e7d3 52%, #f4ecda 100%);
+  --brand-panel-bg: linear-gradient(180deg, rgba(253, 249, 241, 0.98), rgba(247, 239, 224, 0.98));
+  --brand-panel-shadow: 0 10px 28px rgba(78, 61, 43, 0.06);
+  --brand-button-copper-bg: linear-gradient(135deg, rgba(115, 87, 64, 0.95), rgba(92, 68, 51, 0.98));
+  --brand-button-copper-text: #fbf7f0;
+  --brand-button-olive-bg: rgba(90, 98, 72, 0.08);
+  --brand-button-olive-text: #4e5a3e;
+  --mode-switcher-bg: rgba(47, 38, 28, 0.04);
+  --mode-switcher-active-bg: rgba(111, 86, 63, 0.12);
+  --mode-switcher-active-text: #2f261c;
+}
+
+.brand-page {
+  background: var(--brand-page-bg);
+  color: var(--brand-text);
+}
+
+.brand-panel {
+  background: var(--brand-panel-bg);
+  border: 1px solid var(--brand-line);
+  box-shadow: var(--brand-panel-shadow);
+}
+
+.brand-button-copper {
+  background: var(--brand-button-copper-bg);
+  color: var(--brand-button-copper-text);
+}
+
+.brand-button-olive {
+  background: var(--brand-button-olive-bg);
+  color: var(--brand-button-olive-text);
+}
+
+.mode-switcher__button {
+  min-width: 2.6rem;
+}
+
+html.crazy .mode-switcher {
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.12);
+}
+
+html.read .brand-grid,
+html.read .brand-topography,
+html.read .mode-orbit-haze,
+html.read .animate-gradient,
+html.read .animate-float,
+html.read .animate-spin-slow,
+html.read .pulse-glow {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+html.read body {
+  background-image: linear-gradient(180deg, #f6efdf 0%, #f2e7d3 52%, #f4ecda 100%);
+  color: var(--brand-text);
+  font-family: "Fraunces", Georgia, serif;
+}
+
+html.read p,
+html.read a,
+html.read button,
+html.read li,
+html.read span {
+  letter-spacing: 0;
+}
+
+html.read .brand-panel {
+  backdrop-filter: none;
+}
+
+.mode-map-panel {
+  overflow: hidden;
+}
+
+.mode-orbit-shell {
+  background: linear-gradient(180deg, rgba(9, 12, 12, 0.84), rgba(7, 9, 9, 0.92));
+}
+
+.mode-orbit-stage {
+  background:
+    radial-gradient(circle at 20% 18%, rgba(208, 133, 77, 0.14), transparent 20%),
+    radial-gradient(circle at 82% 24%, rgba(122, 152, 102, 0.14), transparent 22%),
+    linear-gradient(180deg, rgba(10, 12, 12, 0.96), rgba(7, 9, 9, 0.98));
+  padding: clamp(1rem, 2vw, 1.25rem);
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.mode-orbit-haze {
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(208, 133, 77, 0.08), transparent 52%);
+}
+
+.mode-orbit-ring {
+  border: 1px solid rgba(208, 133, 77, 0.18);
+  box-shadow: inset 0 0 24px rgba(208, 133, 77, 0.05);
+}
+
+.mode-orbit-ring--inner {
+  border-color: rgba(122, 152, 102, 0.2);
+}
+
+.mode-core-card,
+.mode-node-card {
+  background: rgba(10, 13, 13, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.mode-core-card {
+  transform: translateZ(52px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+}
+
+.mode-node-card {
+  transform: translateZ(22px) rotateX(5deg);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+}
+
+html.light .mode-orbit-shell,
+html.light .mode-core-card,
+html.light .mode-node-card {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+html.crazy .mode-orbit-shell {
+  background: linear-gradient(180deg, rgba(14, 8, 44, 0.92), rgba(6, 10, 34, 0.96));
+  box-shadow: 0 0 34px rgba(0, 245, 255, 0.12);
+}
+
+html.crazy .mode-orbit-stage {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 119, 232, 0.18), transparent 20%),
+    radial-gradient(circle at 82% 24%, rgba(0, 245, 255, 0.18), transparent 20%),
+    radial-gradient(circle at 50% 78%, rgba(157, 255, 139, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(9, 4, 32, 0.98), rgba(4, 8, 28, 0.98));
+}
+
+html.crazy .mode-orbit-ring {
+  border-color: rgba(0, 245, 255, 0.28);
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.08), inset 0 0 24px rgba(0, 245, 255, 0.08);
+}
+
+html.crazy .mode-orbit-ring--inner {
+  border-color: rgba(255, 119, 232, 0.26);
+}
+
+html.crazy .mode-core-card,
+html.crazy .mode-node-card {
+  background: rgba(10, 10, 40, 0.82);
+  border-color: rgba(0, 245, 255, 0.18);
+  box-shadow: 0 18px 42px rgba(0, 245, 255, 0.12);
+}
+
+html.read .mode-orbit-shell {
+  background: rgba(247, 239, 224, 0.88);
+}
+
+html.read .mode-orbit-stage {
+  background: linear-gradient(180deg, rgba(252, 247, 237, 0.98), rgba(244, 236, 218, 0.98));
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  min-height: auto;
+  perspective: none;
+  transform-style: flat;
+}
+
+html.read .mode-orbit-ring,
+html.read .mode-orbit-haze {
+  display: none;
+}
+
+html.read .mode-core-card,
+html.read .mode-node-card,
+html.read .mode-orbit-tag {
+  background: rgba(252, 247, 237, 0.98);
+  border-color: rgba(111, 86, 63, 0.2);
+  box-shadow: 0 8px 16px rgba(78, 61, 43, 0.05);
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  position: static !important;
+  inset: auto !important;
+  margin: 0;
+  width: 100%;
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: 1 !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html.read .mode-orbit-stage--read .mode-core-card {
+  grid-column: 1 / -1;
+}
+
+html.read .mode-orbit-tag {
+  justify-self: start;
+}
+
+@media (min-width: 640px) {
+  html.read .mode-orbit-stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html.read .mode-orbit-tag {
+    grid-column: 1 / -1;
+  }
+}

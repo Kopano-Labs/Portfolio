@@ -17,11 +17,22 @@ export type StudioProject = {
   secondaryLink?: ProjectLink;
 };
 
+export type EducationSignal = {
+  institution: string;
+  award: string;
+  period: string;
+  note: string;
+  href: string;
+};
+
 export const studioLinks = {
   kopanoLabs: "https://kopanolabs.com",
+  portfolio: "https://KRRababalela.com/",
   github: "https://github.com/RobynAwesome",
   linkedin: "https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/",
   koFi: "https://ko-fi.com/robynawesome/",
+  amaPhuEntertainment: "https://linktr.ee/amaphu.ent",
+  osheenViews: "https://linktr.ee/osheen_views",
   email: "mailto:rkholofelo@gmail.com",
 };
 
@@ -29,28 +40,22 @@ export const canonicalBio = {
   name: 'Kholofelo "Robyn" Rababalela',
   role: "Chief Architect, Kopano Labs",
   affiliation:
-    "CPUT (Cape Peninsula University of Technology), 2nd-year IT/Engineering",
+    "CPUT computer engineering with learning tracks through The Johns Hopkins University and Robert Kennedy College",
   location: "Cape Town, South Africa (V&A Waterfront / CPUT)",
   missionStatement:
-    '"Unity through Technology — building edge-aware digital infrastructure that treats load-shedding, data residency, and local operator control as system constraints."',
+    '"Unity through Technology — building digital infrastructure that respects African realities (load-shedding, data residency, POPIA)."',
   recognition: "Finalist, SA Startup Week 2026",
   beliefStatement:
     '"Kopano Labs is built on the belief that Jesus Christ is God."',
-  /** Jesus Protocol — public mission line (portfolio / studio surfaces). */
-  purposeDrivenLifeStatement:
-    "Kopano Labs is driven by a rigorous, purpose-driven life. Jesus is King.",
   stack: [
     "Next.js 15",
     "Turborepo",
     "React 19",
     "TypeScript",
-    "Python orchestration",
-    "FastAPI",
-    "SQLite audit logs",
     "NextAuth",
-    "Postgres / MongoDB",
+    "Tailwind CSS",
+    "MongoDB Atlas (SA region)",
     "MCP",
-    "HIL roadmap",
   ],
 };
 
@@ -58,34 +63,66 @@ export const homeTraits = ["Architect", "Builder", "Believer"];
 
 export const homeMetrics = [
   {
-    label: "Alumna",
+    label: "Degree",
     value: "CPUT",
-    detail: "Cape Peninsula University of Technology",
+    detail: "BEng Tech in Computer Engineering",
+  },
+  {
+    label: "Certificate",
+    value: "Johns Hopkins",
+    detail: "Agentic AI and machine learning track",
+  },
+  {
+    label: "Graduate AI",
+    value: "Robert Kennedy College",
+    detail: "MSc AI and machine learning pathway",
   },
   {
     label: "Based In",
     value: "Cape Town",
     detail: "Building for Africa. Anchored at home.",
   },
-  {
-    label: "Recognition",
-    value: "SA Startup Week 2026 Finalist",
-    detail: "Top founder and startup recognition.",
-  },
 ];
 
 export const homeHighlights = [
-  "I lead Kopano Labs as a systems studio for edge-aware infrastructure, auditable agent runtimes, and products grounded in South African operating constraints.",
-  "The work connects software, local telemetry, and operator workflows instead of stopping at aesthetic interfaces or prompt-only demonstrations.",
+  "I lead Kopano Labs in building sovereign digital infrastructure and products that reflect African realities, secure by design and built to last.",
+  "The education path running alongside the work now spans CPUT computer engineering, Johns Hopkins agentic AI study, and the Robert Kennedy College MSc AI lane.",
 ];
 
 export const homeQuote =
-  "Technology becomes credible when its claims can be tested against state, telemetry, and physical constraints.";
+  "Technology is not neutral. It must heal, uplift and unite. That is our mandate.";
 
 export const studioNotes = [
   "Sovereign by design",
   "Secure by default",
   "Built for scale",
+];
+
+export const educationSignals: EducationSignal[] = [
+  {
+    institution: "Cape Peninsula University of Technology",
+    award: "Bachelor of Engineering, Computer Engineering",
+    period: "2025 - 2028",
+    note:
+      "Core engineering path covering software design, electronics, computer architecture, telecommunications engineering, and operating systems.",
+    href: "https://www.cput.ac.za/",
+  },
+  {
+    institution: "The Johns Hopkins University",
+    award: "Certificate in Agentic AI, Machine Learning",
+    period: "May 2026",
+    note:
+      "Agentic AI lane with Python, generative AI, prompt engineering, protocol engineering, LangChain, and LangGraph visible in the public profile evidence you shared.",
+    href: "https://www.jhu.edu/",
+  },
+  {
+    institution: "Robert Kennedy College",
+    award: "MSc in Artificial Intelligence, Machine Learning",
+    period: "May 2026",
+    note:
+      "AI graduate-study lane now reflected directly in the portfolio alongside the Lancashire / RKC programme research materials.",
+    href: "https://www.college.ch/",
+  },
 ];
 
 export const studioProjects: StudioProject[] = [
@@ -106,7 +143,7 @@ export const studioProjects: StudioProject[] = [
       label: "Visit live platform",
     },
     secondaryLink: {
-      href: "https://github.com/Kopano-Labs/Bookit-5s-Arena",
+      href: "https://github.com/RobynAwesome/Bookit-5s-Arena",
       label: "View GitHub",
     },
   },
@@ -123,11 +160,7 @@ export const studioProjects: StudioProject[] = [
     image: "/project-banners/kasilink-banner.svg",
     imageAlt: "KasiLink project banner",
     primaryLink: {
-      href: "https://kasilink.com",
-      label: "Visit live platform",
-    },
-    secondaryLink: {
-      href: "https://github.com/Kopano-Labs/KasiLink",
+      href: "https://github.com/RobynAwesome/KasiLink",
       label: "View GitHub",
     },
   },
@@ -152,15 +185,15 @@ export const studioProjects: StudioProject[] = [
 
 export const studioPrinciples = [
   {
-    title: "Physical Constraints",
-    body: "Design for load-shedding, uneven connectivity, local hosting, and sensor-visible operating conditions from the first decision.",
+    title: "African Realities",
+    body: "Design for load-shedding, uneven connectivity, and local compliance from the first decision.",
   },
   {
-    title: "Formal Boundaries",
-    body: "Treat memory, workflow, data residency, tool access, and operator control as explicit system boundaries rather than prompt text.",
+    title: "Context Matters",
+    body: "Treat memory, workflow, and operator control as product primitives rather than optional extras.",
   },
   {
-    title: "Verification First",
-    body: "Separate shipped proof from research tracks and require tests, logs, or hardware traces before escalating claims.",
+    title: "Sovereign Delivery",
+    body: "Ship infrastructure that can be hosted, reasoned about, and trusted close to home.",
   },
 ];

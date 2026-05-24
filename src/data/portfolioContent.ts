@@ -78,21 +78,6 @@ export interface AiProduct {
   links: ExternalLink[];
 }
 
-export interface ArchitectureSpec {
-  schema: string;
-  title: string;
-  version: string;
-  compilerTarget: string;
-  systemState: string;
-  invariants: Metric[];
-  layers: {
-    title: string;
-    parameter: string;
-    boundary: string;
-    validation: string;
-  }[];
-}
-
 export interface QualitySignal {
   title: string;
   summary: string;
@@ -114,33 +99,37 @@ export interface RoadmapTrack {
 export const profile = {
   name: "Kholofelo Robyn Rababalela",
   title:
-    "Computer engineering student and systems builder working on edge-aware product infrastructure, auditable multi-agent runtimes, and cyber-physical validation paths.",
+    "Freelance web developer and AI infrastructure builder creating product systems, community platforms, and auditable multi-agent tooling.",
   location: "Cape Town, South Africa",
   email: "rkholofelo@gmail.com",
   headline:
-    "Computer Engineering Student | Creator of Kopano Context | Edge Systems, Mechatronics, and Multi-Agent Infrastructure | KasiLink + Kopano Labs",
+    "Freelance Web Developer and AI Infrastructure Builder | Creator of Kopano Context | CPUT Computer Engineering Student | KasiLink + Kopano Labs",
   summary:
-    "I build software as infrastructure rather than presentation: booking operations, local economic systems, and multi-agent runtimes with explicit state, logs, failure modes, and test gates. The current portfolio is framed around deep-tech IP, edge execution, and cyber-physical constraints instead of general web delivery language.",
+    "I build things that have to work beyond the mockup: booking flows, community products, and AI systems with visible reasoning, logs, and trust checks. My public work spans Bookit for 5's Arena, Kopano Context's multi-agent runtime, and a documentation-heavy product workflow shaped by real South African constraints.",
 };
 
 export const publicLinks = {
-  portfolio: "https://krrababalela.com/",
+  portfolio: "https://KRRababalela.com/",
   github: "https://github.com/RobynAwesome",
   linkedin: "https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/",
   hackerrank: "https://www.hackerrank.com/profile/rkholofelo",
   orcid: "https://orcid.org/0009-0000-3995-6147",
+  kopanoLabs: "https://kopanolabs.com",
+  amaPhuEntertainment: "https://linktr.ee/amaphu.ent",
+  osheenViews: "https://linktr.ee/osheen_views",
 };
 
 export const experience: ExperienceItem[] = [
   {
     role: "Freelance Software Developer",
-    company: "Ama_Phu Enterprises / 5's Arena engagements",
+    company: "Ama-Phu Entertainment / Ama_Phu Enterprises / 5's Arena",
     period: "2023 — Present",
     location: "Cape Town / Remote",
     summary:
-      "Built and shipped client-facing products from architecture through deployment, with the strongest work centered on booking operations, content tooling, and maintainable frontend systems.",
+      "Built and shipped client-facing products from architecture through deployment across entertainment, venue operations, content tooling, and maintainable frontend systems.",
     achievements: [
       "Delivered Bookit — 5's Arena as a live court-management and booking platform instead of a brochure-style site.",
+      "Supported the wider Ama-Phu ecosystem with public profile and discovery surfaces that now deserve their own dedicated portfolio page.",
       "Shipped a companion blog platform with authentication, role-aware publishing, and image handling for the same venue ecosystem.",
       "Built production portfolio sites for both personal and client use, including the current portfolio and Portfolio-MBR.",
       "Worked across product design, frontend implementation, backend integration, deployment, and documentation instead of staying isolated in one layer.",
@@ -336,33 +325,32 @@ export const featuredCaseStudy: CaseStudy = {
   ],
   links: [
     { label: "Live system", href: "https://fivesarena.com" },
-    { label: "Public repository", href: "https://github.com/Kopano-Labs/Bookit-5s-Arena" },
+    { label: "Public repository", href: "https://github.com/RobynAwesome/Bookit-5s-Arena" },
     { label: "Venue blog companion", href: "https://blog.fivesarena.com" },
   ],
 };
 
 export const aiProduct: AiProduct = {
   title: "Kopano Context (KC)",
-  strapline: "Protocol-first multi-agent orchestration with state verification, audit logs, and edge deployment constraints",
+  strapline: "Multi-agent orchestration system with safety checks, audit logs, and a real product surface",
   problem:
-    "Most AI demos collapse intelligence into one prompt and one remote model. Kopano Context treats model calls as one component inside a bounded runtime: agent routing, replayable telemetry, audit storage, trust gates, and product surfaces are modeled as explicit system layers.",
+    "Most AI demos stop at one model and one prompt. Kopano Context is my attempt to build a system that coordinates multiple models, tools, and product surfaces while keeping a usable audit trail and a visible trust layer.",
   architecture: [
     "Python orchestration core with CLI entrypoints and FastAPI runtime surfaces.",
     "LiteLLM-based multi-provider routing for Anthropic, Google, xAI, OpenAI, and other providers.",
     "SQLite data lake for discussion logs, replay history, and auditability.",
     "Next.js / React studio surface for real-time visibility into orchestration activity.",
-    "KasiLink bridge and Labs surfaces that connect orchestration work to offline-first local economic workflows instead of isolated prompt demos.",
+    "KasiLink bridge and Labs surfaces that connect orchestration work to South African product ideas instead of isolated prompts.",
   ],
   promptAndTooling: [
-    "A moderator layer coordinates agent execution and blocks unbounded agent chatter from becoming the control plane.",
+    "A moderator layer decides how multi-agent conversations are coordinated rather than letting every agent run unbounded.",
     "Tool use spans git, web, database, spreadsheet, visualization, social monitoring, and simulation-style workflows based on the local test surface.",
-    "Prompting is treated as a replaceable interface layer. Logging, memory, routing, policy, and safe execution remain outside the prompt text.",
+    "Prompting is treated as one layer of the system, not the entire product. Logging, memory, routing, and safe execution all sit around it.",
   ],
   evalApproach: [
     "Repo-level tests cover orchestration, CLI runtime, data lake behavior, demo assets, labs API, security tools, and external-tool integrations.",
     "Demo-day smoke and go/no-go scripts are kept in the repo as operational checks instead of relying on memory.",
     "SafeSkill verification is used as a trust gate for security-sensitive execution paths.",
-    "Architecture is being driven toward telemetry-first validation: sigma_t = f(S_telemetry, delta_I_intent), where runtime state is derived from observed system telemetry and requested intent deltas.",
   ],
   failureCases: [
     "Prompt-injection and unsafe-code risks are treated as first-class concerns through the SafeSkill trust layer and security tooling.",
@@ -399,71 +387,6 @@ export const aiProduct: AiProduct = {
     { label: "KC repository", href: "https://github.com/RobynAwesome/Introduction-to-MCP" },
     { label: "KC README", href: "https://github.com/RobynAwesome/Introduction-to-MCP#readme" },
     { label: "KC studio domain", href: "https://www.context.kopanolabs.com" },
-  ],
-};
-
-export const architectureSpec: ArchitectureSpec = {
-  schema: "https://json-schema.org/draft/2020-12/schema",
-  title: "Sovereign_Ecosystem_Architecture_Specification",
-  version: "3.0.0-swiss-rebase",
-  compilerTarget: "ETH_ZURICH_EPFL_CORE_VALIDATION",
-  systemState: "DETERMINISTIC_REALISM_ACTIVE",
-  invariants: [
-    {
-      label: "State Equation",
-      value: "sigma_t = f(S_telemetry, delta_I_intent)",
-      evidence: "pending",
-      note: "Design invariant for turning observed telemetry and intent deltas into a bounded runtime state.",
-    },
-    {
-      label: "Verification Constant",
-      value: "boolean_latch = 1",
-      evidence: "pending",
-      note: "Every claimed control path should resolve to pass/fail evidence before it is presented as production proof.",
-    },
-    {
-      label: "Substrate",
-      value: "offline-first edge nodes",
-      evidence: "pending",
-      note: "Target architecture for local state management under degraded connectivity and power instability.",
-    },
-  ],
-  layers: [
-    {
-      title: "Formal Isolation System",
-      parameter: "High-performance local state management on decentralized edge nodes.",
-      boundary:
-        "Data residency, agent memory, and execution logs remain addressable as local system resources before any remote model or cloud path is invoked.",
-      validation:
-        "Replay logs, deterministic state transitions, and explicit pass/fail gates replace soft narrative claims.",
-    },
-    {
-      title: "Multi-Agent Orchestration",
-      parameter:
-        "Dynamic model routing, agent role rotation, and runtime state verification through telemetry inputs.",
-      boundary:
-        "Agents do not own the control plane; a moderator and policy layer constrain execution, tool access, and persistence.",
-      validation:
-        "CLI tests, orchestration tests, SafeSkill checks, and replayable SQLite audit records.",
-    },
-    {
-      title: "Cyber-Physical Mechatronics Path",
-      parameter:
-        "Hardware-in-the-loop sensor arrays for power availability, perimeter state, rover mobility, and camera feeds.",
-      boundary:
-        "Physical sensor inputs are modeled as binary or bounded numeric state variables before being exposed to higher-level agents.",
-      validation:
-        "Planned rover and sensor work is labeled as research until HIL logs, control traces, and competition evidence exist.",
-    },
-    {
-      title: "Localized Valuation Engine",
-      parameter:
-        "Micro-transaction and booking workflows mapped to local operational constraints.",
-      boundary:
-        "Economic actions are represented through auditable bookings, payment states, and operator-visible transitions.",
-      validation:
-        "Bookit provides the current production evidence; broader valuation automation remains a research track.",
-    },
   ],
 };
 
@@ -529,7 +452,7 @@ export const supportingProjects: ProjectItem[] = [
       "Typecheck + build gate wired into npm run check.",
     ],
     links: [
-      { label: "Live site", href: "https://krrababalela.com/" },
+      { label: "Live site", href: "https://KRRababalela.com/" },
       { label: "Repository", href: "https://github.com/RobynAwesome/Portfolio" },
     ],
   },
@@ -563,7 +486,7 @@ export const supportingProjects: ProjectItem[] = [
       "Referenced in KC README as part of the ecosystem direction.",
     ],
     links: [
-      { label: "Repository", href: "https://github.com/Kopano-Labs/KasiLink" },
+      { label: "Repository", href: "https://github.com/RobynAwesome/KasiLink" },
       { label: "KC repository", href: "https://github.com/RobynAwesome/Introduction-to-MCP" },
     ],
   },
@@ -598,7 +521,7 @@ export const qualitySignals: QualitySignal[] = [
     summary: "Public sites are deployed and kept reachable on live domains instead of existing only as screenshots or local demos.",
     evidence: "Verified through public portfolio and 5's Arena deployment links.",
     links: [
-      { label: "Portfolio", href: "https://krrababalela.com/" },
+      { label: "Portfolio", href: "https://KRRababalela.com/" },
       { label: "5's Arena", href: "https://fivesarena.com" },
     ],
   },

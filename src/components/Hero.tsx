@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { profile } from "../data/portfolioContent";
-import { canonicalBio } from "../data/siteContent";
 
 const easeCurve = [0.22, 1, 0.36, 1] as const;
 
@@ -104,7 +103,7 @@ export default function Hero() {
               Current Focus
             </p>
             <p className="mt-2 text-sm font-semibold text-white">
-              Building edge-aware product systems, auditable agent runtimes, and cyber-physical validation paths.
+              Shipping web products and AI tooling that can be audited, tested, and handed over cleanly.
             </p>
           </motion.div>
         </motion.div>
@@ -119,29 +118,22 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xs font-semibold uppercase tracking-[0.24em] text-[#00e89d]"
           >
-            Cape Town-based systems builder
+            Cape Town-based product engineer
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
             className="mt-5 max-w-4xl text-[clamp(2.9rem,6vw,6rem)] font-black leading-[0.92] text-white"
           >
-            I build edge-aware infrastructure from shipped software and testable system boundaries.
+            I build hiring-ready proof through shipped products and AI systems.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="mt-6 max-w-2xl text-base leading-7 text-gray-300 sm:text-lg"
           >
-            {profile.name} works across production web systems, multi-agent orchestration, and
-            mechatronics-oriented research with explicit state, logs, and verification gates.
-          </motion.p>
-
-          <motion.p
-            variants={itemVariants}
-            className="mt-5 max-w-2xl text-sm font-semibold leading-7 text-white sm:text-base"
-          >
-            {canonicalBio.purposeDrivenLifeStatement}
+            {profile.name} is a freelance web developer and AI infrastructure builder creating booking flows,
+            product systems, and multi-agent tooling with visible quality habits.
           </motion.p>
 
           <motion.div
@@ -170,8 +162,8 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-8 max-w-xl border-t border-white/8 pt-5 text-sm leading-7 text-gray-400"
           >
-            Start with Bookit for production evidence, then move to Kopano Context for orchestration,
-            telemetry-driven state, failure modes, and trust controls.
+            Start with Bookit for shipped delivery, then move to Kopano Context for prompts, tools, evals,
+            failure modes, and trust controls.
           </motion.p>
         </motion.div>
       </div>

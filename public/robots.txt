@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kholofelorababalela.vercel.app/sitemap.xml
+Sitemap: https://krrababalela.com/sitemap.xml

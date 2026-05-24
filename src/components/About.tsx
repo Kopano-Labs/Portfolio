@@ -1,7 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { canonicalBio } from "../data/siteContent";
 
 export default function About() {
   const ref = useRef(null);
@@ -102,9 +101,6 @@ export default function About() {
               multi-agent runtime that connects models, tools, and audit trails.
               The result is a portfolio that still loves motion and design, but
               is anchored by shipping work, not just styling.
-            </p>
-            <p className="text-white text-base sm:text-lg leading-relaxed mb-6 font-semibold">
-              {canonicalBio.purposeDrivenLifeStatement}
             </p>
 
             <Link

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Globe2, Layers3, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import StudioProjectCard from "../components/StudioProjectCard";
 import {
   canonicalBio,
@@ -17,6 +18,7 @@ export default function KopanoLabsPage() {
         <div className="brand-grid absolute inset-0 opacity-28" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,11 +27,11 @@ export default function KopanoLabsPage() {
           >
             <p className="brand-kicker">Studio</p>
             <h1 className="mt-4 text-[3rem] font-semibold leading-[0.94] tracking-[-0.05em] text-[var(--brand-text)] sm:text-[4.6rem]">
-              Kopano Labs builds edge-aware systems with formal software and hardware boundaries.
+              Kopano Labs builds systems that respect where they will actually be used.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--brand-soft-text)] sm:text-lg">
-              This page is the portfolio-side architecture brief: mission, active systems, stack
-              choices, and the validation posture behind the public brand.
+              This page is the portfolio-side summary: mission, live work, stack choices, and the
+              studio posture behind the public brand.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -49,8 +51,34 @@ export default function KopanoLabsPage() {
                 Contact the studio
                 <Mail size={16} />
               </a>
+              <Link
+                to="/ama-phu-entertainment"
+                className="inline-flex items-center justify-center gap-3 rounded-[12px] border border-[rgba(208,133,77,0.24)] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-text)] transition-colors hover:bg-[rgba(208,133,77,0.12)]"
+              >
+                Ama-Phu page
+              </Link>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="brand-panel brand-topography rounded-[28px] p-6"
+          >
+            <div className="flex min-h-[220px] items-center justify-center rounded-[22px] border border-[rgba(42,174,141,0.2)] bg-[radial-gradient(circle_at_25%_20%,rgba(42,174,141,0.16),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(32,84,159,0.14),transparent_30%),rgba(7,9,9,0.76)] p-6">
+              <img
+                src="/kopano-labs-logo.png"
+                alt="Kopano Labs logo"
+                className="w-full max-w-[300px] object-contain"
+              />
+            </div>
+            <div className="mt-5 flex items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--brand-muted)]">
+              <span>Official studio mark</span>
+              <span className="text-[var(--brand-olive)]">Cape Town</span>
+            </div>
+          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -70,13 +98,10 @@ export default function KopanoLabsPage() {
             <p className="mt-5 text-base leading-7 text-[var(--brand-text)]">
               {canonicalBio.missionStatement}
             </p>
-            <p className="mt-4 text-base font-medium leading-7 text-[var(--brand-text)]">
-              {canonicalBio.purposeDrivenLifeStatement}
-            </p>
             <p className="mt-5 text-sm leading-7 text-[var(--brand-soft-text)]">
-              The core operating belief is that local constraints are system inputs. Power
-              interruptions, data sovereignty, low-bandwidth usage, telemetry, and operator clarity
-              come before ornamental interface work.
+              The core operating belief is that local constraints are not edge cases. They are the
+              design brief: power interruptions, data sovereignty, low-bandwidth usage, and operator
+              clarity come before ornament.
             </p>
           </motion.div>
 
@@ -108,7 +133,7 @@ export default function KopanoLabsPage() {
             <div>
               <p className="brand-kicker">Active Projects</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
-                The systems currently carrying the studio thesis.
+                The work currently carrying the studio thesis.
               </h2>
             </div>
             <a
@@ -164,16 +189,21 @@ export default function KopanoLabsPage() {
             className="brand-panel brand-topography rounded-[24px] p-8 sm:p-10"
           >
             <div className="max-w-3xl">
+              <img
+                src="/kopano-labs-logo.png"
+                alt="Kopano Labs logo"
+                className="mb-7 h-16 w-auto object-contain"
+              />
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(208,133,77,0.16)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-olive)]">
                 <Globe2 size={14} />
                 Contact
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-text)] sm:text-4xl">
-                Need the studio architecture brief, live work, or public company surface?
+                Need the studio summary, the live work, or the public company surface?
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--brand-soft-text)]">
-                This page stays as the short portfolio-side technical overview. For the outward-facing
-                company site and the latest public positioning, continue to kopanolabs.com.
+                This page stays as the short portfolio-side overview. For the outward-facing company
+                site and the latest public positioning, continue to kopanolabs.com.
               </p>
             </div>
 
@@ -196,6 +226,12 @@ export default function KopanoLabsPage() {
                 Open LinkedIn
                 <ArrowUpRight size={16} />
               </a>
+              <Link
+                to="/ama-phu-entertainment"
+                className="inline-flex items-center justify-center gap-3 rounded-[12px] border border-[rgba(208,133,77,0.24)] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-text)] transition-colors hover:bg-[rgba(208,133,77,0.12)]"
+              >
+                Explore Ama-Phu
+              </Link>
             </div>
           </motion.div>
         </div>

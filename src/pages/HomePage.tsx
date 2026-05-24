@@ -2,16 +2,20 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
+  BookOpen,
   Building2,
   Globe2,
+  GraduationCap,
   MapPin,
+  Music4,
   Sparkles,
-  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import EcosystemDiagram from "../components/EcosystemDiagram";
 import StudioProjectCard from "../components/StudioProjectCard";
 import {
   canonicalBio,
+  educationSignals,
   homeHighlights,
   homeMetrics,
   homeQuote,
@@ -21,7 +25,7 @@ import {
   studioProjects,
 } from "../data/siteContent";
 
-const statIcons = [Building2, MapPin, Star];
+const statIcons = [Building2, GraduationCap, BookOpen, MapPin];
 
 export default function HomePage() {
   return (
@@ -112,7 +116,7 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          <div className="mt-10 grid gap-0 overflow-hidden rounded-[20px] border border-[rgba(208,133,77,0.12)] bg-[rgba(9,12,12,0.86)] md:grid-cols-3">
+          <div className="mt-10 grid gap-0 overflow-hidden rounded-[20px] border border-[rgba(208,133,77,0.12)] bg-[rgba(9,12,12,0.86)] md:grid-cols-2 xl:grid-cols-4">
             {homeMetrics.map((metric, index) => {
               const Icon = statIcons[index];
 
@@ -187,6 +191,58 @@ export default function HomePage() {
         id="featured-projects"
         className="border-b border-[rgba(208,133,77,0.12)] bg-[#070909] py-16 sm:py-20"
       >
+        <div className="mx-auto mb-14 max-w-7xl px-5 sm:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55 }}
+            className="brand-panel mode-map-panel rounded-[28px] p-6 sm:p-8"
+          >
+            <EcosystemDiagram />
+          </motion.div>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55 }}
+            className="mb-12 grid gap-5 lg:grid-cols-3"
+          >
+            {educationSignals.map((item) => (
+              <div
+                key={item.institution}
+                className="brand-panel rounded-[24px] p-6"
+              >
+                <p className="brand-kicker">Education</p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--brand-text)]">
+                  {item.institution}
+                </h3>
+                <p className="mt-3 text-sm font-semibold text-[var(--brand-accent-soft)]">
+                  {item.award}
+                </p>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--brand-olive)]">
+                  {item.period}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[var(--brand-soft-text)]">
+                  {item.note}
+                </p>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-olive)] transition-colors hover:text-[var(--brand-text)]"
+                >
+                  Visit institution
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -219,44 +275,135 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
-            className="brand-panel brand-topography grid gap-6 rounded-[24px] p-6 sm:p-8 lg:grid-cols-[240px_1fr_auto] lg:items-center"
           >
-            <div className="flex h-44 items-center justify-center rounded-[18px] border border-[rgba(208,133,77,0.18)] bg-[rgba(8,11,12,0.82)]">
-              <img src="/favicon.svg" alt="Kopano Labs mark" className="h-24 w-24" />
-            </div>
-
-            <div>
-              <p className="brand-kicker">The Studio</p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--brand-text)]">
-                Kopano Labs
+            <div className="max-w-3xl">
+              <p className="brand-kicker">Execution Lanes</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
+                The home page should close with both ecosystem lanes visible.
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--brand-soft-text)]">
-                A sovereign product studio building the digital backbone of Africa’s future.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-4">
-                {studioNotes.map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center gap-2 text-sm text-[var(--brand-muted)]"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent-soft)]" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-5 text-sm leading-7 text-[var(--brand-muted)]">
-                Product studio. Systems thinking. African excellence.
+              <p className="mt-4 text-base leading-7 text-[var(--brand-soft-text)]">
+                Kopano Labs carries the sovereign systems thesis. Ama-Phu Entertainment carries the
+                creative, music, and public-discovery lane. They belong together at the bottom of
+                the home page.
               </p>
             </div>
-
-            <Link
-              to="/kopano-labs"
-              className="brand-button-copper inline-flex items-center justify-center gap-3 rounded-[12px] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em]"
-            >
-              Explore Kopano Labs
-              <ArrowUpRight size={16} />
-            </Link>
           </motion.div>
+
+          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55 }}
+              className="brand-panel brand-topography grid gap-6 rounded-[24px] p-6 sm:p-8 lg:grid-cols-[220px_1fr] lg:items-center"
+            >
+              <div className="flex h-44 items-center justify-center rounded-[18px] border border-[rgba(208,133,77,0.18)] bg-[radial-gradient(circle_at_20%_20%,rgba(42,174,141,0.12),transparent_34%),rgba(8,11,12,0.82)] p-6">
+                <img
+                  src="/kopano-labs-logo.png"
+                  alt="Kopano Labs logo"
+                  className="max-h-28 w-full object-contain"
+                />
+              </div>
+
+              <div>
+                <p className="brand-kicker">The Studio</p>
+                <h3 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--brand-text)]">
+                  Kopano Labs
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--brand-soft-text)]">
+                  A sovereign product studio building the digital backbone of Africa’s future.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-4">
+                  {studioNotes.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-2 text-sm text-[var(--brand-muted)]"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent-soft)]" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm leading-7 text-[var(--brand-muted)]">
+                  Product studio. Systems thinking. African excellence.
+                </p>
+                <div className="mt-6">
+                  <Link
+                    to="/kopano-labs"
+                    className="brand-button-copper inline-flex items-center justify-center gap-3 rounded-[12px] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em]"
+                  >
+                    Explore Kopano Labs
+                    <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: 0.06 }}
+              className="brand-panel brand-topography grid gap-6 rounded-[24px] p-6 sm:p-8 lg:grid-cols-[220px_1fr] lg:items-center"
+            >
+              <div className="flex h-44 flex-col justify-between rounded-[18px] border border-[rgba(208,133,77,0.18)] bg-[radial-gradient(circle_at_22%_20%,rgba(208,133,77,0.14),transparent_28%),radial-gradient(circle_at_80%_74%,rgba(42,174,141,0.14),transparent_28%),rgba(8,11,12,0.82)] p-6">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(208,133,77,0.18)] text-[var(--brand-accent-soft)]">
+                  <Music4 size={22} />
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--brand-olive)]">
+                    Music · Discovery · Venue crossover
+                  </p>
+                  <p className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--brand-text)]">
+                    Ama-Phu Entertainment
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <p className="brand-kicker">Creative Lane</p>
+                <h3 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--brand-text)]">
+                  Ama-Phu Entertainment
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--brand-soft-text)]">
+                  The music and public-discovery arm of the ecosystem, now with its own dedicated
+                  page, on-site listening, and clearer crossover to the wider product lane.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-4">
+                  {["Music surface", "Creator routing", "5's Arena crossover"].map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-2 text-sm text-[var(--brand-muted)]"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent-soft)]" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm leading-7 text-[var(--brand-muted)]">
+                  Keep the user here, then let the dedicated page carry the deeper proof.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    to="/ama-phu-entertainment"
+                    className="brand-button-copper inline-flex items-center justify-center gap-3 rounded-[12px] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em]"
+                  >
+                    Explore Ama-Phu
+                    <ArrowUpRight size={16} />
+                  </Link>
+                  <a
+                    href={studioLinks.amaPhuEntertainment}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="brand-button-olive inline-flex items-center justify-center gap-3 rounded-[12px] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em]"
+                  >
+                    Open link hub
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </main>

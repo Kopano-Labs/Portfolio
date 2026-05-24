@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ModeSwitcher from "./ModeSwitcher";
 
 type NavItem =
   | { type: "route"; to: string; label: string; highlight?: boolean }
@@ -12,7 +13,7 @@ const navItems: NavItem[] = [
   { type: "route", to: "/projects", label: "Projects" },
   { type: "route", to: "/kopano-labs", label: "Studio" },
   { type: "anchor", href: "/#about", label: "About" },
-  { type: "route", to: "/roadmap", label: "Insights" },
+  { type: "route", to: "/roadmap", label: "Roadmap" },
   { type: "route", to: "/contact", label: "Contact", highlight: true },
 ];
 
@@ -61,12 +62,16 @@ export default function Navbar() {
         }}
       >
         <div className="flex h-16 items-center justify-between px-4 sm:px-5">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/favicon.svg" alt="Kopano Labs mark" className="h-10 w-10" />
-            <div className="font-mono text-[11px] uppercase tracking-[0.36em] text-[var(--brand-text)]">
-              <p>Kopano</p>
-              <p>Labs</p>
-            </div>
+          <Link
+            to="/"
+            className="group flex items-center rounded-[14px] border border-transparent pr-2 transition-colors hover:border-[rgba(208,133,77,0.14)]"
+            aria-label="Kopano Labs home"
+          >
+            <img
+              src="/kopano-labs-logo.png"
+              alt="Kopano Labs"
+              className="h-12 w-[158px] object-contain object-left transition duration-300 group-hover:brightness-110 sm:w-[188px]"
+            />
           </Link>
 
           <div className="hidden items-center gap-6 lg:flex">
@@ -85,15 +90,18 @@ export default function Navbar() {
                 </a>
               ),
             )}
+            <ModeSwitcher />
           </div>
 
-          <button
-            onClick={() => setMenuOpen((current) => !current)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[12px] border border-[rgba(234,223,207,0.1)] text-[var(--brand-text)] lg:hidden"
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-          >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={() => setMenuOpen((current) => !current)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-[12px] border border-[rgba(234,223,207,0.1)] text-[var(--brand-text)]"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            >
+              {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
 
         <AnimatePresence>
@@ -125,6 +133,9 @@ export default function Navbar() {
                     </a>
                   ),
                 )}
+                <div className="pt-2">
+                  <ModeSwitcher compact />
+                </div>
               </div>
             </motion.div>
           )}
