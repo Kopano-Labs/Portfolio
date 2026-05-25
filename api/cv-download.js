@@ -2,12 +2,43 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// ESM-safe __dirname: resolves relative to THIS file, not process.cwd()
-// This is critical for Vercel — serverless functions don't run from project root.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+async function addToMailchimp({ firstName, lastName, email, companyName, roleId, format }) {
+  const apiKey = process.env.MAILCHIMP_API_KEY;
+  const listId = process.env.MAILCHIMP_LIST_ID;
+  if (!apiKey || !listId) return;
+
+  const dc = apiKey.split("-").pop();
+  const url = `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`;
+
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+          COMPANY: companyName,
+          CV_ROLE: roleId,
+          FORMAT: format,
+        },
+        tags: [roleId, "cv-download"],
+      }),
+    });
+  } catch (err) {
+    console.error("[cv-download] Mailchimp error (non-blocking):", err.message);
+  }
+}
 
 const CV_FILES = {
   "computer-eng-student": {
@@ -96,6 +127,8 @@ export default async function handler(req, res) {
     ].join(" | ");
 
     console.log("[cv-download]", leadLine);
+
+    addToMailchimp({ firstName, lastName, email, companyName, roleId, format });
 
     res.setHeader("Content-Type", MIME_TYPES[format]);
     res.setHeader(

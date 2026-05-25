@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
   BookOpen,
   Building2,
+  Download,
   Globe2,
   GraduationCap,
   MapPin,
@@ -13,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import EcosystemDiagram from "../components/EcosystemDiagram";
 import StudioProjectCard from "../components/StudioProjectCard";
+import CVPickerModal from "../components/cv-download/CVPickerModal";
 import {
   canonicalBio,
   educationSignals,
@@ -28,6 +31,8 @@ import {
 const statIcons = [Building2, GraduationCap, BookOpen, MapPin];
 
 export default function HomePage() {
+  const [cvModalOpen, setCvModalOpen] = useState(false);
+
   return (
     <main className="brand-page overflow-hidden">
       <section className="relative overflow-hidden border-b border-[rgba(208,133,77,0.12)] pt-28 sm:pt-32">
@@ -406,6 +411,44 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* CV Download CTA */}
+      <section className="relative border-t border-[rgba(208,133,77,0.12)] py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,232,157,0.06),transparent_40%)]" />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6 }}
+          className="relative mx-auto max-w-2xl px-5 text-center sm:px-8"
+        >
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-[rgba(0,232,157,0.8)]">
+            Looking to hire?
+          </p>
+          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-text)] sm:text-4xl">
+            Download my CV
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base leading-7 text-[var(--brand-soft-text)]">
+            Choose a role focus, enter your details, and get a tailored PDF that matches this site's
+            design — dark theme, clear structure, sovereign energy.
+          </p>
+          <button
+            type="button"
+            onClick={() => setCvModalOpen(true)}
+            className="mt-8 inline-flex items-center gap-3 rounded-[12px] px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] transition-all duration-200"
+            style={{
+              background: "linear-gradient(135deg, #00e89d, #34d399)",
+              color: "#060d18",
+              boxShadow: "0 0 30px rgba(0,232,157,0.2)",
+            }}
+          >
+            <Download size={16} />
+            Get Tailored CV
+          </button>
+        </motion.div>
+      </section>
+
+      <CVPickerModal isOpen={cvModalOpen} onClose={() => setCvModalOpen(false)} />
     </main>
   );
 }

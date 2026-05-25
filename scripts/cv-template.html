@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{NAME}} — {{ROLE_TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #060d18;
+    color: #e2e8f0;
+    font-size: 10px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00e89d, #0ea5e9, transparent);
+  }
+
+  .panel {
+    background: rgba(8, 14, 28, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00e89d, #0ea5e9, transparent);
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* Header */
+  .header { margin-bottom: 16px; }
+
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #00e89d;
+    margin-bottom: 6px;
+  }
+
+  .header-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
+  .header-name .accent {
+    background: linear-gradient(135deg, #00e89d 0%, #0ea5e9 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-name .dot {
+    color: #00e89d;
+    -webkit-text-fill-color: #00e89d;
+  }
+
+  .header-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #00e89d;
+    margin-top: 4px;
+  }
+
+  .header-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 8.5px;
+    color: #94a3b8;
+  }
+
+  .header-contact a {
+    color: #94a3b8;
+    text-decoration: none;
+  }
+
+  .header-contact a:hover { color: #00e89d; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, #00e89d, transparent);
+    margin: 14px 0;
+    opacity: 0.4;
+  }
+
+  /* Sections */
+  .section { margin-bottom: 14px; }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .section-title-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: rgba(0, 232, 157, 0.12);
+    border: 1px solid rgba(0, 232, 157, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #00e89d;
+  }
+
+  .section-title h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .section-title-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 232, 157, 0.3), transparent);
+    margin-left: 8px;
+  }
+
+  /* Summary */
+  .summary {
+    font-size: 9.5px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 90%;
+  }
+
+  /* Experience */
+  .exp-item {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 2px;
+    border-radius: 1px;
+    background: linear-gradient(180deg, #00e89d, transparent);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .exp-role {
+    font-weight: 700;
+    font-size: 10.5px;
+    color: #ffffff;
+  }
+
+  .exp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: #64748b;
+  }
+
+  .exp-company {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: #00e89d;
+    margin-bottom: 4px;
+  }
+
+  .exp-bullets { list-style: none; }
+
+  .exp-bullets li {
+    font-size: 9px;
+    color: #94a3b8;
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: #00e89d;
+    font-weight: 700;
+  }
+
+  /* Education */
+  .edu-item {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 2px;
+    border-radius: 1px;
+    background: linear-gradient(180deg, #0ea5e9, transparent);
+  }
+
+  .edu-degree {
+    font-weight: 700;
+    font-size: 10px;
+    color: #ffffff;
+  }
+
+  .edu-institution {
+    font-size: 9px;
+    font-weight: 600;
+    color: #0ea5e9;
+  }
+
+  .edu-note {
+    font-size: 8.5px;
+    color: #64748b;
+  }
+
+  .edu-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: #64748b;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .skill-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8.5px;
+  }
+
+  .skill-label span:first-child { color: #cbd5e1; font-weight: 500; }
+  .skill-label span:last-child { font-family: 'JetBrains Mono', monospace; color: #00e89d; font-size: 8px; }
+
+  .skill-bar {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00e89d, #0ea5e9);
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .tech-tag {
+    font-size: 7.5px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0, 232, 157, 0.07);
+    border: 1px solid rgba(0, 232, 157, 0.15);
+    color: rgba(0, 232, 157, 0.75);
+  }
+
+  /* Certs */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .cert-title {
+    font-size: 8.5px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .cert-issuer {
+    font-size: 7.5px;
+    color: #64748b;
+  }
+
+  .cert-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    color: #475569;
+  }
+
+  /* Projects */
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .project-title {
+    font-size: 9px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .project-desc {
+    font-size: 8px;
+    color: #64748b;
+    margin-top: 1px;
+  }
+
+  .project-links {
+    font-size: 7.5px;
+    color: #00e89d;
+    white-space: nowrap;
+  }
+
+  .project-links a {
+    color: #00e89d;
+    text-decoration: none;
+  }
+
+  /* Footer */
+  .footer-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 232, 157, 0.2), transparent);
+    margin-top: 12px;
+  }
+
+  .footer-text {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    color: #475569;
+    margin-top: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="panel">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-meta">Curriculum Vitae</div>
+      <div class="header-name">
+        Kholofelo <span class="accent">Robyn</span> Rababalela<span class="dot">.</span>
+      </div>
+      <div class="header-role">{{ROLE_TITLE}}</div>
+      <div class="header-contact">
+        <span>{{LOCATION}}</span>
+        <span>·</span>
+        <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+        <span>·</span>
+        <a href="{{LINKEDIN}}">LinkedIn</a>
+        <span>·</span>
+        <a href="{{GITHUB}}">GitHub</a>
+        <span>·</span>
+        <a href="{{WEBSITE}}">{{WEBSITE_DISPLAY}}</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Summary -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-title-icon">▸</div>
+        <h2>Summary</h2>
+        <div class="section-title-line"></div>
+      </div>
+      <p class="summary">{{SUMMARY}}</p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-title-icon">◆</div>
+        <h2>Experience</h2>
+        <div class="section-title-line"></div>
+      </div>
+      {{EXPERIENCE_ITEMS}}
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-title-icon">◇</div>
+        <h2>Education</h2>
+        <div class="section-title-line"></div>
+      </div>
+      {{EDUCATION_ITEMS}}
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-title-icon">⚡</div>
+        <h2>Technical Skills</h2>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="skills-grid">
+        {{SKILL_BARS}}
+      </div>
+      <div class="tech-tags">
+        {{TECH_TAGS}}
+      </div>
+    </div>
+
+    <div class="two-col">
+      <!-- Certificates -->
+      <div class="section">
+        <div class="section-title">
+          <div class="section-title-icon">★</div>
+          <h2>Certificates</h2>
+          <div class="section-title-line"></div>
+        </div>
+        {{CERT_ITEMS}}
+      </div>
+
+      <!-- Projects -->
+      <div class="section">
+        <div class="section-title">
+          <div class="section-title-icon">⬡</div>
+          <h2>Key Projects</h2>
+          <div class="section-title-line"></div>
+        </div>
+        {{PROJECT_ITEMS}}
+      </div>
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="footer-text">krrababalela.com · Realism accommodates aesthetics; sovereignty accommodates both.</div>
+  </div>
+</div>
+</body>
+</html>
