@@ -55,5 +55,10 @@
   "bugs": {
     "url": "https://github.com/RobynAwesome/Portfolio/issues"
   },
-  "homepage": "https://github.com/RobynAwesome/Portfolio#readme"
+  "homepage": "https://github.com/RobynAwesome/Portfolio#readme",
+  "overrides": {
+    "vite": ">=6.3.5",
+    "react-router": ">=7.5.2",
+    "launch-editor": ">=2.6.1"
+  }
 }
