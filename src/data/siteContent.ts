@@ -3,6 +3,13 @@ export type ProjectLink = {
   label: string;
 };
 
+export type EcosystemLink = {
+  href: string;
+  label: string;
+  note: string;
+  status: "Live" | "Active" | "Reserved";
+};
+
 export type StudioProject = {
   title: string;
   description: string;
@@ -28,6 +35,11 @@ export type EducationSignal = {
 export const studioLinks = {
   kopanoLabs: "https://kopanolabs.com",
   portfolio: "https://KRRababalela.com/",
+  kasiLink: "https://kasilink.com/",
+  fivesArena: "https://fivesarena.com/",
+  fivesArenaBlog: "https://blog.fivesarena.com/",
+  starfallSalvage: "https://starfallsalvage.kopanolabs.com/",
+  kopanoContext: "https://context.kopanolabs.com/",
   github: "https://github.com/RobynAwesome",
   linkedin: "https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/",
   koFi: "https://ko-fi.com/robynawesome/",
@@ -35,6 +47,51 @@ export const studioLinks = {
   osheenViews: "https://linktr.ee/osheen_views",
   email: "mailto:rkholofelo@gmail.com",
 };
+
+export const ecosystemLinks: EcosystemLink[] = [
+  {
+    href: studioLinks.portfolio,
+    label: "KRRababalela",
+    note: "Chief portfolio, education lane, and public ecosystem map.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.kopanoLabs,
+    label: "Kopano Labs",
+    note: "Studio surface for sovereign products, strategy, and systems work.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.kasiLink,
+    label: "KasiLink",
+    note: "Township-first work network with Lite investor discovery.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.fivesArena,
+    label: "Five's Arena",
+    note: "Live 5-a-side booking and tournament surface.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.fivesArenaBlog,
+    label: "5s Arena Blog",
+    note: "Editorial and football culture layer around the arena stack.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.starfallSalvage,
+    label: "Starfall Salvage",
+    note: "Playable WebGL lane inside the wider product graph.",
+    status: "Live",
+  },
+  {
+    href: studioLinks.kopanoContext,
+    label: "Kopano Context",
+    note: "Reserved intelligence domain. Public runtime surface still owner-blocked.",
+    status: "Reserved",
+  },
+];
 
 export const canonicalBio = {
   name: 'Kholofelo "Robyn" Rababalela',
@@ -160,6 +217,10 @@ export const studioProjects: StudioProject[] = [
     image: "/project-banners/kasilink-banner.svg",
     imageAlt: "KasiLink project banner",
     primaryLink: {
+      href: studioLinks.kasiLink,
+      label: "Visit live platform",
+    },
+    secondaryLink: {
       href: "https://github.com/RobynAwesome/KasiLink",
       label: "View GitHub",
     },
@@ -171,7 +232,7 @@ export const studioProjects: StudioProject[] = [
     detail:
       "Architecture work around durable context, memory-aware tooling, and multi-agent product systems.",
     status: "In Development",
-    deliveryLabel: "Live",
+    deliveryLabel: "Active",
     category: "Identity & Data Layer",
     stack: ["Go", "gRPC", "Kafka", "CockroachDB"],
     image: "/project-banners/mcp-banner.svg",
@@ -179,6 +240,10 @@ export const studioProjects: StudioProject[] = [
     primaryLink: {
       href: "https://github.com/RobynAwesome/Introduction-to-MCP",
       label: "View GitHub",
+    },
+    secondaryLink: {
+      href: studioLinks.kopanoContext,
+      label: "Reserved domain",
     },
   },
 ];

@@ -2,16 +2,17 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Disc3, Link2, Music4, RadioTower, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { amaPhuAdmissionsJourney, amaPhuSignals } from "../data/journeyContent";
+import { ecosystemLinks, studioLinks } from "../data/siteContent";
 
 const curatedLinks = [
   {
     label: "Ama-Phu link hub",
-    href: "https://linktr.ee/amaphu.ent",
+    href: studioLinks.amaPhuEntertainment,
     note: "External linktree backup with the full public routing set.",
   },
   {
     label: "osheen_views",
-    href: "https://linktr.ee/osheen_views",
+    href: studioLinks.osheenViews,
     note: "Creator-facing branch connected to the same ecosystem.",
   },
   {
@@ -20,9 +21,9 @@ const curatedLinks = [
     note: "Streaming profile for Ama_Phu.",
   },
   {
-    label: "5's Arena about",
-    href: "https://fivesarena.com/about",
-    note: "Public product crossover and developer attribution.",
+    label: "Five's Arena",
+    href: studioLinks.fivesArena,
+    note: "Venue crossover and live product lane tied to the same public graph.",
   },
 ];
 
@@ -38,6 +39,10 @@ const musicEmbeds = [
     height: 450,
   },
 ];
+
+const ecosystemRoutes = ecosystemLinks.filter((item) =>
+  ["KRRababalela", "Kopano Labs", "KasiLink", "Five's Arena", "5s Arena Blog", "Starfall Salvage"].includes(item.label),
+);
 
 export default function AmaPhuEntertainmentPage() {
   return (
@@ -265,6 +270,47 @@ export default function AmaPhuEntertainmentPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[rgba(208,133,77,0.12)] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <div className="mb-8 max-w-3xl">
+            <p className="brand-kicker">Shared Ecosystem</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
+              Ama-Phu should route through the same public graph as the rest of the build system.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[var(--brand-soft-text)]">
+              Music stays creative, but it should still connect cleanly to the portfolio, studio,
+              arena, blog, township network, and game lanes. That is how the work stays readable.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {ecosystemRoutes.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brand-panel rounded-[22px] p-6 no-underline transition-colors hover:border-[rgba(208,133,77,0.24)]"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-lg font-semibold tracking-[-0.03em] text-[var(--brand-text)]">
+                    {item.label}
+                  </p>
+                  <span className="rounded-full border border-[rgba(122,152,102,0.24)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--brand-olive)]">
+                    {item.status}
+                  </span>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-[var(--brand-soft-text)]">{item.note}</p>
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-olive)]">
+                  Open route
+                  <ArrowUpRight size={14} />
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>

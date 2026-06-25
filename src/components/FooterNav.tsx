@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Building2, FolderOpen, Home, Mail } from "lucide-react";
+import { Building2, FolderOpen, Home, Mail, Music4 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { to: "/", label: "Home", icon: Home },
   { to: "/projects", label: "Projects", icon: FolderOpen },
   { to: "/kopano-labs", label: "Studio", icon: Building2 },
+  { to: "/ama-phu-entertainment", label: "Music", icon: Music4 },
   { to: "/contact", label: "Contact", icon: Mail },
 ];
 
@@ -38,7 +39,7 @@ export default function FooterNav() {
           WebkitBackdropFilter: "blur(18px) saturate(140%)",
         }}
       >
-        <div className="grid grid-cols-4 gap-1">
+        <div className="grid grid-cols-5 gap-1">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.to);
