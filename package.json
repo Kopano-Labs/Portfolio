@@ -57,7 +57,6 @@
   },
   "homepage": "https://github.com/RobynAwesome/Portfolio#readme",
   "overrides": {
-    "react-router": ">=7.5.2",
     "launch-editor": ">=2.6.1",
     "js-yaml": ">=3.13.1",
     "browserslist": ">=4.28.7"
