@@ -40,6 +40,8 @@ export const studioLinks = {
   fivesArenaBlog: "https://blog.fivesarena.com/",
   starfallSalvage: "https://starfallsalvage.kopanolabs.com/",
   kopanoContext: "https://context.kopanolabs.com/",
+  projectRune: "https://github.com/RobynAwesome/Project-Rune",
+  orcid: "https://orcid.org/0009-0000-3995-6147",
   github: "https://github.com/RobynAwesome",
   linkedin: "https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/",
   koFi: "https://ko-fi.com/robynawesome/",
@@ -52,13 +54,13 @@ export const ecosystemLinks: EcosystemLink[] = [
   {
     href: studioLinks.portfolio,
     label: "KRRababalela",
-    note: "Chief portfolio, education lane, and public ecosystem map.",
+    note: "Chief portfolio, research lane, education evidence, and public ecosystem map.",
     status: "Live",
   },
   {
     href: studioLinks.kopanoLabs,
     label: "Kopano Labs",
-    note: "Studio surface for sovereign products, strategy, and systems work.",
+    note: "Studio surface for sovereign products, strategy, research translation, and systems work.",
     status: "Live",
   },
   {
@@ -70,7 +72,7 @@ export const ecosystemLinks: EcosystemLink[] = [
   {
     href: studioLinks.fivesArena,
     label: "Five's Arena",
-    note: "Live 5-a-side booking and tournament surface.",
+    note: "Live 5-a-side booking, discovery, and competition surface.",
     status: "Live",
   },
   {
@@ -97,7 +99,7 @@ export const canonicalBio = {
   name: 'Kholofelo "Robyn" Rababalela',
   role: "Chief Architect, Kopano Labs",
   affiliation:
-    "CPUT computer engineering with learning tracks through The Johns Hopkins University and Robert Kennedy College",
+    "CPUT computer engineering with independent research in protocol-driven agentic memory, AI governance, and resilient runtime systems",
   location: "Cape Town, South Africa (V&A Waterfront / CPUT)",
   missionStatement:
     '"Unity through Technology — building digital infrastructure that respects African realities (load-shedding, data residency, POPIA)."',
@@ -116,7 +118,7 @@ export const canonicalBio = {
   ],
 };
 
-export const homeTraits = ["Architect", "Builder", "Believer"];
+export const homeTraits = ["Architect", "Research Builder", "Believer"];
 
 export const homeMetrics = [
   {
@@ -125,14 +127,14 @@ export const homeMetrics = [
     detail: "BEng Tech in Computer Engineering",
   },
   {
-    label: "Certificate",
-    value: "Johns Hopkins",
-    detail: "Agentic AI and machine learning track",
+    label: "Research Identity",
+    value: "ORCID",
+    detail: "0009-0000-3995-6147",
   },
   {
-    label: "Graduate AI",
-    value: "Robert Kennedy College",
-    detail: "MSc AI and machine learning pathway",
+    label: "Flagship Research Build",
+    value: "RUNE",
+    detail: "Runtime Unified Network Endorsement",
   },
   {
     label: "Based In",
@@ -143,7 +145,8 @@ export const homeMetrics = [
 
 export const homeHighlights = [
   "I lead Kopano Labs in building sovereign digital infrastructure and products that reflect African realities, secure by design and built to last.",
-  "The education path running alongside the work now spans CPUT computer engineering, Johns Hopkins agentic AI study, and the Robert Kennedy College MSc AI lane.",
+  "My active independent research programme examines protocol-driven agentic memory, verification, failure/convergence governance, and how stateless reasoning engines can operate against durable user-controlled context.",
+  "Project RUNE translates that line of work into a public reference MVP for endorsing agent-to-agent coordination and identity claims instead of assuming trust. The implementation remains explicitly proof-driven: fail closed, record receipts, and do not call the system proven before the gate is verified.",
 ];
 
 export const homeQuote =
@@ -184,11 +187,32 @@ export const educationSignals: EducationSignal[] = [
 
 export const studioProjects: StudioProject[] = [
   {
+    title: "Project RUNE",
+    description:
+      "Runtime Unified Network Endorsement — a governance layer for endorsing agent-to-agent coordination and identity claims rather than assuming them safe.",
+    detail:
+      "Public reference MVP with a fail-closed gate, ledger/receipt model, CLI and MCP surfaces. The repository deliberately remains proof-driven: implementation status is not promoted beyond what the live gate and receipts can verify.",
+    status: "MVP",
+    deliveryLabel: "Active",
+    category: "Agent Governance",
+    stack: ["Python", "MCP", "Ed25519", "Fail-closed"],
+    image: "https://raw.githubusercontent.com/RobynAwesome/Project-Rune/main/assets/project_rune_emblem.svg",
+    imageAlt: "Project RUNE endorsement and convergence emblem",
+    primaryLink: {
+      href: studioLinks.projectRune,
+      label: "Explore RUNE",
+    },
+    secondaryLink: {
+      href: studioLinks.orcid,
+      label: "Research identity",
+    },
+  },
+  {
     title: "Bookit 5s Arena",
     description:
       "Football court booking platform operating as a live MVP for 5-a-side football infrastructure.",
     detail:
-      "Positioned to scale into the World Cup 5s 48-nation tournament, 29–31 May 2026.",
+      "Live booking and competition infrastructure with ongoing mobile, search-discovery, and product-flow refinement for Cape Town football users.",
     status: "MVP",
     deliveryLabel: "Live",
     category: "SaaS Platform",
@@ -228,9 +252,9 @@ export const studioProjects: StudioProject[] = [
   {
     title: "Kopano Context",
     description:
-      "Contextual identity and data orchestration framework for African data ecosystems.",
+      "Contextual identity and data orchestration framework for durable, user-governed AI memory systems.",
     detail:
-      "Architecture work around durable context, memory-aware tooling, and multi-agent product systems.",
+      "Research and architecture work around persistent context, memory-aware tooling, state boundaries, and multi-agent product systems.",
     status: "In Development",
     deliveryLabel: "Active",
     category: "Identity & Data Layer",
