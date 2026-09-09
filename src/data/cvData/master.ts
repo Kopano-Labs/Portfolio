@@ -40,6 +40,7 @@ export interface CVData {
   linkedin: string;
   github: string;
   website: string;
+  orcid?: string;
   summary: string;
   experience: CVExperience[];
   education: CVEducation[];
@@ -57,13 +58,14 @@ export const masterCV: CVData = {
   linkedin: "https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6/",
   github: "https://github.com/RobynAwesome",
   website: "https://KRRababalela.com",
+  orcid: "https://orcid.org/0009-0000-3995-6147",
 
   summary:
     "Chief Architect at Kopano Labs and BEng Tech Computer Engineering student at CPUT. " +
-    "I design resilient, offline-first product systems and multi-agent orchestration infrastructure " +
-    "shaped by real constraints — load-shedding, data residency, and township connectivity. " +
-    "My work delivers sovereign digital infrastructure that compiles on local metal, " +
-    "survives grid failure, and keeps human control over data and narrative.",
+    "I design resilient product systems, protocol-driven agentic memory, and multi-agent governance infrastructure " +
+    "shaped by real constraints — load-shedding, data residency, township connectivity, and the need for verifiable AI execution. " +
+    "My active research/build programme connects Digital Hippocampus memory architecture, POC/FOC failure diagnostics, " +
+    "Kopano Context, and Project RUNE while keeping implementation claims bounded by evidence and receipts.",
 
   experience: [
     {
@@ -72,9 +74,9 @@ export const masterCV: CVData = {
       period: "2026 — Present",
       bullets: [
         "Architected product systems across Bookit 5s Arena, KasiLink, and Kopano Context (KC) with Next.js 15, TypeScript, and MongoDB Atlas (SA region)",
-        "Defined resilient delivery patterns for mobile-first products shaped by load-shedding and POPIA data-residency constraints",
-        "Built multi-agent orchestration (Cassy swarm console, bracket protocol, kc_guard proof bar) with bounded rollout and JSONL evidence",
-        "Set platform direction across Turborepo monorepo, MCP-based systems, and edge/offline-first PWA runtimes",
+        "Developed protocol-driven research and implementation work around durable agentic memory, failure/convergence governance, and user-controlled context",
+        "Built Project RUNE as a public reference MVP for fail-closed endorsement of agent-to-agent coordination and identity claims with ledger/receipt evidence",
+        "Set platform direction across Turborepo monorepos, MCP-based systems, and edge/offline-first PWA runtimes",
       ],
     },
     {
@@ -149,6 +151,7 @@ export const masterCV: CVData = {
     "Python",
     "FastAPI",
     "MCP SDK",
+    "Protocol Engineering",
     "REST APIs",
     "Git",
     "Docker",
@@ -222,6 +225,11 @@ export const masterCV: CVData = {
 
   projects: [
     {
+      title: "Project RUNE — Runtime Unified Network Endorsement",
+      github: "https://github.com/RobynAwesome/Project-Rune",
+      description: "Public reference MVP for fail-closed endorsement of agent coordination and identity claims with ledger/receipt evidence",
+    },
+    {
       title: "Bookit — 5's Arena",
       url: "https://fivesarena.com",
       github: "https://github.com/RobynAwesome/Bookit-5s-Arena",
@@ -235,7 +243,7 @@ export const masterCV: CVData = {
     {
       title: "Kopano Context (KC)",
       github: "https://github.com/RobynAwesome",
-      description: "Monorepo control plane with swarm console, apprenticeship drills, and kc_guard proof bar",
+      description: "Durable context and agentic-memory architecture with governed multi-agent execution",
     },
     {
       title: "Portfolio Website",
