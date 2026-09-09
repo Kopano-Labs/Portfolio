@@ -109,16 +109,10 @@ export const masterCV: CVData = {
       note: "Deep foundations in software, hardware, and systems engineering",
     },
     {
-      degree: "Certificate in Agentic AI, Machine Learning",
-      institution: "The Johns Hopkins University",
-      period: "May 2026",
-      note: "Python, generative AI, prompt engineering, protocol engineering, LangChain, and LangGraph",
-    },
-    {
-      degree: "MSc in Artificial Intelligence, Machine Learning",
-      institution: "Robert Kennedy College",
-      period: "May 2026",
-      note: "Graduate AI research pathway reflected across portfolio and roadmap surfaces",
+      degree: "Certificate Program in Agentic AI — provisional admission",
+      institution: "Johns Hopkins Engineering Executive and Professional Education",
+      period: "Offer dated Aug 2026",
+      note: "Provisional admission only (conditional on fee). Completion NOT_VERIFIED — not an earned certificate.",
     },
   ],
 
