@@ -124,16 +124,16 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          <div className="mt-10 grid gap-0 overflow-hidden rounded-[20px] border border-[rgba(208,133,77,0.12)] bg-[rgba(9,12,12,0.86)] md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-0 overflow-hidden rounded-[20px] border border-[var(--brand-line)] bg-[var(--brand-surface)] md:grid-cols-2 xl:grid-cols-4">
             {homeMetrics.map((metric, index) => {
               const Icon = statIcons[index];
 
               return (
                 <div
                   key={metric.label}
-                  className="flex gap-4 border-b border-[rgba(208,133,77,0.12)] px-6 py-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                  className="flex gap-4 border-b border-[var(--brand-line)] px-6 py-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
                 >
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-[rgba(208,133,77,0.2)] text-[var(--brand-accent-soft)]">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-[var(--brand-line)] text-[var(--brand-accent-soft)]">
                     <Icon size={22} />
                   </div>
                   <div>
@@ -154,7 +154,7 @@ export default function HomePage() {
 
       <section
         id="about"
-        className="relative border-b border-[rgba(208,133,77,0.12)] bg-[#080b0c] py-16 sm:py-20"
+        className="relative border-b border-[var(--brand-line)] bg-[var(--brand-bg)] py-16 sm:py-20"
       >
         <div className="brand-topography absolute inset-0 opacity-25" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
@@ -200,7 +200,7 @@ export default function HomePage() {
 
       <section
         id="cape-town"
-        className="relative border-b border-[rgba(208,133,77,0.12)] bg-[#070909] py-14 sm:py-16"
+        className="relative border-b border-[var(--brand-line)] bg-[var(--brand-bg)] py-14 sm:py-16"
         data-asset-status="ASSET_REQUIRED"
       >
         <div className="relative mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:px-12">
@@ -214,7 +214,7 @@ export default function HomePage() {
             </p>
           </div>
           <div
-            className="relative min-h-[220px] overflow-hidden rounded-[24px] border border-dashed border-[rgba(208,133,77,0.35)] bg-[radial-gradient(circle_at_20%_30%,rgba(208,133,77,0.16),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(122,152,102,0.14),transparent_36%),#0a0d0e] p-6"
+            className="relative min-h-[220px] overflow-hidden rounded-[24px] border border-dashed border-[var(--brand-accent-soft)] bg-[var(--brand-surface)] p-6"
             aria-label="Cape Town visual placeholder — owned asset required"
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-olive)]">
@@ -235,7 +235,7 @@ export default function HomePage() {
 
       <section
         id="featured-projects"
-        className="border-b border-[rgba(208,133,77,0.12)] bg-[#070909] py-16 sm:py-20"
+        className="border-b border-[var(--brand-line)] bg-[var(--brand-bg)] py-16 sm:py-20"
       >
         <div className="mx-auto mb-14 max-w-7xl px-5 sm:px-8 lg:px-12">
           <motion.div
@@ -300,7 +300,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#070909] py-16 sm:py-20">
+      <section className="bg-[var(--brand-bg)] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -338,10 +338,10 @@ export default function HomePage() {
               onFocus={() => setKopanoOpen(true)}
               aria-expanded={kopanoOpen}
               className={`brand-panel brand-topography grid cursor-pointer gap-6 rounded-[24px] p-6 text-left sm:p-8 lg:grid-cols-[220px_1fr] lg:items-center ${
-                kopanoOpen ? "ring-1 ring-[rgba(208,133,77,0.45)]" : ""
+                kopanoOpen ? "ring-1 ring-[var(--brand-accent-soft)]" : ""
               }`}
             >
-              <div className="flex h-44 items-center justify-center rounded-[18px] border border-[rgba(208,133,77,0.18)] bg-[radial-gradient(circle_at_20%_20%,rgba(42,174,141,0.12),transparent_34%),rgba(8,11,12,0.82)] p-6">
+              <div className="flex h-44 items-center justify-center rounded-[18px] border border-[var(--brand-line)] bg-[var(--brand-surface-soft)] p-6">
                 <img
                   src="/kopano-labs-logo.png"
                   alt="Kopano Labs logo"
@@ -404,11 +404,11 @@ export default function HomePage() {
               onFocus={() => setAmaPhuOpen(true)}
               aria-expanded={amaPhuOpen}
               className={`brand-panel brand-topography grid cursor-pointer gap-6 rounded-[24px] p-6 text-left sm:p-8 lg:grid-cols-[220px_1fr] lg:items-center ${
-                amaPhuOpen ? "ring-1 ring-[rgba(208,133,77,0.45)]" : ""
+                amaPhuOpen ? "ring-1 ring-[var(--brand-accent-soft)]" : ""
               }`}
             >
-              <div className="flex h-44 flex-col justify-between rounded-[18px] border border-[rgba(208,133,77,0.18)] bg-[radial-gradient(circle_at_22%_20%,rgba(208,133,77,0.14),transparent_28%),radial-gradient(circle_at_80%_74%,rgba(42,174,141,0.14),transparent_28%),rgba(8,11,12,0.82)] p-6">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(208,133,77,0.18)] text-[var(--brand-accent-soft)]">
+              <div className="flex h-44 flex-col justify-between rounded-[18px] border border-[var(--brand-line)] bg-[var(--brand-surface-soft)] p-6">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--brand-line)] text-[var(--brand-accent-soft)]">
                   <Music4 size={22} />
                 </div>
                 <div>

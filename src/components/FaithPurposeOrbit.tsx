@@ -46,9 +46,9 @@ export default function FaithPurposeOrbit() {
   const active = anchors.find((a) => a.id === selected) ?? anchors[1];
 
   return (
-    <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+    <div className="faith-orbit mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
       <div
-        className="relative mx-auto aspect-[16/10] w-full max-w-3xl overflow-hidden rounded-[24px] border border-[var(--brand-line)] bg-[radial-gradient(circle_at_50%_45%,rgba(208,133,77,0.12),transparent_42%),rgba(6,9,10,0.92)]"
+        className="faith-orbit__stage relative mx-auto aspect-[16/10] w-full max-w-3xl overflow-hidden rounded-[24px] border border-[var(--brand-line)]"
         style={{ perspective: "900px" }}
         role="group"
         aria-labelledby={labelId}
@@ -59,14 +59,14 @@ export default function FaithPurposeOrbit() {
 
         {!isReadMode && (
           <motion.div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[72%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(208,133,77,0.18)]"
+            className="faith-orbit__ring pointer-events-none absolute left-1/2 top-1/2 h-[72%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--brand-line)]"
             animate={{ rotate: isCrazyMode ? 360 : 180 }}
             transition={{ duration: isCrazyMode ? 22 : 36, repeat: Infinity, ease: "linear" }}
           />
         )}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[48%] w-[48%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(122,152,102,0.22)]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[48%] w-[48%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--brand-line)] opacity-70" />
 
-        <div className="absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(208,133,77,0.35)] bg-[rgba(8,11,12,0.92)] text-center">
+        <div className="faith-orbit__core absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--brand-line)] text-center">
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--brand-olive)]">
             Mandate
           </span>
@@ -83,10 +83,10 @@ export default function FaithPurposeOrbit() {
               onFocus={() => setSelected(anchor.id)}
               onMouseEnter={() => setSelected(anchor.id)}
               aria-pressed={isActive}
-              className={`absolute z-20 flex min-h-[72px] min-w-[72px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[18px] border px-3 py-3 text-center outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-[var(--brand-accent-soft)] sm:min-h-[88px] sm:min-w-[110px] ${
+              className={`faith-orbit__anchor absolute z-20 flex min-h-[72px] min-w-[72px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[18px] border px-3 py-3 text-center outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-[var(--brand-accent-soft)] sm:min-h-[88px] sm:min-w-[110px] ${
                 isActive
-                  ? "border-[rgba(208,133,77,0.55)] bg-[rgba(208,133,77,0.16)] shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
-                  : "border-[var(--brand-line)] bg-[rgba(8,11,12,0.88)] opacity-70 hover:opacity-100"
+                  ? "faith-orbit__anchor--active border-[var(--brand-accent-soft)]"
+                  : "border-[var(--brand-line)] opacity-70 hover:opacity-100"
               }`}
               style={{ left: anchor.x, top: anchor.y }}
               animate={{
@@ -109,7 +109,7 @@ export default function FaithPurposeOrbit() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.28 }}
-        className="rounded-[20px] border border-[var(--brand-line)] bg-[rgba(8,11,12,0.75)] px-5 py-5"
+        className="faith-orbit__panel rounded-[20px] border border-[var(--brand-line)] bg-[var(--brand-surface-soft)] px-5 py-5"
       >
         <p className="brand-kicker">{active.label}</p>
         <p className="mt-3 text-lg leading-7 text-[var(--brand-text)] sm:text-xl">{active.sentence}</p>

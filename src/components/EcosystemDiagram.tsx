@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -15,6 +15,8 @@ import {
 import { Link } from "react-router-dom";
 import { studioLinks } from "../data/siteContent";
 import { useThemeMode } from "./theme/ThemeModeProvider";
+
+const KpgsSpatialStage = lazy(() => import("./KpgsSpatialStage"));
 
 type SystemNode = {
   id: string;
@@ -118,7 +120,7 @@ export default function EcosystemDiagram() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch">
-      <div className="flex flex-col justify-between gap-5">
+        <div className="flex flex-col justify-between gap-5">
         <div>
           <p className="brand-kicker">System Map</p>
           <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[var(--brand-text)] sm:text-4xl">
@@ -128,6 +130,10 @@ export default function EcosystemDiagram() {
             Press a node. Learn how the lanes connect.
           </p>
         </div>
+
+        <Suspense fallback={null}>
+          <KpgsSpatialStage selectedNodeId={selectedId} className="hidden lg:block" />
+        </Suspense>
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -147,7 +153,7 @@ export default function EcosystemDiagram() {
             <p className="mt-3 text-sm leading-6 text-[var(--brand-soft-text)]">{selected.body}</p>
 
             {selected.asset && (
-              <div className="mt-4 overflow-hidden rounded-[16px] border border-[var(--brand-line)] bg-[#0b0f10]">
+              <div className="mt-4 overflow-hidden rounded-[16px] border border-[var(--brand-line)] bg-[var(--brand-surface)]">
                 <img
                   src={selected.asset}
                   alt={selected.assetAlt ?? selected.title}
@@ -189,7 +195,7 @@ export default function EcosystemDiagram() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--brand-line)] px-3 py-2 text-sm text-[var(--brand-soft-text)] transition-colors hover:border-[rgba(208,133,77,0.4)] hover:text-[var(--brand-text)]"
+            className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--brand-line)] px-3 py-2 text-sm text-[var(--brand-soft-text)] transition-colors hover:border-[var(--brand-accent-soft)] hover:text-[var(--brand-text)]"
             aria-label="Previous system node"
           >
             <ArrowLeft size={15} />
@@ -198,7 +204,7 @@ export default function EcosystemDiagram() {
           <button
             type="button"
             onClick={() => go(1)}
-            className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--brand-line)] px-3 py-2 text-sm text-[var(--brand-soft-text)] transition-colors hover:border-[rgba(208,133,77,0.4)] hover:text-[var(--brand-text)]"
+            className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--brand-line)] px-3 py-2 text-sm text-[var(--brand-soft-text)] transition-colors hover:border-[var(--brand-accent-soft)] hover:text-[var(--brand-text)]"
             aria-label="Next system node"
           >
             Next
@@ -249,12 +255,11 @@ export default function EcosystemDiagram() {
               return (
                 <line
                   key={id}
+                  className={lit ? "mode-relation-line mode-relation-line--lit" : "mode-relation-line"}
                   x1="50"
                   y1="46"
                   x2={parseFloat(pos.x) + 10}
                   y2={parseFloat(pos.y) + 8}
-                  stroke={lit ? "rgba(208,133,77,0.55)" : "rgba(234,223,207,0.12)"}
-                  strokeWidth={lit ? 0.45 : 0.25}
                 />
               );
             })}
@@ -291,7 +296,7 @@ export default function EcosystemDiagram() {
             aria-pressed={selectedId === "core"}
             className={`mode-core-card absolute left-1/2 top-[46%] z-30 flex w-[min(240px,78%)] -translate-x-1/2 -translate-y-1/2 flex-col rounded-[22px] border p-5 text-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent-soft)] ${
               selectedId === "core"
-                ? "border-[rgba(208,133,77,0.55)] bg-[rgba(12,16,17,0.96)]"
+                ? "mode-core-card--selected border-[var(--brand-accent-soft)]"
                 : "border-[var(--brand-line)] opacity-80"
             }`}
             animate={{
@@ -330,7 +335,7 @@ export default function EcosystemDiagram() {
                   aria-pressed={isSelected}
                   className={`mode-node-card absolute z-20 w-[148px] rounded-[18px] border p-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent-soft)] sm:w-[168px] sm:p-4 ${
                     isSelected
-                      ? "border-[rgba(208,133,77,0.55)] bg-[rgba(12,16,17,0.96)]"
+                      ? "mode-node-card--selected border-[var(--brand-accent-soft)]"
                       : "border-[var(--brand-line)]"
                   }`}
                   style={{ left: layout.x, top: layout.y }}
