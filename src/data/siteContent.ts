@@ -144,10 +144,8 @@ export const homeMetrics = [
 ];
 
 export const homeHighlights = [
-  "I lead Kopano Labs in building sovereign digital infrastructure and products that reflect African realities, secure by design and built to last.",
-  "My active independent research programme examines protocol-driven agentic memory, verification, failure/convergence governance, and how stateless reasoning engines can operate against durable user-controlled context.",
-  "Project RUNE translates that line of work into a deliberately minimal reference MVP: claim, evidence, state, action, receipt. The implementation remains proof-driven and fail-closed rather than promoted beyond what the repository can verify.",
-  "Where public service outcomes are not independently verified yet, the site labels them as pilots, intended service, or discovery evidence rather than collapsing them into a success claim.",
+  "I build sovereign digital infrastructure for African realities — secure by design, proof before promotion.",
+  "Research stays fail-closed: claim, evidence, state, action, receipt. Pilots stay labelled until verified.",
 ];
 
 export const homeQuote =
@@ -164,16 +162,14 @@ export const educationSignals: EducationSignal[] = [
     institution: "Cape Peninsula University of Technology",
     award: "BEng Tech in Computer Engineering — current study",
     period: "2025 - 2028",
-    note:
-      "Current engineering path covering software design, electronics, computer architecture, telecommunications engineering, and operating systems.",
+    note: "Computer Engineering in progress.",
     href: "https://www.cput.ac.za/",
   },
   {
     institution: "Johns Hopkins Engineering",
     award: "Provisional admission — Certificate Program in Agentic AI",
     period: "5 August 2026",
-    note:
-      "A provisional admission offer is on record. This is not represented as an earned certificate or completed qualification; completion remains unverified until award evidence exists.",
+    note: "Provisional admission only. Completion not verified.",
     href: "https://ep.jhu.edu/",
   },
 ];
@@ -181,15 +177,13 @@ export const educationSignals: EducationSignal[] = [
 export const studioProjects: StudioProject[] = [
   {
     title: "Project RUNE",
-    description:
-      "Runtime Unified Network Endorsement — a governance layer for endorsing agent-to-agent coordination and identity claims rather than assuming them safe.",
-    detail:
-      "Public reference MVP with a deliberately minimal loop: claim → evidence → state → action → receipt. The gate remains fail-closed and implementation status is not promoted beyond what the live repository and receipts can verify.",
+    description: "Fail-closed endorsement for agent claims.",
+    detail: "",
     status: "MVP",
     deliveryLabel: "Active",
     category: "Agent Governance",
     stack: ["Python", "MCP", "Ed25519", "Fail-closed"],
-    image: "https://raw.githubusercontent.com/RobynAwesome/Project-Rune/main/assets/project_rune_emblem.svg",
+    image: "/project-banners/rune-emblem.svg",
     imageAlt: "Project RUNE endorsement and convergence emblem",
     primaryLink: {
       href: studioLinks.projectRune,
@@ -202,10 +196,8 @@ export const studioProjects: StudioProject[] = [
   },
   {
     title: "Bookit 5s Arena",
-    description:
-      "Football court booking platform operating as a live MVP for 5-a-side football infrastructure.",
-    detail:
-      "Live booking and competition infrastructure with ongoing mobile and product-flow refinement. August 2026 Search Console recorded 149 web clicks and 5.71K impressions; that is discovery proof, not a claim of booking conversion or revenue.",
+    description: "Live 5-a-side booking infrastructure.",
+    detail: "",
     status: "MVP",
     deliveryLabel: "Live",
     category: "SaaS Platform",
@@ -223,14 +215,12 @@ export const studioProjects: StudioProject[] = [
   },
   {
     title: "KasiLink",
-    description:
-      "Township gig economy platform designed mobile-first and resilient under uneven connectivity.",
-    detail:
-      "PWA-first product work around offline-capable discovery, trust, and local economic access. Named provider-placement outcomes remain pilot-stage until independently verified receipts exist.",
+    description: "Township-first work network. Pilot outcomes stay labelled.",
+    detail: "",
     status: "Active",
     deliveryLabel: "Pilot",
     category: "Connectivity Platform",
-    stack: ["PWA", "Offline-first", "Trust", "Local discovery"],
+    stack: ["PWA", "Offline-first", "Trust"],
     image: "/project-banners/kasilink-banner.svg",
     imageAlt: "KasiLink project banner",
     primaryLink: {
@@ -244,14 +234,12 @@ export const studioProjects: StudioProject[] = [
   },
   {
     title: "Kopano Context",
-    description:
-      "Contextual identity and data orchestration framework for durable, user-governed AI memory systems.",
-    detail:
-      "Research and architecture work around persistent context, memory-aware tooling, state boundaries, and multi-agent product systems. Digital Hippocampus, KC, POC/FOC and related material are treated as research evidence, not credentials.",
+    description: "User-governed AI memory and multi-agent state.",
+    detail: "",
     status: "In Development",
     deliveryLabel: "Active",
     category: "Identity & Data Layer",
-    stack: ["MCP", "Context", "Governance", "Receipts"],
+    stack: ["MCP", "Context", "Receipts"],
     image: "/project-banners/mcp-banner.svg",
     imageAlt: "Kopano Context project banner",
     primaryLink: {
@@ -261,6 +249,44 @@ export const studioProjects: StudioProject[] = [
     secondaryLink: {
       href: studioLinks.kopanoContext,
       label: "Reserved domain",
+    },
+  },
+  {
+    title: "Harvest 4 All",
+    description: "Civic hackathon build for food access.",
+    detail: "",
+    status: "Active",
+    deliveryLabel: "Active",
+    category: "Civic Impact",
+    stack: ["JavaScript", "HTML", "CSS"],
+    image: "/project-banners/harvest-banner.png",
+    imageAlt: "Harvest 4 All project banner",
+    primaryLink: {
+      href: "https://github.com/RobynAwesome/Harvest-4-All",
+      label: "View repository",
+    },
+    secondaryLink: {
+      href: "https://www.cxia4irhack.co.za",
+      label: "Hackathon site",
+    },
+  },
+  {
+    title: "5's Arena Blog",
+    description: "Editorial layer around the live arena stack.",
+    detail: "",
+    status: "MVP",
+    deliveryLabel: "Live",
+    category: "Content Platform",
+    stack: ["Auth", "CMS", "Images"],
+    image: "/project-banners/blog-banner.svg",
+    imageAlt: "5's Arena Blog banner",
+    primaryLink: {
+      href: studioLinks.fivesArenaBlog,
+      label: "Visit live blog",
+    },
+    secondaryLink: {
+      href: "https://github.com/RobynAwesome/5s-Arena-Blog",
+      label: "View GitHub",
     },
   },
 ];
