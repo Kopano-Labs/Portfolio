@@ -84,7 +84,7 @@ Manual layout intent covered in components for **375 / 430 / 768 / 1024 / 1440+*
 1. Cape Town photo: `ASSET_REQUIRED`.
 2. Owner must visually press every system-map node on preview (acceptance: stranger learns something different per node).
 3. Phrase "Functional 3D diagram" removed until owner interaction pass; label now "Interactive system map".
-4. Preview deploy URL: attach after Vercel/gh preview lands on this push.
+4. Preview deploy: Vercel deployment completed for this push — see PR #14 deployment / Vercel dashboard. Owner visual review before merge.
 5. PR #14 remains DRAFT — no merge.
 
 ## Next admissible action
